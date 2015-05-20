@@ -1,0 +1,839 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="author" content="Kansas City Area Transportation Authority" />
+<meta name="web_author" content="Site Design & Development by Ebeacon, ebeacon.com, 816.221.1905" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Home Page | KCATA</title>
+
+<link rel="shortcut icon" type="image/png" href="http://www.kcata.org/images/design_elements/favicon.png">
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,700italic,400italic,300,300italic,500,500italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:300,700,300italic,700italic,400,400italic,800,800italic' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="http://www.kcata.org/foundation-icons/foundation-icons.css" />
+<link rel="stylesheet" href="http://www.kcata.org/foundation/css/app.css" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://www.kcata.org/foundation/js/vendor/modernizr.js"></script>
+
+</head>
+
+<body>
+
+<div id="thin-bar">
+
+<div class="row">
+
+<div class="small-12 medium-7 large-8 columns">
+	<div id="ada-links"><a href="http://www.kc-metro.com/tmwebwatch/LiveArrivalTimes">Bus Tracker</a> | <a href="http://www.kc-metro.com/tmwebwatch/LiveAdaArrivalTimes">ADA Version</a> | <a href="http://www.kc-metro.com/tmwebwatch/LiveArrivalTimesMobile">Mobile</a> | <a href="http://www.kc-metro.com/tmwebwatch/LiveAdaArrivalTimesMobile">ADA Mobile</a></div>
+</div>
+<div class="small-12 medium-5 large-4 columns">
+
+	<form method="post" action="http://www.kcata.org/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="19" />
+<input type="hidden" name="RES" value="" />
+<input type="hidden" name="meta" value="YTo5OntzOjY6InN0YXR1cyI7czowOiIiO3M6NzoiY2hhbm5lbCI7czoxMjoibm90IGhvbWVwYWdlIjtzOjg6ImNhdGVnb3J5IjtzOjA6IiI7czo5OiJzZWFyY2hfaW4iO3M6MTA6ImV2ZXJ5d2hlcmUiO3M6NToid2hlcmUiO3M6MDoiIjtzOjEyOiJzaG93X2V4cGlyZWQiO3M6MDoiIjtzOjE5OiJzaG93X2Z1dHVyZV9lbnRyaWVzIjtiOjA7czoxMToicmVzdWx0X3BhZ2UiO3M6Nzoic2VhcmNoLyI7czoxNToibm9fcmVzdWx0c19wYWdlIjtzOjE2OiJzZWFyY2gvbm8tcmVzdWx0Ijt9MDA4MjhlMTIxNzBhYTZkMzBjOGIwYjI4ZDZlYjNjZjQ=" />
+<input type="hidden" name="site_id" value="1" />
+<input type="hidden" name="csrf_token" value="8902eaadb4b7bc955db90ddaae73f5fa250242bf" />
+</div>
+
+
+	<div class="row collapse" id="top-search">
+		<div class="small-9 columns">
+			<input type="text" name="keywords" id="keywords" maxlength="36" size="15" value="" placeholder="Search KCATA"/>
+		</div>
+		<div class="small-3 columns">
+			<input type="submit" value="GO!" class="button secondary postfix" />
+		</div>
+	</div>
+	</form>	
+
+</div>
+	
+</div><!-- x row -->
+</div><!-- x thin-bar -->
+
+<div id="header" class="row">
+	<div id="header-logo" class="small-12 medium-4 columns">
+		<a href="#header-links" class="show-for-small-only right" id="header-links-button">Menu</a>
+		<a href="http://www.kcata.org/"><img src="http://www.kcata.org/images/design_elements/KCATA-logo.png" width="160" height="85" /></a>
+	</div><!-- x header-logo -->
+
+	<div id="header-links" class="small-12 medium-8 columns hide-for-small-only">
+		<div class="row collapse">
+			<div class="small-12 columns" id="phone-number">
+				<i class="step fi-telephone size-24"></i> 816.221.0660
+			</div>
+			<div class="small-12 columns" id="top-navigation">
+			<ul class="sub-nav right">
+			<li><a href="http://www.kcata.org/maps_schedules">Maps & Schedules</a></li>
+			<li><a href="http://www.kcata.org/fares">Fares</a></li>
+			<li><a href="http://www.kcata.org/rider_guide">Rider Guide</a></li>
+			<li><a href="http://store.kcata.org">Buy Passes</a></li>
+			</ul>
+			</div>
+		</div>
+	</div><!-- x header-links -->
+</div><!-- x header row -->
+
+<div class="silver_stripe" id="splash_stripe">
+
+<div class="row">
+<div class="small-12 columns">
+	<script type="text/javascript">
+<!--
+$(document).ready(function() {
+
+$("#route_selectors").show();
+
+    $(".jumpmenu").change(function() {	
+	
+        var val = $(this).val();
+        if (val != '') {
+	     $('#route_selectors').hide();
+
+      $('#loader').fadeIn(1000, function() {window.location.href=val;});
+}
+    });
+});
+//-->
+</script>
+
+<div id="splash">
+	<div class="row collapse">
+		<div class="small-12 medium-7 large-7 columns end">
+
+<div id="route_finder" class="row">
+	<div class="small-12 columns">
+
+	<h1><b>Get moving</b> with The&nbsp;Metro</h1>
+	<h3><span style="font-weight:normal;">Find your</span> Route</h3>
+
+	<noscript>
+	<p>Please enable JavaScript in your browser for more search options!</p>
+	<p>
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/12_12th_street">12th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/123_23rd_street">23rd Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/27_27th_street">27th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/31_31st_street">31st Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/35_35th_street">35th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/39_39th_street">39th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/103_3rd_street_fairfax">3rd Street/Fairfax</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/155_55th_street">55th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/163_63rd_street">63rd Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/471_71_highway_express">71 Highway Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/175_75th_street">75th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/107_7th_street">7th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/109_9th_street">9th Street</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/243_antioch_barry_rd">Antioch-Barry Rd</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/104_argentine">Argentine</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/54_armour_paseo">Armour-Paseo</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/296_bannister_hillcrest_metroflex">Bannister/Hillcrest MetroFlex</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/28_blue_ridge">Blue Ridge</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/28x_blue_ridge_express">Blue Ridge Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/170_blue_springs_express">Blue Springs Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/136_boardwalk_antioch_connector">Boardwalk/Antioch Connector</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/129_boardwalk_kci">Boardwalk/KCI</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/47_broadway">Broadway</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/173_casino_cruiser">Casino Cruiser</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/102_central">Central</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/121_cleveland_antioch">Cleveland-Antioch</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/201_downtown_airport">Downtown Airport</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/231_east_tiffany_springs">East Tiffany Springs</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/36x_gladstone_express">Gladstone Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/237_gladstone_antioch_metroflex">Gladstone/Antioch MetroFlex</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/132_gracemor">Gracemor</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/24_independence">Independence</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/108_indiana1">Indiana</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/115_kansas_ave">Kansas Ave</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/113_leavenworth">Leavenworth</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/252_lees_summit_metroflex">Lee's Summit MetroFlex</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/152_lees_summit_raytown_express">Lee's Summit/Raytown Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/32_linwood_link">Linwood Link</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/mainmax">MAX</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/38_meadowbrook">Meadowbrook</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/37x_n_broadway_express">N. Broadway Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/244_nkc_metroflex">NKC MetroFlex</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/142_north_oak">North Oak</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/30_northeast">Northeast</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/71_prospect">Prospect</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/106_quindaro">Quindaro</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/253_raytown_circulator">Raytown Circulator</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/105_rosedale">Rosedale</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/34x_shoal_creek_liberty_express">Shoal Creek-Liberty Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/298_skc_wornall_metroflex">South Kansas City Flex</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/101_state">State Ave. Connex</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/251_tmc_lakewood_connector">TMC Lakewood Connector</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/25_troost">Troost</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/troost_max">Troost MAX</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/15_truman_rd">Truman Rd.</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/15x_truman_rd_express">Truman Rd. Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/133_vivion_antioch">Vivion/Antioch</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/51_ward_parkway">Ward Parkway</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/51x_ward_parkway_express">Ward Parkway Express</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/116_west_parallel">West Parallel</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/230_west_tiffany_springs">West Tiffany Springs</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/135_winnwood">Winnwood-69 Hwy.</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/110_woodland_brooklyn">Woodland/Brooklyn</a><br />
+	
+    		<a href="http://www.kcata.org/maps_schedules/routes/57_Wornall">Wornall</a><br />
+	
+	</p>
+	</noscript>
+
+	<div id="loader" style="display:none"><p>Please wait while KCATA is searching for your selected routes.</p><p><img src="http://www.kcata.org/images/design_elements/ajax-loader-3.gif" width="220" height="19" /></p></div>
+
+	</div><!-- x 12 columns -->
+
+<form id="route_selectors" style="display:none">
+
+<div class="small-12 medium-6 large-4 columns">
+<select name="routes_number" class="jumpmenu">
+<option value="">Route #</option>
+<option value="http://www.kcata.org/maps_schedules/routes">Show all routes</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/troost_max">Troost MAX</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/mainmax">Main MAX</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/12_12th_street">12</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/15_truman_rd">15</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/15x_truman_rd_express">15X</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/24_independence">24</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/25_troost">25</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/27_27th_street">27</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/28_blue_ridge">28</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/28x_blue_ridge_express">28X</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/30_northeast">30</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/31_31st_street">31</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/32_linwood_link">32</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/34x_shoal_creek_liberty_express">34X</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/35_35th_street">35</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/36x_gladstone_express">36X</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/37x_n_broadway_express">37X</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/38_meadowbrook">38</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/39_39th_street">39</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/47_broadway">47</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/51_ward_parkway">51</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/51x_ward_parkway_express">51X</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/54_armour_paseo">54</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/57_Wornall">57</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/71_prospect">71</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/101_state">101</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/102_central">102</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/103_3rd_street_fairfax">103</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/104_argentine">104</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/105_rosedale">105</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/106_quindaro">106</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/107_7th_street">107</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/108_indiana1">108</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/109_9th_street">109</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/110_woodland_brooklyn">110</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/113_leavenworth">113</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/115_kansas_ave">115</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/116_west_parallel">116</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/121_cleveland_antioch">121</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/123_23rd_street">123</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/129_boardwalk_kci">129</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/132_gracemor">132</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/133_vivion_antioch">133</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/135_winnwood">135</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/136_boardwalk_antioch_connector">136</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/142_north_oak">142</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/152_lees_summit_raytown_express">152</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/155_55th_street">155</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/163_63rd_street">163</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/170_blue_springs_express">170</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/173_casino_cruiser">173</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/175_75th_street">175</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/201_downtown_airport">201</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/230_west_tiffany_springs">230</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/231_east_tiffany_springs">231</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/237_gladstone_antioch_metroflex">237</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/243_antioch_barry_rd">243</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/244_nkc_metroflex">244</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/251_tmc_lakewood_connector">251</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/252_lees_summit_metroflex">252</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/253_raytown_circulator">253</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/296_bannister_hillcrest_metroflex">296</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/298_skc_wornall_metroflex">298</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/471_71_highway_express">471</option>
+
+</select>
+</div>
+<div class="small-12 medium-6 large-4 columns">
+<select name="routes_name" class="jumpmenu">
+<option value="">Route Name</option>
+<option value="http://www.kcata.org/maps_schedules/routes">Show all routes</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/12_12th_street">12th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/123_23rd_street">23rd Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/27_27th_street">27th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/31_31st_street">31st Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/35_35th_street">35th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/39_39th_street">39th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/103_3rd_street_fairfax">3rd Street/Fairfax</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/155_55th_street">55th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/163_63rd_street">63rd Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/471_71_highway_express">71 Highway Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/175_75th_street">75th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/107_7th_street">7th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/109_9th_street">9th Street</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/243_antioch_barry_rd">Antioch-Barry Rd</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/104_argentine">Argentine</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/54_armour_paseo">Armour-Paseo</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/296_bannister_hillcrest_metroflex">Bannister/Hillcrest MetroFlex</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/28_blue_ridge">Blue Ridge</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/28x_blue_ridge_express">Blue Ridge Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/170_blue_springs_express">Blue Springs Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/136_boardwalk_antioch_connector">Boardwalk/Antioch Connector</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/129_boardwalk_kci">Boardwalk/KCI</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/47_broadway">Broadway</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/173_casino_cruiser">Casino Cruiser</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/102_central">Central</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/121_cleveland_antioch">Cleveland-Antioch</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/201_downtown_airport">Downtown Airport</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/231_east_tiffany_springs">East Tiffany Springs</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/36x_gladstone_express">Gladstone Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/237_gladstone_antioch_metroflex">Gladstone/Antioch MetroFlex</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/132_gracemor">Gracemor</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/24_independence">Independence</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/108_indiana1">Indiana</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/115_kansas_ave">Kansas Ave</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/113_leavenworth">Leavenworth</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/252_lees_summit_metroflex">Lee's Summit MetroFlex</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/152_lees_summit_raytown_express">Lee's Summit/Raytown Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/32_linwood_link">Linwood Link</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/mainmax">MAX</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/38_meadowbrook">Meadowbrook</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/37x_n_broadway_express">N. Broadway Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/244_nkc_metroflex">NKC MetroFlex</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/142_north_oak">North Oak</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/30_northeast">Northeast</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/71_prospect">Prospect</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/106_quindaro">Quindaro</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/253_raytown_circulator">Raytown Circulator</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/105_rosedale">Rosedale</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/34x_shoal_creek_liberty_express">Shoal Creek-Liberty Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/298_skc_wornall_metroflex">South Kansas City Flex</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/101_state">State Ave. Connex</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/251_tmc_lakewood_connector">TMC Lakewood Connector</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/25_troost">Troost</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/troost_max">Troost MAX</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/15_truman_rd">Truman Rd.</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/15x_truman_rd_express">Truman Rd. Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/133_vivion_antioch">Vivion/Antioch</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/51_ward_parkway">Ward Parkway</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/51x_ward_parkway_express">Ward Parkway Express</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/116_west_parallel">West Parallel</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/230_west_tiffany_springs">West Tiffany Springs</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/135_winnwood">Winnwood-69 Hwy.</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/110_woodland_brooklyn">Woodland/Brooklyn</option>
+
+    <option value="http://www.kcata.org/maps_schedules/routes/57_Wornall">Wornall</option>
+
+</select>
+</div>
+<div class="small-12 medium-12 large-4 columns">
+
+<select name="routes_region" class="jumpmenu">
+<option value="">Regions</option>
+<option value="http://www.kcata.org/maps_schedules/routes">Show all routes</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/downtown">Downtown</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/independence">Independence</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/johnson_county">Johnson County</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/kck">KCK</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/midtown">Midtown</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/northeast">Northeast</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/northland">Northland</option>
+
+<option value="http://www.kcata.org/maps_schedules/routes/category/south_kc">South KC</option>
+
+</select>
+</div>
+
+</form>
+
+<div class="small-6 medium-6 large-8 columns">
+<a href="http://www.kcata.org/maps_schedules/trip_planner" class="button secondary expand">Plan your trip &rarr;</a>
+</div>
+<div class="small-6 medium-6 large-4 columns">
+<img src="http://www.kcata.org/images/design_elements/the-metro-white-l.png" width="150" height="25" alt="The Metro" style="margin-top:6px;" />
+</div>
+
+</div>
+</div><!-- x route finder -->
+</div><!-- x row -->
+</div><!-- x splash -->
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="small-12 medium-12 large-8 columns">
+<div class="padder">
+
+<!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="/owl/owl-carousel/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="/owl/owl-carousel/owl.theme.css">
+ 
+<!-- Include js plugin -->
+<script src="/owl/owl-carousel/owl.carousel.min.js"></script>
+
+<div id="home-banner" class="owl-carousel">
+
+
+
+<div class="slide">
+<img src="/images/uploads/kcata-banner-wifi.jpg" />
+
+<div class="slide_bg" style="background-image:url('/images/uploads/kcata-banner-wifi.jpg');">
+
+<div class="slide_content">
+<h3>WiFi on the Bus</h3>
+<div class="slide_content_body">
+<p>As part of a pilot program,&nbsp;all MAX vehicles and 22 Metro buses have WiFi service.&nbsp;<span style="line-height: 1.6em;">Check your email on the way to the office, study for a test on the way to school, or just tweet about the evening commute.&nbsp;</span></p>
+
+<p>&nbsp;</p>
+</div>
+<a href="/news/metro_buses_adding_wifi_service_to_area_commutes" class="button secondary small">Read More</a>
+</div>
+
+</div>
+
+</div><!-- x slide -->
+
+
+<div class="slide">
+<img src="/images/uploads/SaveMoney.jpg" />
+
+<div class="slide_bg" style="background-image:url('/images/uploads/SaveMoney.jpg');">
+
+<div class="slide_content">
+<h3>The Cost of Driving</h3>
+<div class="slide_content_body">
+<p>Gas, maintenance, parking, insurance&#8230;it all adds up. Find out how much you can save with our calculator.&nbsp;</p>
+
+<p>Start riding the Metro and you&#39;ll put money back in your pocket!</p>
+
+<p>&nbsp;</p>
+</div>
+<a href="fares/the_true_cost_of_driving" class="button secondary small">Read More</a>
+</div>
+
+</div>
+
+</div><!-- x slide -->
+
+
+<div class="slide">
+<img src="/images/uploads/kcata-banner-rider.jpg" />
+
+<div class="slide_bg" style="background-image:url('/images/uploads/kcata-banner-rider.jpg');">
+
+<div class="slide_content">
+<h3>The Metro&#8217;s New Rider Starter Kit</h3>
+<div class="slide_content_body">
+<p>You&#39;re in the driver&#39;s seat when it comes to saving on high gas prices. <a href="http://www.kcata.org/rider_guide/start/" title="Start here">Start here</a> to begin your journey to big savings on The Metro. The mysteries of riding the bus are unraveled in our Starter Kit for new riders. Watch <a href="http://www.kcata.org/rider_guide/how_to_ride_the_metro_videos/" title="videos">videos</a>, <a href="http://www.google.com/maps?ie=UTF8&amp;ll=39.1061,-94.54834&amp;spn=0.410235,0.55368&amp;dirflg=r" title="plan your trip">plan your trip</a> and <a href="http://www.kcata.org/fares/the_true_cost_of_driving/" title="add up the savings">add up the savings</a>!</p>
+
+<p>&nbsp;</p>
+</div>
+<a href="rider_guide/start/" class="button secondary small">Read More</a>
+</div>
+
+</div>
+
+</div><!-- x slide -->
+
+
+</div><!-- x home-banner --> 
+
+<script type="text/javascript">
+$(document).ready(function() {
+ 
+  	$("#home-banner").owlCarousel({
+	items: 1,
+	// Navigation
+    	navigation : true,
+   	navigationText : ['<i class="fi-arrow-left size-36"></i>','<i class="fi-arrow-right size-36"></i>'],
+ 	singleItem:true,
+	autoPlay: 10000,
+	stopOnHover:true
+	});
+ 
+});
+</script>
+
+</div>
+</div>
+<div class="small-12 medium-12 large-4 columns">
+<div class="padder">
+	<div class="row">
+		<div class="small-12 medium-6 large-12 columns">
+		<div id="list_right_head"><a href="http://www.kcata.org/rider_bulletins"> Bulletins </a></div>
+<div id="list_right">
+<ul class="side-nav" >
+
+
+<li><a href="http://www.kcata.org/rider_bulletins/reroutesmain_construction"><img src="/images/design_elements/star_icon.png" style="margin:0px 3px 0px 0px; padding:0;" />Reroutes for Main Construction - Updated 4/24</a></li>
+
+
+
+<li><a href="http://www.kcata.org/rider_bulletins/youre_invited_grand_opening_for_antioch_crossing_park_ride">You&#8217;re Invited: Grand Opening for Antioch Crossing Park &amp; Ride</a></li>
+
+
+
+<li><a href="http://www.kcata.org/rider_bulletins/27_reroutes_for_construction_at_14th_summit">27 Reroutes for Construction at 14th &amp; Summit</a></li>
+
+
+
+<li><a href="http://www.kcata.org/rider_bulletins/54_armour_paseo_weekday_schedule_changes1">54-Armour-Paseo Weekday Schedule Changes</a></li>
+
+
+
+<li><a href="http://www.kcata.org/rider_bulletins/105_rosedale_reroute_for_merriam_closure">105-Rosedale Reroute for Merriam Closure</a></li>
+
+
+
+<li><a href="http://www.kcata.org/rider_bulletins/white_oak_plaza_park_and_ride_closing">White Oak Plaza Park-And-Ride Closing</a></li>
+
+
+
+<li><a href="http://www.kcata.org/rider_bulletins/metro_riders_be_prepared_for_severe_weather">Metro Riders: Be Prepared  For Severe Weather</a></li>
+
+
+<li class="text-right"><a href="http://www.kcata.org/rider_bulletins">More Bulletins <i class="fi-arrow-right size-18"></i></a></li>
+</ul>
+</div><!-- end list_right -->
+		</div>
+		<div class="small-12 medium-6 large-12 columns">
+		<div id="list_right_head"><a href="http://www.kcata.org/news">News</a></div>
+<div id="list_right">
+<ul class="side-nav">
+<li><a href="http://www.kcata.org/news/kcata_now_offering_live_transit_information_in_google_maps"><img src="/images/design_elements/star_icon.png" style="margin:0px 3px 0px 0px; padding:0;" />KCATA Now Offering Live Transit Information in Google Maps</a></li><li><a href="http://www.kcata.org/news/metro_day_pass_visitor_pass_good_for_regional_travel"><img src="/images/design_elements/star_icon.png" style="margin:0px 3px 0px 0px; padding:0;" />Metro Day Pass, Visitor Pass Good For Regional Travel</a></li><li><a href="http://www.kcata.org/news/reardonceokcata"><img src="/images/design_elements/star_icon.png" style="margin:0px 3px 0px 0px; padding:0;" />Joe Reardon Named CEO of KCATA</a></li><li><a href="http://www.kcata.org/news/metro_route_47_broadway_serves_the_k">Metro Route 47-Broadway Serves The K</a></li>
+<li class="text-right"><a href="http://www.kcata.org/news">More News <i class="fi-arrow-right size-18"></i></a></li>
+</ul>
+</div><!-- end list_right -->
+		</div>
+	</div>
+</div>
+</div>
+
+</div><!-- x row -->
+
+
+<div id="footer">
+<div class="row">
+	<div class="small-12 medium-3 columns">
+
+		<h5>Rider Resources</h5>
+		<ul class="footer-menu"><li><a href="/maps_schedules/routes">Routes</a></li><li><a href="/rider_bulletins">Rider Bulletins</a></li><li><a href="/fares">Fares</a></li><li><a href="/rider_guide">New Rider Guide</a></li><li><a href="/maps_schedules/trip_planner">Trip Planner</a></li><li><a href="/maps_schedules/webwatch">Bus Tracker (WebWatch)</a></li><li><a href="/maps_schedules/app_center">Mobile Apps</a></li></ul>
+		<hr />
+		<ul class="footer-menu"><li><a href="/maps_schedules/">Maps & Schedules</a></li><li><a href="http://store.kcata.org/">Buy Passes</a></li><li><a href="/maps_schedules/park_and_ride_locations">Park & Ride Locations</a></li><li><a href="/maps_schedules/system_map">System Map</a></li><li><a href="/rider_guide/share_a_fare">Share-A-Fare</a></li><li><a href="/maps_schedules/johnson_county_transit">Johnson County - The JO</a></li><li><a href="/maps_schedules/unified_government_transit">Unified Government Transit</a></li><li><a href="/maps_schedules/independence_mo_indebus">IndeBus</a></li></ul>
+
+	</div>
+	<div class="small-12 medium-3 columns">
+
+		<h5>New Initiatives</h5>
+		<ul class="footer-menu"><li><a href="/light_rail_max">Transit Initiatives</a></li><li><a href="/maps_schedules/downtown_transit">Downtown Planning</a></li><li><a href="/light_rail_max/max_and_bus_rapid_transit">MAX Bus Rapid Transit</a></li><li><a href="/light_rail_max/kansas_ctiy_streetcar">Streetcar</a></li></ul>
+
+	</div>
+	<div class="small-12 medium-3 columns">
+
+		<h5>About KCATA</h5>
+		<ul class="footer-menu"><li><a href="/about_kcata/content/category/contact_kcata">Contact Us</a></li><li><a href="/about_kcata/content/category/who_we_are">Who We Are</a></li><li><a href="/about_kcata/content/category/get_involved">Get Involved</a></li><li><a href="/about_kcata/content/category/funding">Funding</a></li><li><a href="/about_kcata/content/category/civil_rights">Civil Rights</a></li><li><a href="/about_kcata/content/category/metro_the_environment">Metro & The Environment</a></li><li><a href="/about_kcata/content/category/doing_business_with_kcata">Doing Business With KCATA</a></li><li><a href="/about_kcata/content/category/working_at_kcata">Working at KCATA</a></li></ul>
+		<hr />
+		<ul class="footer-menu"><li><a href="/news">News</a></li><li><a href="/jobs">Job Openings</a></li><li><a href="/procurement">Procurement - Bid Opportunities</a></li></ul>
+	</div>
+	<div class="small-12 medium-3 columns">
+
+		<form method="post" action="http://www.kcata.org/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="19" />
+<input type="hidden" name="RES" value="" />
+<input type="hidden" name="meta" value="YTo5OntzOjY6InN0YXR1cyI7czowOiIiO3M6NzoiY2hhbm5lbCI7czoxMjoibm90IGhvbWVwYWdlIjtzOjg6ImNhdGVnb3J5IjtzOjA6IiI7czo5OiJzZWFyY2hfaW4iO3M6MTA6ImV2ZXJ5d2hlcmUiO3M6NToid2hlcmUiO3M6MDoiIjtzOjEyOiJzaG93X2V4cGlyZWQiO3M6MDoiIjtzOjE5OiJzaG93X2Z1dHVyZV9lbnRyaWVzIjtiOjA7czoxMToicmVzdWx0X3BhZ2UiO3M6Nzoic2VhcmNoLyI7czoxNToibm9fcmVzdWx0c19wYWdlIjtzOjE2OiJzZWFyY2gvbm8tcmVzdWx0Ijt9MDA4MjhlMTIxNzBhYTZkMzBjOGIwYjI4ZDZlYjNjZjQ=" />
+<input type="hidden" name="site_id" value="1" />
+<input type="hidden" name="csrf_token" value="8902eaadb4b7bc955db90ddaae73f5fa250242bf" />
+</div>
+
+
+		<div class="row collapse" id="footer-search">
+		<div class="small-9 columns">
+			<input type="text" name="keywords" maxlength="36" size="15" value="" placeholder="Search KCATA"/>
+		</div>
+		<div class="small-3 columns">
+			<input type="submit" value="GO!" class="button secondary postfix" />
+		</div>
+		</div><!-- x footer-search -->
+		</form>	
+
+		<h5>Contact KCATA</h5>
+		<ul class="footer-menu"><li><a href="/about_kcata/entries/contact_form">Contact Form</a></li><li><a href="/about_kcata/entries/customer_service">Customer Service</a></li><li><a href="/about_kcata/entries/media_relations">Media Relations</a></li></ul>
+		<hr />
+		<ul class="footer-menu"><li class="footer_phone"><span>CALL 816-221-0660</span></li></ul>
+		</ul>
+
+	</div>
+
+</div><!-- x row -->
+</div><!-- x footer -->
+
+<div id="footer-bottom">
+	<div class="row">
+
+		<div class="small-12 medium-6 columns">
+		<div class="inner">
+			<img src="http://www.kcata.org/images/design_elements/the-metro-white-l.png" width="150" height="25" alt="The Metro" style="margin-bottom:6px;" />
+			<p>© 2015 Kansas City Area Transportation Authority<br />1200 E. 18th Street, Kansas City, MO 64108</p>
+		</div>
+		</div>
+		<div class="small-12 medium-6 columns">
+		<div class="inner">
+			<div style="float:left;padding-right:10px;">
+<p>Follow us: </p>
+</div>
+<div id="addthis-follow">
+<!-- AddThis Follow BEGIN -->
+<div class="addthis_toolbox addthis_32x32_style addthis_default_style">
+<a class="addthis_button_facebook_follow" addthis:userid="KCATAMetro"></a>
+<a class="addthis_button_twitter_follow" addthis:userid="KCATAMetro‎"></a>
+<a class="addthis_button_youtube_follow" addthis:userid="RideTheMetro"></a>
+<a class="addthis_button_pinterest_follow" addthis:userid="kcatametro"></a>
+<a class="addthis_button_instagram_follow" addthis:userid="kcatametro"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=kcata"></script>
+<!-- AddThis Follow END -->
+</div>
+		</div>
+		</div>
+	</div><!-- x row -->
+</div><!-- x footer-bottom -->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-13205354-1");
+pageTracker._setDomainName(".kcata.org");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+<script type="text/javascript" src="http://www.kcata.org/js/functions.js"></script>
+
+<script type="text/javascript" src="http://www.kcata.org/foundation/js/foundation.min.js"></script>
+<script type="text/javascript">
+  $(document).foundation();      
+</script>
+
+</body>
+</html>

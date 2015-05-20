@@ -1,0 +1,1012 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<!--<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>-->
+
+<title>HTML Tutorial</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Keywords" content="HTML,CSS,XML,JavaScript,DOM,jQuery,ASP.NET,PHP,SQL,colors,tutorial,programming,development,training,learning,quiz,primer,lessons,reference,examples,source code,demos,tips,color table,w3c,cascading style sheets,active server pages,Web building,Webmaster">
+<meta name="Description" content="">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/bs/css/bootstrap_w3schools.css">
+<script src="/jquery.js"></script>
+<script src="/bs/js/bootstrap.min.js"></script>
+<script>
+  (function() {
+    var cx = '012971019331610648934:m2tou3_miwy';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3855518-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+
+<link rel="stylesheet" type="text/css" href="/stdtheme.css">
+<style>
+/*
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+*/
+body,p,div,a {
+	font-family: Lato, sans-serif !important;
+}
+h1 {
+	font-size:80px;
+}
+.topsection {
+    width:100%;
+    overflow:auto;
+    padding:20px 30px 10px 28px;
+}
+.topsection img {
+    float:left;
+    vertical-align:bottom;
+}
+.topsection div {
+    float:right;
+    padding-top:14px;
+    letter-spacing:4px;
+    font-family:Arial !important;
+}
+.topnavcontainer {
+    background-color:#8AC007;
+}
+.topnavcontainer a {
+    color:#ffffff;
+}
+.topnavlinks {
+    letter-spacing: 4px;
+    /*font-family: Montserrat,sans-serif;*/
+    width:auto;
+    float:right;
+    font-size:16px;
+    word-spacing:30px;
+    line-height:71px;
+}
+.topnavlinks a {
+    display:block;
+    float:left;
+    padding-left:15px;
+    padding-right:15px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;    
+}
+.topnavlinks a:hover {
+    background-color:#ffffff;
+    color:#8AC007;
+    text-decoration:none;
+}
+.tutmenu, .refmenu, .examenu, .searchmenu, .translatemenu, .menu-xs, .menu-sm {
+    display:none;
+    background-color:#8AC007;
+    border-top:2px solid #ffffff;
+    padding-bottom:40px;
+    position:relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    
+}
+.closemenu {
+    color:#ffffff;
+    position:absolute;
+    right:30px;
+    line-height:69px;
+    font-size:24px;
+    cursor:pointer;
+}
+.tutitem {
+    float:left;width:16%;min-width:180px;height:260px;text-align:center;
+}
+.mitem {
+    float:left;width:18%;min-width:180px;height:200px;text-align:center;
+}
+.exaitem {
+    float:left;width:25%;min-width:180px;height:280px;text-align:center;
+}
+.mitem a, .exaitem a, .tutitem a {
+    display:block;
+    color:#ffffff;
+    font-size:16px;
+}
+.mitem h3, .exaitem h3, .tutitem h3 {
+    color:#ffffff;
+}
+.menu-sm, .menu-xs {
+    background-color:#f1f1f1;
+    text-align:center;
+    border-top:none;  
+}
+.menu-sm a {
+    display:block;
+    color:#555555;
+    font-size:18px;
+}
+.menu-sm h3 {
+    color:#555555;
+}
+.menu-sm .closemenu, .menu-xs .closemenu {
+    color:#555555;
+}
+.menu-xs a {
+    display:block;
+    padding:20px;
+    letter-spacing:4px;
+    color:#555555;
+}
+.menusection-xs .mitem, .menusection-xs .exaitem, .menusection-xs .tutitem {
+    float:none;
+    width:100%;
+}
+.menusection-xs .mitem a, .menusection-xs .exaitem a, .menusection-xs .tutitem a {
+    display:block;
+    color:#555555;
+    font-size:18px;
+}
+.menusection-xs .mitem h3, .menusection-xs .exaitem h3, .menusection-xs .tutitem h3 {
+    color:#555555;
+}
+.menusection-xs {
+    display:none;
+    background-color:#ffffff;
+    padding-bottom:40px;
+}
+.menusection-xs a {
+    padding:5px;
+    letter-spacing:0;
+    font-size:18px;
+}
+#searchmenu, #translateSection {
+	margin-left:20%;
+	margin-right:20%;
+	color:#ffffff;
+	font-size:18px;
+}
+#hidesidemenu {
+    color:#555555;
+    float:right;
+    right:20px;
+    line-height:69px;
+    font-size:24px;
+    cursor:pointer;
+}
+#hidesidemenu:hover {
+    color:#000000;
+}
+td.gsc-search-button input.gsc-search-button {
+    border-color: #555555;
+    background-color: #555555;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button {
+    color:#222222;
+    box-sizing: content-box;
+    line-height: normal;
+    border-color: #ffffff !important;
+}
+#menubutton {
+	display:none;
+    float:left;
+    color:#ffffff;
+    line-height:71px;
+    letter-spacing: 4px;
+    /*font-family: Montserrat,sans-serif;*/
+    font-size:16px;
+    padding-left:10px;
+    padding-right:10px;    
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
+    transition: background-color 0.4s ease;
+}
+#menubutton:hover {
+    text-decoration:none;
+    background-color:#ffffff;
+    color:#8AC007;
+}
+#menubutton span {
+    line-height:69px;
+    font-size:24px;
+    margin-right:8px;
+}
+.sidemenu {
+    padding-left:28px;
+    width:20%;
+    float:left;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.sidemenucollapse {
+	width:0;
+	padding:0;
+}
+.sidemenu h2 {
+    font-size:24px;
+}
+.sidemenu a {
+    display:block;
+    color:#555555;
+    font-size:16px;
+}
+.mainsection {
+    width:80%;
+    float:left;
+    border-left:2px solid #f1f1f1;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.mainsectionexpand {
+    width:100%;
+    float:left;
+    border-left:none;
+}
+a.tryitbtn, a.tryitbtn:link, a.tryitbtn:visited {
+    /*font-family:Montserrat,Verdana , Geneva, Tahoma, Arial, Helvetica, sans-serif;*/
+    background-color:#555555;
+    margin-left:5px;
+    margin-right:5px;    
+    border:1px solid #555555;    
+    border-radius:0;
+    margin-top:10px;
+    font-size:16px;
+    padding:8px 26px;
+    font-weight:normal;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    
+}
+a.tryit, a.tryit:link, a.tryit:visited {
+    margin-left:3%;
+    margin-bottom:3%;
+    background-color:#8AC007;
+    border-color:#8AC007;
+    padding:2px 26px;
+}
+a.tryitbtn:hover, a.tryitbtn:active {
+    background-color:#ffffff;
+    color:#555555;            
+}
+a.tryit:hover, a.tryit:active {
+    background-color:#ffffff;
+    color:#8AC007;            
+}
+.tryitdemo {
+    background-color:#f1f1f1;    
+    padding:2%;    
+    overflow:auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    
+    text-align:left;
+}
+.codearea {
+    padding:3%;    
+    overflow:auto;
+}
+.codearea h2 {
+    margin-top:10px;
+    font-size:20px;
+}
+.codecontainer {
+    width:100%;
+    background-color:#ffffff;
+    padding:4%;
+    font-family:consolas !important;
+    font-size:15px;
+    color:#000000;
+    border-left:4px solid #8AC007;
+}
+.cssdemo {
+    box-shadow:none;
+}
+.csscode {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.htmlsection, .csssection, .javascriptsection {
+    font-size:30px;
+    color:#555555;
+    text-align:center;
+    background-color:#ffffff;
+}
+.htmlHigh, .jsHigh, .cssHigh {
+    font-family:consolas !important;
+}
+.csssection {
+    background-color:#f1f1f1;
+}
+.leftsection, .rightsection {
+    padding:5%;    
+}
+.threesections1, .threesections2 {
+    color:#555555;
+    background-color:#f1f1f1;
+    padding:80px;
+    padding:5%;
+    text-align:center;
+    font-size:20px;
+}
+.threesections2 {
+    background-color:#ffffff;
+}
+.threesections1 h1, .threesections2 h1 {
+    font-size:40px;
+}
+.threesections1 a, .threesections2 a {
+    font-size:16px !important;
+}
+.section1, .section2, .section3 {
+    padding:40px;
+    padding:2%;
+}
+.threesections1 .section1 .threesec, .threesections1 .section2 .threesec, .threesections1 .section3 .threesec {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.threesections2 .section4 .threesec, .threesections2 .section5 .threesec, .threesections2 .section6 .threesec {
+    margin-top:20px;
+    padding-top:60px;
+    background-color:#f1f1f1;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.section4 span, .section5 span, .section6 span {
+    font-size:60px;
+}
+.threesections1 .threesec, .threesections2 .threesec {
+    background-color:#ffffff;
+    padding:40px 10px;
+    padding:5% 3%;
+    height:270px;
+}
+img.colorpicker {
+    margin-top:10px;
+}
+.footer {
+    font-size:14px;
+    background-color:#f1f1f1;
+    padding:80px;
+    padding-top:40px;
+}
+.about {
+    margin-bottom:20px;
+    text-align:right;
+    letter-spacing:4px;
+    word-spacing:10px;
+}
+@media screen and (max-width: 991px) {
+    .mainsection {
+        width:100%;
+        border-left:none;
+    }
+    .mitem, .exaitem, .tutitem {
+        width:100%;
+        height:auto;
+    }
+    #menubutton {
+	    display:block !important;
+	    background-repeat:repeat-y !important;/*To test for devices less than 992px*/
+    }
+    .topsection {
+	    text-align:center;
+    }
+    .topsection img, .topsection div {
+	    float:none;
+        margin:auto;
+    }
+    .about {
+        margin-top:20px;
+        text-align:center;
+    }
+}
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size:50px;
+    }
+    .htmlsection, .csssection, .javascriptsection {
+        font-size:18px;
+    }
+    #menulinktutorials, #menulinkreferences, #menulinkexamples {
+	    display:none !important;
+    }
+    #searchmenu, #translateSection {
+	    margin-left:20px;
+        margin-right:20px;
+    }
+    #menubutton {
+	    background-repeat:repeat-x !important;/*To test for devices less than 768px*/
+    }
+    #menubutton {
+        padding-right:0;
+    }
+    .footer {
+        padding:20px;
+    }
+}
+@media screen and (min-width: 769px) {
+    .menu-xs {
+	    display:none !important;
+    }
+}
+</style>
+</head>
+<body>
+<div class="topsection">
+  <img src="/images/w3schools.png" alt="W3Schools.com" class="img-responsive">
+  <div>THE WORLD'S LARGEST WEB DEVELOPER SITE</div>
+</div>
+<div class="container-fluid topnavcontainer">
+  <a id="menubutton" href="javascript:void(0);"><span class="glyphicons glyphicons-show-lines"></span>MENU</a>
+  <div class="topnavlinks">
+    <a id="menulinktutorials" class="largetopnav" href="javascript:void(0);">TUTORIALS<span class="caret"></span></a>
+    <a id="menulinkreferences" class="largetopnav" href="javascript:void(0);">REFERENCES<span class="caret"></span></a>
+    <a id="menulinkexamples" class="largetopnav" href="javascript:void(0);">EXAMPLES<span class="caret"></span></a>
+    <!--<a  class='largetopnav' href='/forum/default.asp'title='W3Schools Forum'>FORUM</a>-->
+    <a id="menulinktranslate" href='javascript:void(0);' class='largetopnav' title='Translate W3Schools'><span class="glyphicons glyphicons-globe-af" style="line-height:71px;font-size:20px;"></span></a>
+    <a id="menulinksearch" href='javascript:void(0);' class='largetopnav' title='Search W3Schools'><span class="glyphicons glyphicons-search" style="line-height:71px;font-size:20px;"></span></a>    
+  </div>
+</div>
+<div class='container-fluid menu-sm'>
+  <span class="closemenu glyphicons glyphicons-circle-remove" id="hidemenu-sm"></span>
+  <br>
+  <br>
+  <br>
+  <div id="tutsection-sm"></div>
+</div>
+<div class='container-fluid menu-xs'>
+  <span class="closemenu glyphicons glyphicons-circle-remove" id="hidemenu-xs"></span>
+  <br>
+  <br>
+  <br>
+  <a id="tutheader-xs" href="javascript:void(0);">TUTORIALS<span class="caret"></span></a>
+  <div id="tutsection-xs" class="menusection-xs"></div>
+  <a id="refheader-xs" href="javascript:void(0);">REFERENCES<span class="caret"></span></a>
+  <div id="refsection-xs" class="menusection-xs"></div>
+  <a id="exaheader-xs" href="javascript:void(0);">EXAMPLES<span class="caret"></span></a>
+  <div id="exasection-xs" class="menusection-xs"></div>
+</div>
+<div class='container-fluid tutmenu'>
+  <span class="closemenu glyphicons glyphicons-circle-remove" id="hidetutmenu"></span>
+  <div id="tutmenu">
+    <br>
+    <div class="tutitem">
+    <h3>HTML/CSS</h3>
+    <a href="/html/default.asp">Learn HTML</a>
+    <a href="/css/default.asp">Learn CSS</a>
+    <a href="/bootstrap/default.asp">Learn Bootstrap</a>
+    </div>
+    <div class="tutitem">    
+    <h3>JavaScript</h3>
+    <a href="/js/default.asp">Learn JavaScript</a>
+    <a href="/jquery/default.asp">Learn jQuery</a>
+    <a href="/jquerymobile/default.asp">Learn jQueryMobile</a>
+    <a href="/appml/default.asp">Learn AppML</a>
+    <a href="/angular/default.asp">Learn AngularJS</a>
+    <a href="/ajax/default.asp">Learn AJAX</a>
+    <a href="/json/default.asp">Learn JSON</a>
+    </div>
+    <div class="tutitem">    
+    <h3>HTML Graphics</h3>
+    <a href="/canvas/default.asp">Learn Canvas</a>
+    <a href="/svg/default.asp">Learn SVG</a>
+    <a href="/googleapi/default.asp">Learn Google Maps</a>
+    </div>
+    <div class="tutitem">    
+    <h3>Server Side</h3>
+    <a href="/sql/default.asp">Learn SQL</a>
+    <a href="/php/default.asp">Learn PHP</a>
+    <a href="/asp/default.asp">Learn ASP</a>
+    <a href="/aspnet/default.asp">Learn ASP.NET</a>
+    <a href="/vbscript/default.asp">Learn VBScript</a>
+    </div>
+    <div class="tutitem">    
+    <h3>Web Building</h3>
+    <a href="/website/default.asp">Web Building</a>
+    <a href="/browsers/default.asp">Web Statistics</a>
+    <a href="/cert/default.asp">Web Certificates</a>
+    </div>
+    <div class="tutitem">    
+    <h3>XML Tutorials</h3>
+    <a href="/xml/default.asp">Learn XML</a>
+    <a href="/dtd/default.asp">Learn DTD</a>
+    <a href="/schema/default.asp">Learn Schema</a>
+    <a href="/dom/default.asp">Learn XML DOM</a>
+    <a href="/xpath/default.asp">Learn XPath</a>
+    <a href="/xsl/default.asp">Learn XSLT</a>
+    <a href="/xquery/default.asp">Learn XQuery</a>
+    <a href="/webservices/default.asp">Learn WSDL</a>
+    </div>
+  </div>
+</div>
+<div class='container-fluid refmenu'>
+  <span class="closemenu glyphicons glyphicons-circle-remove" id="hiderefmenu"></span>
+  <div id="refmenu">
+    <br>
+    <div class="mitem">
+      <h3>HTML/CSS</h3>
+      <a href='/tags/default.asp'>HTML Tag Reference</a>
+      <a href='/tags/ref_eventattributes.asp'>HTML Event Reference</a>
+      <a href='/tags/ref_colornames.asp'>HTML Color Reference</a>
+      <a href='/cssref/default.asp'>CSS 1,2,3 Reference</a>
+      <a href='/bootstrap/bootstrap_ref_css_text.asp'>Bootstrap Reference</a>
+    </div>
+    <div class="mitem">
+      <h3>JavaScript</h3>
+      <a href='/jsref/default.asp'>JavaScript Reference</a>
+      <a href='/jsref/default.asp'>HTML DOM Reference</a>
+      <a href='/jquery/jquery_ref_selectors.asp'>jQuery Reference</a>
+      <a href='/jquerymobile/jquerymobile_ref_data.asp'>jQuery Mobile Reference</a>
+      <a href='/googleAPI/google_maps_ref.asp'>Google Maps Reference</a>
+    </div>
+    <div class="mitem">
+      <h3>Server Side</h3>
+      <a href='/php/php_ref_array.asp'>PHP Reference</a>
+      <a href='/sql/sql_quickref.asp'>SQL Reference</a>
+      <a href='/asp/asp_ref_response.asp'>ASP Reference</a>
+      <a href='/vbscript/vbscript_ref_functions.asp'>VBScript Reference</a>
+      <a href='/aspnet/webpages_ref_classes.asp'>Razor Reference</a>
+      <a href='/aspnet/aspnet_refhtmlcontrols.asp'>ASP.NET Reference</a>
+    </div>
+    <div class="mitem">
+      <h3>XML</h3>
+      <a href='/dom/dom_nodetype.asp'>XML DOM Reference</a>
+      <a href='/xsl/xsl_w3celementref.asp'>XSLT Reference</a>
+      <a href='/xpath/xpath_functions.asp'>XPath Reference</a>
+      <a href='/xquery/xquery_reference.asp'>XQuery Reference</a>
+      <a href='/schema/schema_elements_ref.asp'>Schema Reference</a>
+      <a href='/svg/svg_reference.asp'>SVG Reference</a>
+    </div>
+    <div class="mitem">
+      <h3>Charsets</h3>
+      <a href='/charsets/default.asp'>HTML Character Sets</a>
+      <a href='/charsets/ref_html_ascii.asp'>HTML ASCII</a>
+      <a href='/charsets/ref_html_ansi.asp'>HTML ANSI</a>
+      <a href='/charsets/ref_html_ansi.asp'>HTML Windows-1252</a>
+      <a href='/charsets/ref_html_8859.asp'>HTML ISO-8859-1</a>
+      <a href='/charsets/ref_html_symbols.asp'>HTML Symbols</a>
+      <a href='/charsets/ref_html_utf8.asp'>HTML UTF-8</a>
+    </div>
+  </div>
+</div>
+<div class='container-fluid examenu'>
+  <span class="closemenu glyphicons glyphicons-circle-remove" id="hideexamenu"></span>
+  <div id="examenu">
+    <br>
+    <div class="exaitem">
+      <h3>HTML/CSS</h3>
+      <a href='/html/html_examples.asp'>HTML Examples</a>
+      <a href='/css/css_examples.asp'>CSS Examples</a>
+    </div>
+    <div class="exaitem">
+      <h3>JavaScript</h3>
+      <a href="/js/js_examples.asp" target="_top">JavaScript Examples</a>
+      <a href="/js/js_dom_examples.asp" target="_top">HTML DOM Examples</a>
+      <a href="/jquery/jquery_examples.asp" target="_top">jQuery Examples</a>
+      <a href="/jquerymobile/jquerymobile_examples.asp" target="_top">jQuery Mobile Examples</a>
+      <a href="/angular/angular_examples.asp" target="_top">AngularJS Examples</a>
+      <a href="/ajax/ajax_examples.asp" target="_top">AJAX Examples</a>
+    </div>
+    <div class="exaitem">
+      <h3>Server Side</h3>
+      <a href="/php/php_examples.asp" target="_top">PHP Examples</a>
+      <a href="/asp/asp_examples.asp" target="_top">ASP Examples</a>
+      <a href="/vbscript/vbscript_examples.asp" target="_top">VBScript Examples</a>
+      <a href="/aspnet/webpages_examples.asp" target="_top">Razor Examples</a>
+      <a href="/aspnet/aspnet_examples.asp" target="_top">.NET Examples</a>
+    </div>
+    <div class="exaitem">
+      <h3>XML</h3>
+      <a href="/xml/xml_examples.asp" target="_top">XML Examples</a>
+      <a href="/dtd/dtd_examples.asp" target="_top">DTD Examples</a>
+      <a href="/dom/dom_examples.asp" target="_top">XML DOM Examples</a>
+      <a href="/xsl/xsl_examples.asp" target="_top">XSL Examples</a>
+      <a href="/xsl/xsl_examples.asp" target="_top">XSLT Examples</a>
+      <a href="/xpath/xpath_examples.asp" target="_top">XPath Examples</a>
+      <a href="/xquery/xquery_example.asp" target="_top">XQuery Examples</a>
+      <a href="/schema/schema_example.asp" target="_top">Schema Examples</a>
+      <a href="/svg/svg_examples.asp" target="_top">SVG Examples</a>
+    </div>
+  </div>  
+</div>
+<div class='container-fluid searchmenu'>
+  <span class="closemenu glyphicons glyphicons-circle-remove" id="hidesearchmenu"></span>
+  <br>
+  <br>
+  <br>
+  <div id="searchmenu">
+    Search w3schools.com:
+    <div id='googleSearch'><div class='gcse-search'></div></div>
+  </div>
+</div>
+<div class='container-fluid translatemenu'>
+  <span class="closemenu glyphicons glyphicons-circle-remove" id="hidetranslatemenu"></span>
+  <br>
+  <br>
+  <br>
+  <div id='translateSection'>
+    Translate w3schools.com:
+    <div id='google_translate_element'></div>
+  </div>
+</div>
+
+<div style="overflow:auto;">
+<div class="sidemenu hidden-sm hidden-xs">
+  <span class="glyphicons glyphicons-circle-remove" id="hidesidemenu"></span>
+  <br>
+  <h2>HTML/CSS</h2>
+  <a href="/html/default.asp">Learn HTML</a>
+  <a href="/css/default.asp">Learn CSS</a>
+  <a href="/bootstrap/default.asp">Learn Bootstrap</a>
+  <h2>JavaScript</h2>
+  <a href="/js/default.asp">Learn JavaScript</a>
+  <a href="/jquery/default.asp">Learn jQuery</a>
+  <a href="/jquerymobile/default.asp">Learn jQueryMobile</a>
+  <a href="/appml/default.asp">Learn AppML</a>
+  <a href="/angular/default.asp">Learn AngularJS</a>
+  <a href="/ajax/default.asp">Learn AJAX</a>
+  <a href="/json/default.asp">Learn JSON</a>
+  <h2>HTML Graphics</h2>
+  <a href="/canvas/default.asp">Learn Canvas</a>
+  <a href="/svg/default.asp">Learn SVG</a>
+  <a href="/googleapi/default.asp">Learn Google Maps</a>
+  <h2>Server Side</h2>
+  <a href="/sql/default.asp">Learn SQL</a>
+  <a href="/php/default.asp">Learn PHP</a>
+  <a href="/asp/default.asp">Learn ASP</a>
+  <a href="/aspnet/default.asp">Learn ASP.NET</a>
+  <a href="/vbscript/default.asp">Learn VBScript</a>
+  <h2>Web Building</h2>
+  <a href="/website/default.asp">Web Building</a>
+  <a href="/browsers/default.asp">Web Statistics</a>
+  <a href="/cert/default.asp">Web Certificates</a>
+  <h2>XML Tutorials</h2>
+  <a href="/xml/default.asp">Learn XML</a>
+  <a href="/dtd/default.asp">Learn DTD</a>
+  <a href="/schema/default.asp">Learn Schema</a>
+  <a href="/dom/default.asp">Learn XML DOM</a>
+  <a href="/xpath/default.asp">Learn XPath</a>
+  <a href="/xsl/default.asp">Learn XSLT</a>
+  <a href="/xquery/default.asp">Learn XQuery</a>
+  <a href="/webservices/default.asp">Learn WSDL</a>
+</div>
+<div class="mainsection">
+  <div class="container-fluid htmlsection">
+    <div class="row">
+      <div class="col-md-6 leftsection">
+        <h1>HTML</h1>
+        <p>The language for building web pages.</p>
+        <a href="/html/default.asp" class="tryitbtn">LEARN HTML</a>
+        <a href="/tags/default.asp" class="tryitbtn">HTML REFERENCE</a>      
+      </div>
+      <div class="col-md-6 rightsection hidden-xs">
+        <div class="row tryitdemo">
+          <div class="col-sm-12 col-xs-12 codearea">
+            <h2>HTML Example:</h2>
+            <div class="codecontainer htmlHigh notranslate">
+			  &lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;title&gt;HTML Tutorial&lt;/title&gt;<br>&lt;body&gt;<br>
+              <br>&lt;h1&gt;This 
+              is a heading&lt;/h1&gt;<br>&lt;p&gt;This is a 
+              paragraph.&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;
+            </div>
+          </div>
+          <a href="/html/tryit.asp?filename=tryhtml_default" target="_blank" class="tryitbtn tryit">Try it Yourself</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid csssection">
+    <div class="row">
+      <div class="col-md-6 rightsection hidden-md hidden-lg">
+        <h1>CSS</h1>
+        <p>The language for styling web pages.</p>
+        <a href="/css/default.asp" class="tryitbtn">LEARN CSS</a>
+        <a href="/cssref/default.asp" class="tryitbtn">CSS REFERENCE</a>
+      </div>
+      <div class="col-md-6 leftsection hidden-xs">
+        <div class="row tryitdemo cssdemo">
+          <div class="col-sm-12 col-xs-12 codearea">
+            <h2>CSS Example:</h2>
+            <div class="codecontainer cssHigh csscode notranslate">
+				body {<br>&nbsp; background-color: 
+				#d0e4fe;<br>}<br><br>h1 {<br>&nbsp; color: orange;<br>&nbsp; text-align: 
+				center;<br>}<br>
+				<br>p {<br>&nbsp; font-family: &quot;Times New Roman&quot;;<br>&nbsp; 
+				font-size: 20px;<br>}</div>
+          </div>
+          <a href="/css/tryit.asp?filename=trycss_default" target="_blank" class="tryitbtn tryit">Try it Yourself</a>
+        </div>
+      </div>
+      <div class="col-md-6 rightsection hidden-sm hidden-xs">
+        <h1>CSS</h1>
+        <p>The language for styling web pages.</p>
+        <a href="/css/default.asp" class="tryitbtn">LEARN CSS</a>
+        <a href="/cssref/default.asp" class="tryitbtn">CSS REFERENCE</a>      
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid javascriptsection">
+    <div class="row">
+      <div class="col-md-6 leftsection">
+        <h1>JavaScript</h1>
+        <p>The language for programming web pages.</p>
+        <a href="/js/default.asp" class="tryitbtn">LEARN JAVASCRIPT</a>
+        <a href="/jsref/default.asp" class="tryitbtn">JAVASCRIPT REFERENCE</a>      
+      </div>
+      <div class="col-md-6 rightsection hidden-xs">
+        <div class="row tryitdemo">
+          <div class="col-sm-12 col-xs-12 codearea">
+            <h2>JavaScript Example:</h2>
+            <div class="codecontainer notranslate">
+               <div class="htmlHigh">&lt;script&gt;</div><div class="jsHigh">function myFunction() {<br>&nbsp;&nbsp;&nbsp; var x = 
+               document.getElementById(&quot;demo&quot;);<br>&nbsp;&nbsp;&nbsp; 
+               x.style.fontSize = &quot;25px&quot;; <br>&nbsp;&nbsp;&nbsp; x.style.color = 
+               &quot;red&quot;; <br>}<br></div><div class="htmlHigh">&lt;/script&gt;<br><br>&lt;button onclick=&quot;myFunction()&quot;&gt;Click 
+               Me!&lt;/button&gt;</div>
+             </div>
+          </div>
+          <a href="/js/tryit.asp?filename=tryjs_frontpage" target="_blank" class="tryitbtn tryit">Try it Yourself</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid threesections1">
+    <div class="row">
+      <div class="col-md-4 section1">
+        <div class="threesec">
+          <h1>SQL</h1>
+          <p>A language for accessing databases.</p>
+          <a href="/sql/default.asp" class="tryitbtn">LEARN SQL</a>
+        </div>
+      </div>
+      <div class="col-md-4 section2">
+        <div class="threesec">
+          <h1>PHP</h1>
+          <p>A web server programming language.</p>
+          <a href="/php/default.asp" class="tryitbtn">LEARN PHP</a>
+        </div> 
+      </div>
+      <div class="col-md-4 section3">
+        <div class="threesec">
+          <h1>jQuery</h1>
+          <p>A JavaScript library for developing web pages.</p>
+          <a href="/jquery/default.asp" class="tryitbtn">LEARN JQUERY</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid threesections2">
+    <div class="row">
+      <div class="col-md-4 section1">
+        <div class="threesec">
+          <h1>Bootstrap</h1>
+          <p>Bootstrap is a CSS framework for designing better web pages.</p>
+          <a href="/bootstrap/default.asp" class="tryitbtn">LEARN BOOTSTRAP</a>
+        </div>
+      </div>
+      <div class="col-md-4 section2">
+        <div class="threesec">
+          <h1>Color Picker</h1>
+          <a href="/tags/ref_colorpicker.asp"><img class="colorpicker" src="/images/colorpicker.png"></a>
+        </div> 
+      </div>
+      <div class="col-md-4 section3">
+        <div class="threesec">
+          <h1>AngularJS</h1>
+          <p>AngularJS is a JavaScript framework for building web applications.</p>
+          <a href="/angular/default.asp" class="tryitbtn">LEARN ANGULARJS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <a href="/cert/default.asp" class="tryitbtn"><span class="glyphicons glyphicons-education" style="font-size:20px;"></span> WEB CERTIFICATES</a>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+    <div class="about">
+      <a href="/forum/default.asp" target="_blank">FORUM</a> |
+      <a href="/about/default.asp" target="_top">ABOUT</a>
+    </div>
+    W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding.
+    Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.
+    While using this site, you agree to have read and accepted our <a href="/about/about_copyright.asp">terms of use</a>, <a href="/about/about_privacy.asp">cookie and privacy policy</a>.<br>
+    <a href="/about/about_copyright.asp">Copyright 1999-2015</a> by Refsnes Data. All Rights Reserved.<br><br>
+    <br><a href="javascrip:void(0);" data-toggle="tooltip" data-placement="right" onclick="clickFBLike()" title="Like W3Schools on Facebook"><span class="share sharefblike glyphicons glyphicons-thumbs-up"></span></a>
+    <div id="fblikeframe">
+      <div id="popupframe"></div>
+      <div id="popupDIV"></div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+  $("#menubutton").click(function(){
+      if ($("#menubutton").css("background-repeat").indexOf("repeat-x") > -1) {
+          if ($(".menu-xs").css("display") == "none") {
+              $(".menu-xs").slideDown(200);
+          } else {
+              $(".menu-xs").slideUp(200);          
+          }
+          return;
+      }
+      if ($("#menubutton").css("background-repeat").indexOf("repeat-y") > -1) {
+          if ($("#tutsection-sm").html() == "") {
+              $("#tutsection-sm").html(document.getElementById("tutmenu").innerHTML);
+              $(".menu-sm").slideDown(200);
+          } else {
+              $("#tutsection-sm").html("");
+              $(".menu-sm").slideUp(200);
+          }
+          return;
+      } else {
+          $(".sidemenu").removeClass("sidemenucollapse");
+          $(".mainsection").removeClass("mainsectionexpand");
+          $("#menubutton").fadeOut(200);
+      }
+  });
+  $("#hidesidemenu").click(function(){
+      $(".sidemenu").addClass("sidemenucollapse");
+      $(".mainsection").addClass("mainsectionexpand");
+      $("#menubutton").fadeIn(200);
+  });
+  $("#menulinktutorials").click(function(){
+      $(".refmenu").css("display", "none");
+      $(".examenu").css("display", "none");
+      $(".searchmenu").css("display", "none");            
+      $(".translatemenu").css("display", "none");
+      $("#menulinktutorials").removeClass("dropup");
+      $("#menulinkreferences").removeClass("dropup");
+      $("#menulinkexamples").removeClass("dropup");      
+      if ($(".tutmenu").css("display") == "none") {
+          $(".tutmenu").slideDown(200);
+          $("#menulinktutorials").addClass("dropup");
+      } else {
+          $(".tutmenu").slideUp(200);
+      }
+  });
+  $("#hidetutmenu").click(function(){
+      $("#menulinktutorials").removeClass("dropup");
+      $(".tutmenu").slideUp(200);
+  });
+  $("#menulinkreferences").click(function(){
+      $(".tutmenu").css("display", "none");
+      $(".examenu").css("display", "none");
+      $(".searchmenu").css("display", "none");            
+      $(".translatemenu").css("display", "none");
+      $("#menulinktutorials").removeClass("dropup");
+      $("#menulinkreferences").removeClass("dropup");
+      $("#menulinkexamples").removeClass("dropup");      
+      if ($(".refmenu").css("display") == "none") {
+          $(".refmenu").slideDown(200);
+          $("#menulinkreferences").addClass("dropup");
+      } else {
+          $(".refmenu").slideUp(200);
+      }
+  });
+  $("#hiderefmenu").click(function(){
+      $("#menulinkreferences").removeClass("dropup");
+      $(".refmenu").slideUp(200);
+  });
+  $("#menulinkexamples").click(function(){
+      $(".tutmenu").css("display", "none");
+      $(".refmenu").css("display", "none");
+      $(".searchmenu").css("display", "none");            
+      $(".translatemenu").css("display", "none");
+      $("#menulinktutorials").removeClass("dropup");
+      $("#menulinkreferences").removeClass("dropup");
+      $("#menulinkexamples").removeClass("dropup");      
+      if ($(".examenu").css("display") == "none") {
+          $(".examenu").slideDown(200);
+          $("#menulinkexamples").addClass("dropup");          
+      } else {
+          $(".examenu").slideUp(200);
+      }
+  });
+  $("#hideexamenu").click(function(){
+      $("#menulinkexamples").removeClass("dropup");      
+      $(".examenu").slideUp(200);
+  });
+  $("#menulinksearch").click(function(){
+      $(".tutmenu").css("display", "none");
+      $(".refmenu").css("display", "none");
+      $(".examenu").css("display", "none");      
+      $(".translatemenu").css("display", "none");            
+      $("#menulinktutorials").removeClass("dropup");
+      $("#menulinkreferences").removeClass("dropup");
+      $("#menulinkexamples").removeClass("dropup");      
+      if ($(".searchmenu").css("display") == "none") {
+          $(".searchmenu").slideDown(200);
+      } else {
+          $(".searchmenu").slideUp(200);
+      }
+  });
+  $("#hidesearchmenu").click(function(){
+      $(".searchmenu").slideUp(200);
+  });
+  $("#menulinktranslate").click(function(){
+      $(".tutmenu").css("display", "none");
+      $(".refmenu").css("display", "none");
+      $(".examenu").css("display", "none");      
+      $(".searchmenu").css("display", "none");            
+      $("#menulinktutorials").removeClass("dropup");
+      $("#menulinkreferences").removeClass("dropup");
+      $("#menulinkexamples").removeClass("dropup");      
+      if ($(".translatemenu").css("display") == "none") {
+          $(".translatemenu").slideDown(200);
+      } else {
+          $(".translatemenu").slideUp(200);
+      }
+  });
+  $("#hidetranslatemenu").click(function(){
+      $(".translatemenu").slideUp(200);
+  });
+  $("#tutheader-xs").click(function(){
+      if ($("#tutsection-xs").html() == "") {
+          $("#tutsection-xs").html(document.getElementById("tutmenu").innerHTML);
+          $("#tutsection-xs").slideDown(200);      
+      } else {
+          $("#tutsection-xs").html("");
+          $("#tutsection-xs").slideUp(200);
+      }
+  });
+  $("#refheader-xs").click(function(){
+      if ($("#refsection-xs").html() == "") {
+          $("#refsection-xs").html(document.getElementById("refmenu").innerHTML);
+          $("#refsection-xs").slideDown(200);      
+      } else {
+          $("#refsection-xs").html("");
+          $("#refsection-xs").slideUp(200);
+      }
+  });
+  $("#exaheader-xs").click(function(){
+      if ($("#exasection-xs").html() == "") {
+          $("#exasection-xs").html(document.getElementById("examenu").innerHTML);
+          $("#exasection-xs").slideDown(200);      
+      } else {
+          $("#exasection-xs").html("");
+          $("#exasection-xs").slideUp(200);
+      }
+  });
+  $("#hidemenu-xs").click(function(){
+      $(".menu-xs").slideUp(200);
+  });
+  $("#hidemenu-sm").click(function(){
+      $("#tutsection-sm").html("");
+      $(".menu-sm").slideUp(200);
+  });
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+<script src="/w3schools.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>  
+<![endif]-->
+
+</body>
+</html>

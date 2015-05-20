@@ -1,0 +1,3157 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+                <!-- HTTP 1.1 -->
+        <meta http-equiv="Cache-Control" content="no-store"/>
+        <!-- HTTP 1.0 -->
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <!-- Prevents caching at the Proxy Server -->
+        <meta http-equiv="Expires" content="0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+        <link rel="icon" href="/images/favicon.ico"/>
+        <title>THE PHILIPPINE STOCK EXCHANGE, INC.</title>
+
+        <link rel="stylesheet" type="text/css" media="all" href="/styles/pse/theme.css" />
+        <link rel="stylesheet" type="text/css" media="print" href="/styles/pse/print.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/styles/pse/lofslider.css" />
+<!--		<link rel="stylesheet" type="text/css" media="all" href="/styles/pse/tickertape.css" />-->
+      
+<!--	    <script type="text/javascript" src="/scripts/prototype.mini.js"></script>-->
+<!--	    <script type="text/javascript" src="/scripts/scriptaculous.js"></script>-->
+<!--	    <script type="text/javascript" src="/scripts/global.js"></script>-->
+<!--		-->
+<!--		<script type="text/javascript" src="/scripts/ext-base.js"></script>-->
+<!--		<script type="text/javascript" src="/scripts/ext-all.js"></script>-->
+<!--		<script type="text/javascript" src="/scripts/ext-extension.mini.js"></script>-->
+<!--		<script type="text/javascript" src="/scripts/Ext.ux.plugins.mini.js"></script>-->
+<!--	    <script type="text/javascript" src="/flash/amstock/swfobject.js"></script>-->
+<!--		<script type="text/javascript" src="/scripts/fix-script.mini.js" ></script>       -->
+	 	<script type="text/javascript" src="/wro/stockMarketJs.js"></script>
+	
+		<script type="text/javascript">
+		var tWidth='950';                  // width (in pixels)
+		var tHeight='60';                  // height (in pixels)
+		var bgcolor='#000000';               // background colour:
+		var tcolor='#ffffff';				 // text color
+		var fontfamily = 'arial,sans-serif'; // font for content
+		var tSpeed=150;                        // scroll speed (1 = slow, 5 = fast)
+		var totalCount = 0;
+		
+		// enter your ticker content here (use \/ and \' in place of / and ' respectively)
+		var content;
+	
+		var cps=tSpeed; var aw, mq; var fsz = 12; 
+		
+		var milliseconds = 2000;
+		var interval;
+		var direction = 'L';
+		
+		var myStore;
+		var pausePlayState = 1; // 0 for pause
+		var forwardRewindState = 0; // 0 for normal speed
+		var movesNeeded = 0;
+		var movesMade = 0;
+		
+		function scrollticker() {
+			if(direction == 'L') {
+				if(movesMade < movesNeeded) {
+					mq.style.left = parseInt(mq.style.left)-cps+"px";
+					movesMade++;
+				} else { 
+					mq.style.left = parseInt(tWidth)+"px";
+					myStore.reload();
+					movesMade = 0;
+				}
+			} else {
+				if(movesMade > 0) {
+					mq.style.left = parseInt(mq.style.left)+cps+"px";
+					movesMade--;
+				}else {
+					mq.style.left = ((aw-950) * -1)+"px";
+					myStore.reload();
+					movesMade = movesNeeded;
+				}
+			}
+		}
+		
+		function playTicker() {
+			if(pausePlayState == 1) {
+				clearInterval(interval);
+				document.getElementById("ppbutton").src = "/images/play.png";
+				pausePlayState = 0;
+			} else {
+				document.getElementById("ppbutton").src = "/images/pause.png";
+				pausePlayState = 1;
+				interval = setInterval("scrollticker()", milliseconds);
+			}
+		}
+		
+		function forwardTicker() {
+			if(forwardRewindState == 0) {
+				document.getElementById("frbutton").src = "/images/rewind.png";
+				forwardRewindState = 1;
+				milliseconds = 1000;
+				if(pausePlayState == 1) {
+					clearInterval(interval);
+					interval = setInterval("scrollticker()", milliseconds);
+				}
+			} else {
+				document.getElementById("frbutton").src = "/images/forward.png";
+				forwardRewindState = 0;
+				milliseconds = 2000;
+				if(pausePlayState == 1) {
+					clearInterval(interval);
+					interval = setInterval("scrollticker()", milliseconds);
+				}
+			}
+		}
+		
+		function changeDirection() {
+			if(direction == 'L') {
+				direction = 'R';
+				document.getElementById("lrbutton").src = "/images/left.png";
+			} else {
+				direction = 'L';
+				document.getElementById("lrbutton").src = "/images/right.png";
+			}
+// 			movesMade = movesNeeded - movesMade;
+			if(pausePlayState == 1) {
+				clearInterval(interval);
+				interval = setInterval("scrollticker()", milliseconds);
+			}
+		}
+		</script>
+        <!--[if lte IE 6]>  
+			<link rel="stylesheet" type="text/css" media="all" href="/styles/pse/ie_fix.css" />
+		
+		<![endif]-->
+		<script type="text/javascript">
+			//TODO: move this elsewhere (fix for ie9)
+			if ((typeof Range !== "undefined") && !Range.prototype.createContextualFragment)
+			{
+			    Range.prototype.createContextualFragment = function(html)
+			    {
+			        var frag = document.createDocumentFragment(),
+			        div = document.createElement("div");
+			        frag.appendChild(div);
+			        div.outerHTML = html;
+			        return frag;
+			    };
+			}
+	
+		</script>
+</head>
+<body>
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<![endif]-->
+
+<div id="page" style="width:950px">
+	<br/>
+	<div id="header" class="clearfix">
+		
+		<!-- div id="BETATEXT" style="position:fixed; z-index:1000; top:0px; left:0px;width:100%;height:17px; ;color:gold; font-family:arial;padding:4px; filter: alpha(opacity=60);-moz-opacity:0.6;opacity: 0.6;">
+			<div class="rounded-corners" style="position:fixed;right:0px;text-align:right;width:300;background:gold;border:1px solid #FFB90F; padding:4px">
+				<a href="http://www2.pse.com.ph" >CLICK HERE TO VIEW THE OLD PSE WEBSITE&nbsp;</a>
+			</div>
+		</div-->
+		<div id="branding" >
+			<a id="webappLogo" href="http://www.pse.com.ph/stockMarket/home.html"><img src="/styles/pse/images/companyLogo.png"/></a>
+			
+		  	<div id="webappName">
+				<h1><a href="http://www.pse.com.ph/stockMarket/home.html"><!-- fmt:message key="webapp.name"/--><img height="20" src="/styles/pse/images/PSE Name.png" style="float:none"/></a></h1>
+				<span id="linkDescription">Follow us on:</span>
+				<a id="facebookLink" href="http://www.facebook.com/pages/The-Philippine-Stock-Exchange-Inc/269237133094" target="_blank"><img width="20" height="20" src="/styles/pse/images/facebookLogo30.png"></img></a>
+				<a id="twitterLink" href="http://twitter.com/PhStockExchange" target="_blank"><img width="20" height="20" src="/styles/pse/images/twitterLogo30.png"></img></a>
+			</div>
+<!--			<div id="myAccount" style="background:gold;float: left;padding-left:290px;padding-top:8px;padding-right:4px"></div>-->
+<!--		    <div id="myServices" style="background:violet;float: left;padding-top:8px;"></div>-->
+			<div id="headercomponents" >
+				<div id="securitySearch">
+			        <div id="search" style="border-bottom:1px solid silver;width:219px">
+			        </div>
+			     	<span style="color: #ffffff;padding-left:106px">Search for Securities</span>
+				</div>
+			</div>
+		</div>
+		
+		<div id="toolBar">
+<!--			<div style="width:70px; float:left">&nbsp;</div>-->
+			<a href="#" id="myTicker"><font color="#fffffff">TICKER</font></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="listing" href="/stockMarket/content.html?sec=LISTING_HEADER"><font color="#ffffff">LISTING at PSE</font><!-- img src="/styles/pse/images/topMenu8th.png" height="12"/--></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="investing" href="/stockMarket/content.html?sec=INVEST_HEADER"><font color="#ffffff">INVESTING at PSE</font><!--img src="/styles/pse/images/topMenu7th.png" height="12"/--></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="fees" href="/stockMarket/content.html?sec=FEES"><font color="#ffffff">FEES</font><!--img src="/styles/pse/images/topMenu6th.png" height="12"/--></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id= "glossary" href="#"><font color="#ffffff">GLOSSARY<!--img src="/styles/pse/images/topMenu2nd.png" height="12"/--></font></a>
+			<!--a href="#"><img src="/styles/pse/images/topMenu3rd.png"/></a-->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="feedback" href="#"><font color="#ffffff">FEEDBACK</font><!--img src="/styles/pse/images/topMenu4th.png" height="12"/--></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="listedCompanyDirectory.html"><font color="#ffffff">LISTING DIRECTORY</font><!--img src="/styles/pse/images/topMenu5th.png" height="12"/--></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="faq" href="/stockMarket/content.html?sec=FAQ_HEADER"><font color="#ffffff">FAQs</font><!--img src="/styles/pse/images/topMenu6th.png" height="12"/--></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+	
+			<script type="text/javascript">Ext.onReady(function() {
+
+	/**
+	 * start of glossary
+	 */
+	Ext.get('glossary').on("click", function() {
+		var dom = Ext.DomHelper;
+		var glossaryDS = new Ext.data.JsonStore({
+			url: 'glossary.html?method=showSmTerms&ajax=true',
+			root: 'records',
+			sortInfo: {
+				field: 'smTerm',
+				direction: 'ASC'
+			},
+			fields: ['smId', 'smTerm', 'smDefinition']
+		});
+		
+		var alphabetDs = new Ext.data.SimpleStore({
+			fields: ['letter'],
+			data: [['A'],['B'],['C'],['D'],['E'],['F'],['G'],['H'],['I'],['J'],['K'],['L'],['M'],
+			       ['N'],['O'],['P'],['Q'],['R'],['S'],['T'],['U'],['V'],['W'],['X'],['Y'],['Z']]
+		});
+		
+		var relatedTermDs = new Ext.data.JsonStore({
+			url: 'glossary.html?method=showRelatedTerms&ajax=true',
+			root: 'records',
+			sortInfo:{
+				field: 'term',
+				direction: 'ASC'
+			},
+			fields: ['relatedTermId','glossaryId','termId', 'term']
+		});
+		
+		var gPanel = new Ext.Panel({
+			id: 'gPanel',
+			bodyBorder: false,
+			bodyStyle: 'text-align: center;',
+			region    : 'north',
+			height: 20,
+			autoLoad: false,
+			html: '<b> <a id="number" href="#">#&nbsp</a> <a id="all" href="#">All&nbsp</a></b> '
+		});
+		
+		var defPanel = new Ext.Panel({
+			id: 'defPanel',
+			region    : 'center',
+			bodyStyle: 'padding: 5px',
+			margins: '5 0 0 0',
+			split: true
+        });
+		
+		var nav = new Ext.grid.GridPanel({
+			title: 'Navigation',
+	        region:'west',
+	        margins: '5 0 0 0',
+	        cmargins: '5 5 0 0',
+	        width: 175,
+	        minSize: 100,
+	        maxSize: 250,
+	        split: true,
+	        autoScroll: true,
+	        collapsible: true,
+	        store: glossaryDS,
+	        hideHeaders: true,
+	        columns: [{dataIndex: 'smTerm'}],
+	        viewConfig: {
+	            forceFit: true
+	        }
+		});
+		
+		glossaryDS.load();
+		var display = '';
+		nav.getSelectionModel().on('rowselect', function(sm, rowIdx, r) {
+			reloadPanel(r);
+		});
+		
+		function reloadPanel(r) {
+			display = '<h2 style="font-weight: bold">'+r.data.smTerm+'</h2><p>'+r.data.smDefinition+'</p>';
+			relatedTermDs.load({params: {'smId': r.get('smId') }});
+		};
+		
+		relatedTermDs.on('load', function(store){
+			display += '<br /><h2 style="font-weight: bold"> Related Terms: </h2>';
+			if(store.getCount() == 0) {
+				display += 'No Related Terms';
+			}
+			var defPanel = Ext.getCmp('defPanel');
+			dom.overwrite(defPanel.body, display);
+			store.each(function(e) {
+				var term = '<a id="relatedTerm_'+e.get('relatedTermId')+'" href="#">'+e.get('term') + '</a><br/>';
+				dom.insertHtml('beforeEnd', defPanel.body.dom, term);
+				var let = Ext.Element.get('relatedTerm_'+e.get('relatedTermId'));
+				let.on('click', function(){
+					var r = glossaryDS.getAt(glossaryDS.find('smId', e.get('termId')));
+					nav.getSelectionModel().clearSelections();
+					reloadPanel(r);
+				});
+			});
+		});
+
+
+		 var winGlossary = new Ext.Window({
+				title    : 'Glossary',
+				width	: 600,
+				height	: 350,
+	            layout   : 'border',
+	            modal	: 	true,
+	            items: [gPanel,nav,defPanel]
+		});
+		winGlossary.show();
+		alphabetDs.each(function(e) {
+			var dom = Ext.DomHelper;
+			var gPanel = Ext.getCmp('gPanel');
+			dom.insertHtml('beforeEnd', gPanel.body.dom, '<a id="letter_'+e.data.letter+'" href="#">'+e.data.letter+'</a> ');
+			var let = Ext.Element.get('letter_'+e.data.letter);
+			let.on('click', function() {
+				nav.store.filter('smTerm', let.dom.innerHTML);
+			});
+		});
+		
+		var showAll = Ext.Element.get('all');
+		showAll.on('click',function(){
+			nav.store.reload();
+		});
+		var showNumber = Ext.Element.get('number');
+		showNumber.on('click',function(){
+			nav.store.filter('smTerm', new RegExp('^[0-9]'));
+			console.log(showNumber.dom.innerHTML);
+		});
+	});
+		
+		/**
+		 * end of glossary
+		 */
+		
+		
+		/**
+		 * start of feedback
+		 */
+	
+		/*var topicDs = new Ext.data.JsonStore({
+		    url: 'departments.html?method=getDepartmentList&ajax=true',
+		    root: 'records',
+		    fields: [
+		        {name: 'deptCode'},
+		        {name: 'deptName'},
+		        {name: 'deptEmail'}
+		    ]
+		 });
+		 
+		 topicDs.load();*/
+		 
+		 var feebbackStaticContent = '<p>Allow us to be of service to you.' +
+		 					'<br><br>Please fill up the feedback form below if you have suggestions, recommendations and complaints' +
+		 					' regarding our service.  The information will be used solely by PSE and will not be divulged to other third parties.' + 
+		 					'<br><br>All comments are welcome.</p>';		 					
+		
+		Ext.get('feedback').on('click', function() {
+				var feedbackForm = new Ext.form.FormPanel({
+					labelWidth: 100,
+					defaultType: 'textfield',
+					bodyStyle: 'padding: 5px;',
+					height: 360,
+					items: [{
+							xtype: 'panel',
+							border: false,
+							bodyStyle: 'padding-top: 10px;',
+							html: feebbackStaticContent
+						}/*,{
+							xtype: 'combo',
+							store: topicDs,
+							displayField: 'deptName',
+							valueField: 'deptCode',
+							emptyText: 'Choose a topic of your comments.',
+							fieldLabel: 'Topic',
+							triggerAction: 'all',
+							mode: 'remote',
+							editable: false,
+							name: 'topic',
+							id: 'topic',
+							anchor: '100%',
+							listeners: {
+								select: function(combo, rec, index){
+									Ext.getCmp('sendTo').setValue(rec.get('deptEmail'));
+								}
+							}
+						}*/,{
+							fieldLabel: 'Subject',
+							name: 'subject',
+							id: 'subject',
+							anchor: '100%'
+						},{
+							xtype: 'textarea',
+							fieldLabel: 'Comments',
+							name: 'comments',
+							id: 'comments',
+							anchor: '100%'
+						},{
+							fieldLabel: 'Email',
+							name: 'email',
+							id: 'email',
+							anchor: '100%',
+							vtype: 'email',
+							allowBlank: false
+						}, {
+							xtype: 'hidden',
+							id: 'sendTo',
+							name: 'sendTo'
+						},{
+							xtype: 'fieldset',
+							autoHeight: true,
+							items:[
+								{
+									xtype: 'label',
+									text: 'Type the characters you see in the picture below'
+								},{
+									xtype: 'panel',
+									id: 'captchaPanel',
+									autoLoad: 'showCaptcha.html',
+									border: false
+								},{
+									id:'captchaInput',
+									xtype: 'textfield',
+									name: 'j_captcha_response',
+									hideLabel: true
+								},{
+									xtype: 'button',
+									text: 'Reload Image',
+									handler: function(){
+										Ext.get('captchaPanel').load({url: 'showCaptcha.html',nocache: true});
+										Ext.getCmp('captchaInput').reset();
+									}
+								}
+							]
+						}]
+				});
+			
+			var feedbackWin = new Ext.Window({
+				title: 'Feedback form',
+				width: 500,
+				height: 500,
+				minWidth: 500,
+				minHeight: 495,
+				layout: 'fit',
+				items: feedbackForm,
+				modal: true,
+				buttons: [{
+					text: 'Send',
+					handler: function() {
+						feedbackForm.getForm().submit({
+							url: 'departments.html?method=sendFeedback&ajax=true',
+                			waitMsg: 'Sending feedback...',
+                			success: function(form, action){
+								Ext.Msg.show({title: 'FEEDBACK SENT', msg: "Feedback successfully sent", buttons: Ext.Msg.OK});
+								feedbackWin.close();
+                			},
+                            failure: function(form, action){
+                            	Ext.Msg.show({title: 'ERROR', msg: action.result.error, buttons: Ext.Msg.OK});
+                            }
+                        });
+					}
+				},{
+					text: 'Cancel',
+					handler: function() {
+						feedbackWin.close();
+					}
+				}]
+			});
+			feedbackWin.show();
+		});
+		
+		/**
+		 * end of feedback
+		 */
+		
+		
+		/***
+		 * ticker
+		 * */
+		
+		myStore = new Ext.data.JsonStore({
+			url: 'home.html?method=getSecuritiesAndIndicesForPublic&ajax=true',
+		    fields: [
+				{name: 'securitySymbol', mapping : "securitySymbol"},
+				{name: 'securityAlias', mapping : "securityAlias"},
+				{name: 'totalVolume', mapping : "totalVolume"},
+				{name: 'percChangeClose', mapping : "percChangeClose"},
+				{name: 'lastTradedPrice', mapping : "lastTradedPrice"},
+				{name: 'indicatorImg', mapping : "indicatorImg"},
+				{name: 'indicator', mapping : "indicator"}
+			]
+		}); myStore.on('load', function(store, records, options){
+			if(store.getCount()) {
+				aw = document.getElementById('myTable').offsetWidth+950;//store.getCount()*130;
+				movesNeeded = (Math.floor(aw/150));
+			}
+		});
+
+		var myTpl = new Ext.XTemplate(
+	    		'<div class="ticker-class">',
+					'<table id="myTable" style="font-size:12px;text-align:left;background-color:#000000">',
+					'<tr>',
+					'<tpl for=".">',
+						'<tpl if="securitySymbol != \'\'">',
+							'<tpl if="indicator == \'U\'">',
+							'<td><div style="color: #66FF00;width:130px;">',
+							'</tpl>',
+							'<tpl if="indicator == \'D\'">',
+							'<td><div style="color: #F80000;width:130px;">',
+							'</tpl>',
+							'<tpl if="indicator == \'N\' || indicator == \'\'">',
+							'<td><div style="color: #33FFFF;width:130px;">',
+							'</tpl>',
+			          		'<b>{securitySymbol}</b></div></td>',
+						'</tpl>',
+			        '</tpl>',
+					'</tr>',
+					'<tr>',
+					'<tpl for=".">',
+						'<tpl if="securitySymbol != \'\'">',
+							'<tpl if="indicator == \'U\'">',
+							'<td><div style="color: #66FF00;width:130px;">',
+							'</tpl>',
+							'<tpl if="indicator == \'D\'">',
+							'<td><div style="color: #F80000;width:130px;">',
+							'</tpl>',
+							'<tpl if="indicator == \'N\' || indicator == \'\'">',
+							'<td><div style="color: #33FFFF;width:130px;">',
+							'</tpl>',
+			          		'<tpl if="lastTradedPrice == \'DATE\'">',
+			          		'<b>{securityAlias}',
+							'</tpl>',
+			          		'<b>{totalVolume}&nbsp;&nbsp;&nbsp;',
+			          		'<tpl if="percChangeClose != \'\'">',
+			          		'{percChangeClose}%',
+							'</tpl>',
+							'</b></div></td>',
+						'</tpl>',
+			        '</tpl>',
+					'</tr>',
+					'<tr>',
+					'<tpl for=".">',
+						'<tpl if="securitySymbol != \'\'">',
+							'<tpl if="indicator == \'U\'">',
+							'<td><div style="color: #66FF00;width:130px;">',
+							'</tpl>',
+							'<tpl if="indicator == \'D\'">',
+							'<td><div style="color: #F80000;width:130px;">',
+							'</tpl>',
+							'<tpl if="indicator == \'N\' || indicator == \'\'">',
+							'<td><div style="color: #33FFFF;width:130px;">',
+							'</tpl>',
+			          		'<tpl if="lastTradedPrice != \'DATE\'">',
+			          		'<b>{lastTradedPrice}</b>',
+							'</tpl></div></td>',
+						'</tpl>',
+			        '</tpl>',
+					'</tr>',
+			        '</table>',
+		        '</div>'
+			);
+
+	    var myView = new Ext.DataView({
+	        autoScroll: true, store: myStore, tpl: myTpl,
+	        autoHeight: true, multiSelect: false,
+		    border: false,
+	        itemSelector: 'div.ticker-class',
+	        emptyText: '&nbsp;Ticker is not available',
+	    });
+	    	    
+		function startticker() {
+			if (document.getElementById('flashTicker')) {
+				if(interval) {
+					clearInterval(interval);
+				}
+//				document.getElementById('flashTicker').innerHTML = '';
+				var tick = '<div style="position:relative;width:'+tWidth+'px;height:'+tHeight+'px;overflow:hidden;background-color:'+bgcolor+'"'; 
+				tick +='><div id="mq" style="position:absolute;left:0px;top:0px;font-family:'+fontfamily+';color:'+tcolor+';font-size:'+fsz+'px;white-space:nowrap;"><\/div>'+
+//							'<div style="display:block;position:absolute;top:0px;right:94px;width:10px;height:'+tHeight+'px;background-color:'+bgcolor+'">&nbsp;<\/div>'+
+							'<div style="display:block;position:absolute;top:0px;right:0px;width:20px;height:'+tHeight+'px;background-color:'+bgcolor+'">'+
+							'<input id = "ppbutton" type="image" src="/images/pause.png" height="15" name="image" onClick="playTicker();"><br/>'+
+//							'<input id = "ppbutton" type="image" src="/images/pause.png" height="28" name="image" onClick="pauseTicker();">'+
+							'<input id = "frbutton" type="image" src="/images/forward.png" height="15" name="image" onClick="forwardTicker();"><br/>'+
+							'<input id = "lrbutton" type="image" src="/images/right.png" height="15" name="image" onClick="changeDirection();"><br/>'+
+							'<\/div>'; 
+				document.getElementById('flashTicker').innerHTML = tick; 
+				document.getElementById('flashTicker').style.display="block";
+				mq = document.getElementById("mq"); 
+				mq.style.left=(parseInt(tWidth)+20)+"px"; 
+				mq.innerHTML='<span id="tx"><\/span>';
+
+				myStore.load();
+				var myPanel = new Ext.Panel({
+					id: 'myPanel',
+			    	autoWidth:true,
+				    autoHeight: true,
+				    border: false,
+				    items : myView,
+				    renderTo:'tx'
+				});
+				
+				interval = setInterval("scrollticker()", milliseconds);
+//				scrollticker();
+			}
+		}
+
+		Ext.get('myTicker').on("click", function() {
+			startticker();
+		});
+		/***
+		 * end of ticker
+		 * */
+	}
+
+);</script>
+			
+			
+			
+			
+			<script type="text/javascript">
+				Ext.onReady(function(){
+	
+	Ext.Ajax.timeout = 120000;
+ 
+    var ds = new Ext.data.JsonStore({
+		url: 'home.html?method=findSecurityOrCompany&ajax=true',
+		totalProperty: 'totalCount',
+	    root: 'records',
+	    fields: [
+			{name: 'securityId'},
+            {name: 'symbol'},
+            {name: 'securityName'},
+            {name: 'listedCompany_companyName'},
+            {name: 'listedCompany_companyId'},
+            {name: 'companyId'},
+            {name: 'listedCompanyName'},
+            {name: 'percentMatch'},
+			{name: 'securityStatus'}
+		]
+	});
+
+    var resultTpl = new Ext.XTemplate(
+        '<tpl for="."><div class="search-item">',
+        	'<div style="padding:2px">',
+	        	'<tpl if="securityId != null">',
+	            	'<div style="font-weight:bold">',
+						'<tpl if="securityStatus === \'L\'">',
+							'[Delisted] ', 
+						'</tpl>',
+						'<tpl if="securityStatus === \'C\'">',
+							'[Declassified] ',
+						'</tpl>',
+						'{symbol}',
+					'</div>',
+	            	'<small>{securityName}&nbsp;</small>',
+//	            	'{listedCompany_companyName}',
+	            '</tpl>',
+//	            '<tpl if="companyId != null">',
+//	        		'<div style="font-weight:bold">{listedCompanyName}</div>',
+//	        	'</tpl>',
+//	        	'<div style="font-size:10px">Matched {percentMatch}</div>',
+        	'</div>',
+        '</div></tpl>'
+    );
+	
+	var searchCombo = new Ext.form.ComboBox({
+		renderTo: 'search',
+		emptyText:'Type-in Symbol',
+		id: 'searchComboBox',
+		store: ds,
+        autoHeight: true,
+        loadingText: 'Searching...',
+        width: 220,
+        pageSize:6,
+        minChars: 1,
+        hideTrigger:false,
+        tpl: resultTpl,
+        itemSelector: 'div.search-item',
+        onSelect: function(record){ 
+        	if(record.get('listedCompany_companyId') != ""){
+				if(record.get('securityStatus') != "L" && record.get('securityStatus') != "C") {
+					Ext.getCmp('searchComboBox').collapse();
+					//Ext.Msg.wait('Loading '+record.get('listedCompany_companyName')+'   ');
+					window.location = String.format('companyInfo.html?id={0}&security={1}&tab=0', record.get('listedCompany_companyId'), record.get('securityId'));	
+				}
+            }
+            else{
+               	window.location = String.format('companyInfo.html?id={0}&tab=1', record.get('companyId'));
+            }
+        }
+	});
+    
+   Ext.form.TriggerField.override({
+	    afterRender: function() {
+	         Ext.form.TriggerField.superclass.afterRender.call(this);
+	    }
+	});
+});
+			</script>
+			 
+<!--			<script type="text/javascript">-->
+<!--				Ext.onReady(function(){
+	Ext.QuickTips.init();
+	
+	var myAccountButton = new Ext.Button({
+		text: 'My Account',
+		//	
+		hidden: true,
+		//
+		renderTo: 'myAccount',
+		handler: function(){
+			window.open('myServices.html?tab=5');
+		}
+	});
+	
+	var myServicesButton = new Ext.Button({
+		text: 'My Services',
+		//	
+		hidden: true,
+		//
+		renderTo: 'myServices',
+		handler: function(){
+			window.open('myServices.html');
+		}
+	});
+});-->
+<!--			</script>-->
+			
+	</div>
+	<div id="flashTicker" style="display: none;"></div>
+	
+    <div id="contentStockMarket" class="clearfix">
+		<div id="main" style="width:100%;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+	.sideMenuItem {
+		border:#591422 solid 1px;
+		border-bottom:0px; 
+		background-color: #EFEFEF;
+	}
+	
+	.sideMenuSubItem {
+		border-bottom:#591422 solid 1px;
+	}
+	
+	.sideMenuMain ul{
+		border-top:0px;
+		border-bottom:0px;
+	}
+
+	.x-date-date em{
+		text-decoration:none;
+		font-style:normal;
+		font-family:arial;
+	}
+	.x-date-active em{
+		color:#1465B7;
+	}
+	.x-date-picker{
+		border:1px solid silver
+	}
+	.x-date-bottom{
+		background:#D8D8D8;
+	}
+	.x-btn-text{
+		color:#383838 ;
+	}
+	.x-date-inner th{
+		background:#D8D8D8;
+	}
+</style>
+<div id="governanceTab-Main" class="x-hidden">
+	<ul class="sideMenuMain">
+		<div id="governanceTab" class="x-hidden">
+			<ul class="sideMenuMain">
+				<li class="sideMenuSubItem"><a href="pseCorporateGovernance.html?ref=guidelines">Guidelines for Listed Companies</a></li>
+				<li class="sideMenuSubItem"><a href="pseCorporateGovernance.html?ref=bellAwards">The PSE Bell Awards</a></li>
+				<li class="sideMenuSubItem" style="border-bottom:0px"><a href="pseCorporateGovernance.html?ref=scoreCard">ASEAN CG Scorecard</a></li>
+			</ul>
+		</div>
+		<li class="sideMenuItem"><a href="/corporate/corporateGovernance.html?tab=0">Corporate Governance at PSE</a></li>
+	</ul>
+</div>
+		
+<div id="newsNAnn" class="x-hidden">
+	<ul class="sideMenuMain">
+		<li class="sideMenuItem"><a href="pressRoom.html">Press Room</a></li>
+		<li class="sideMenuItem"><a href="circulars.html">PSE Circulars</a></li>
+		<li class="sideMenuItem"><a href="announcements.html">Announcements</a></li>
+	</ul>
+</div>
+
+<div id="marketInfo" class="x-hidden">
+	<ul class="sideMenuMain">
+		<div id="marketInfo-marketActivity" class="x-hidden">
+			<ul class="sideMenuMain">
+				<li class="sideMenuSubItem"><a href="marketInfo-marketActivity.html?tab=0">Composite &amp; Sector Indices</a></li>
+				<li class="sideMenuSubItem"><a href="marketInfo-marketActivity.html?tab=1">Indices Composition</a></li>
+				<!--li class="sideMenuSubItem"><a href="marketInfo-marketActivity.html?tab=2">Charts</a></li-->
+				<li class="sideMenuSubItem"><a href="marketInfo-marketActivity.html?tab=2">Most Active</a></li>
+				<li class="sideMenuSubItem"><a href="marketInfo-marketActivity.html?tab=3">Advances/Declines</a></li>
+				<li class="sideMenuSubItem"><a href="marketInfo-marketActivity.html?tab=4">Market Reports</a></li>
+				<li class="sideMenuSubItem" style="border-bottom:0px"><a href="marketInfo-marketActivity.html?tab=5">Index History</a></li>
+			</ul>
+		</div>
+
+		<div id="marketInfo-globalMarkets" class="x-hidden">
+			<ul class="sideMenuMain">
+				<li class="sideMenuSubItem"><a href="marketInfo-globalMarkets.html?tab=0">Market Indices</a></li>
+				<li class="sideMenuSubItem"><a href="marketInfo-globalMarkets.html?tab=1">FTSE ASEAN Indices</a></li>
+				<li class="sideMenuSubItem"><a href="marketInfo-globalMarkets.html?tab=2">Historical Index</a></li>
+				<li class="sideMenuSubItem"><a href="marketInfo-globalMarkets.html?tab=3">Foreign Quotations</a></li>
+				<li class="sideMenuSubItem" style="border-bottom:0px"><a href="marketInfo-globalMarkets.html?tab=4">Currency Rates</a></li>
+			</ul>
+		</div>
+		<li class="sideMenuItem"><a href="fundsView.html?method=getFundView">Funds</a></li>
+		<li class="sideMenuItem"><a href="content.html?sec=MARKET_WATCH_CONTENTS">Weekly Market Watch</a></li>
+	</ul>
+</div>
+
+<div id="listNDisc" class="x-hidden">
+	<ul class="sideMenuMain">
+		<li class="sideMenuItem"><a href="listedCompanyDirectory.html">Listed Company Directory</a></li>
+		<!-- li class="sideMenuItem"><a href="companyInfo.html?tab=0">Company Information</a></li-->
+		<li class="sideMenuItem"><a href="newListingsIpo.html">New Listings/IPO</a></li>
+		<li class="sideMenuItem"><a href="disclosures.html">Corporate Disclosures</a></li>
+		<li class="sideMenuItem"><a href="dividendRights.html">Dividends/Rights</a></li>
+		<!-- li class="sideMenuItem"><a href="watchList.html">Watchlist</a></li-->
+	</ul>
+</div>
+
+<div id="prodNServices" class="x-hidden">
+	<ul class="sideMenuMain">
+		<div id="prodNServices-ETF" class="x-hidden">
+			<ul class="sideMenuMain">
+				<li class="sideMenuSubItem"><a href="exchangeTradedFund.html?tab=0">Overview</a></li>
+				<li class="sideMenuSubItem"><a href="exchangeTradedFund.html?tab=1">FAQs</a></li>
+ 				<li class="sideMenuSubItem"><a href="exchangeTradedFund.html?tab=2">List of ETFs</a></li>
+				<li class="sideMenuSubItem"><a href="exchangeTradedFund.html?tab=3">Downloads</a></li>
+<!-- 				<li class="sideMenuSubItem"><a href="exchangeTradedFund.html?tab=4">Related Links</a></li> -->
+ 				<li class="sideMenuSubItem" style="border-bottom:0px"><a href="exchangeTradedFund.html?tab=4">Market Makers</a></li>
+<!-- 				<li class="sideMenuSubItem" style="border-bottom:0px"><a href="exchangeTradedFund.html?tab=5">ETF Training Schedule</a></li> -->
+			</ul>
+		</div>
+		<div id="prodNServices-Shariah" class="x-hidden">
+			<ul class="sideMenuMain">
+				<li class="sideMenuSubItem"><a href="shariah.html?tab=0">Overview</a></li>
+				<li class="sideMenuSubItem"><a href="shariah.html?tab=1">Methodology</a></li>
+				<li class="sideMenuSubItem"><a href="shariah.html?tab=2">Shariah Compliant Securities</a></li>
+				<li class="sideMenuSubItem" style="border-bottom:0px"><a href="shariah.html?tab=3">Downloads</a></li>
+			</ul>
+		</div>
+		<li class="sideMenuItem"><a href="/SBL" target="_blank">Securities Borrowing and Lending</a></li>
+		<!-- li class="sideMenuItem"><a href="/portfolio/index.jsp" target="_blank">My Portfolio</a></li-->
+		<li class="sideMenuItem"><a href="/REIT" target="_blank">Real Estate Investment Trust</a></li>
+		<!-- li class="sideMenuItem"><a href="myPortfolio.html?tab=0">My Portfolio</a></li>-->
+		<li class="sideMenuItem"><a href="marketDataProducts.html?tab=0">Data Products</a></li>
+<!--	<li class="sideMenuItem"><a href="tradingProducts.html?tab=0">Trading Products</a></li>
+		<li class="sideMenuItem"><a href="pseBusinessCentre.html?tab=0">PSE Business Centre</a></li>
+		<li class="sideMenuItem"><a href="underConstruction.html">E-Wallet</a></li-->
+	</ul>
+</div>
+
+<!--<div id="marketEduc" class="x-hidden">-->
+<!--	<ul class="sideMenuMain">-->
+<!--		<li class="sideMenuItem"><a href="http://www.pseacademy.com.ph/" target="_blank">PSE Academy Website</a></li>-->
+<!--		<li class="sideMenuItem"><a href="marketEducation.html?tab=0">Programs</a></li>-->
+<!--		<li class="sideMenuItem"><a href="marketEducation.html?tab=1">Events</a></li>-->
+<!--		<li class="sideMenuItem"><a href="marketEducation.html?tab=2">Reading Materials</a></li>-->
+<!--		<li class="sideMenuItem"><a href="marketEducation.html?tab=3">Virtual Trading Game</a></li>-->
+<!--		<li class="sideMenuItem"><a href="marketEducation.html?tab=4">E-Toro</a></li>-->
+<!--	</ul>-->
+<!--</div>-->
+
+<div id="brokers" class="x-hidden">
+	<ul class="sideMenuMain">
+		<li class="sideMenuItem"><a href="tradingParticipants.html?tab=0">Directory</a></li>
+<!-- 		<li class="sideMenuItem"><a href="tradingParticipants.html?tab=1">Ranking Report</a></li> -->
+		<li class="sideMenuItem"><a href="tradingParticipants.html?tab=1">Online Brokers</a></li>
+	</ul>
+</div>
+
+<div id="onlineSys" class="x-hidden">
+	<ul class="sideMenuMain">
+		<li class="sideMenuItem"><a href="https://csd.sccp.com.ph" target="_blank">SCCP - CSD</a></li>
+		<li class="sideMenuItem"><a href="https://cch.sccp.com.ph" target="_blank">SCCP - CCH</a></li>
+		<li class="sideMenuItem"><a href="https://www.pse.ph/index.jsp" target="_blank">iPSE</a></li>
+		<!-- li class="sideMenuItem"><a href="https://odisy.pse.ph/j2ee/odisy/index.jsp" target="_blank">ODiSy</a></li-->
+		<li class="sideMenuItem"><a href="http://www.pse.ph/html/STG/index.html" target="_blank">Stock Trading Games</a></li>
+		<!-- li class="sideMenuItem"><a href="http://www.pse.ph/sbl/index.html" target="_blank">Security Lending Program</a></li-->
+		<!-- li class="sideMenuItem"><a href="/nts/index.htm" target="_blank">PSETrade Update Website </a></li> -->
+		<li class="sideMenuItem"><a href="/xts/index.htm" target="_blank">PSETrade Update Website </a></li>
+		<li class="sideMenuItem"><a href="/PSETradex" target="_blank">PSETradex </a></li>
+	</ul>
+</div>
+
+<div id="pseRulesNReg" class="x-hidden">
+	<ul class="sideMenuMain">
+		<li class="sideMenuItem"><a href="listedCompaniesRules.html?tab=0">Listed Companies</a></li>
+		<li class="sideMenuItem"><a href="tradingParticipantRules.html?tab=0">Trading Participants</a></li>
+		<li class="sideMenuItem"><a href="tradingProductsRules.html?tab=0">Trading Products</a></li>
+		<li class="sideMenuItem"><a href="amla.html?tab=0">Anti-Money Laundering</a></li>
+		<li class="sideMenuItem" style="border-bottom:#591422 solid 1px "><a href="indexRules.html?tab=0">Index</a></li>
+<!--		<li class="sideMenuItem"><a href="publicRules.html">Public</a></li>-->
+		<!-- li class="sideMenuItem"><a href="underConstruction.html">Clearing and Settlement</a></li-->
+	</ul>
+</div>
+<!--<div id="aseanLogo" class="x-hide-display" ><a href="http://www.aseanexchanges.com" target="_blank"><img src="/styles/pse/images/aseanExchangesLogo177.jpg"/></a></div>-->
+
+<script type="text/javascript">
+var internalSideMenu = new Ext.Panel({
+	    region: 'center',
+	    layout:'accordion',
+	    border: false,
+	    //activeItem: 1,
+	    defaults: {
+	        // applied to each contained panel
+		
+	    },
+	    layoutConfig: {
+	        // layout-specific configs go here
+	        hideCollapseTool: false,
+	        titleCollapse: false,
+	        animate: true
+	    },
+	    items: [{
+	        title: 'About PSE',
+	        hideCollapseTool: true,
+	        titleCollapse: true,
+	        collapsed:true,
+	        listeners: {
+	        	'beforeexpand' : {
+	        		fn: function() {
+//	        			window.location = '/stockMarket/home.html';
+	        			window.open('/corporate/home.html');
+	        			return false;
+	        		}
+	        	}
+        	}
+	    },{
+	        title: 'Governance',
+	        titleCollapse: true,
+	        collapsed:true,
+			//
+	        contentEl: 'governanceTab-Main',
+	        autoHeight:true,
+			cls:'accordion-link',
+	        items: [{
+	        	xtype: 'panel',
+	        	layout:'accordion',
+	        	border: false,
+//	   			cls:'no-background-image',
+			    defaults: {
+			        // applied to each contained panel
+			        bodyStyle: 'padding:5px; background-color: #FFFEFF; border:1px solid #591422;',
+			        cls:'no-background-image'
+			    },
+			    layoutConfig: {
+			        // layout-specific configs go here
+			        hideCollapseTool: false,
+			        titleCollapse: false,
+			        animate: true
+			    },
+			    items: [{
+			        title: '<a style= "color: #444444">Market Governance</a>',
+			        titleCollapse: true,
+					collapsed:true,
+			        collapsed:false,
+			        autoWidth: true,
+			        autoHeight: true,
+			        contentEl: 'governanceTab'
+			    }]
+	        }]
+	    },{
+	    	id: 'newsNAnn',
+	        title: 'News & Announcements',
+	        titleCollapse: true,
+	        contentEl: 'newsNAnn',
+	        collapsed:true,
+	        //
+	        autoHeight:true,
+			cls:'accordion-link'
+	    },{
+	        title: 'Market Information',
+	        titleCollapse: true,
+			collapsed:true,
+	        //
+	        contentEl: 'marketInfo',
+			cls:'accordion-link',
+	        autoHeight:true,
+	        items: [{
+	        	xtype: 'panel',
+	        	layout:'accordion',
+	        	border: false,
+//	   			cls:'no-background-image',
+			    defaults: {
+			        // applied to each contained panel
+			        bodyStyle: 'padding:5px; background-color: #FFFEFF; border:1px solid #591422;',
+			        cls:'no-background-image'
+			    },
+			    layoutConfig: {
+			        // layout-specific configs go here
+			        hideCollapseTool: false,
+			        titleCollapse: false,
+			        animate: true
+			    },
+			    items: [{
+			        title: '<a href="marketInfo-marketActivity.html?tab=0" style= "color: #444444">Market Activity</a>',
+			        titleCollapse: true,
+					collapsed:true,
+			        //
+			        autoWidth: true,
+			        autoHeight: true,
+			        contentEl: 'marketInfo-marketActivity'
+			    },{
+			        title: '<a href="marketInfo-globalMarkets.html" style= "color: #444444">Global Markets</a>',
+			        titleCollapse: true,
+					collapsed:true,
+			        //
+			        autoWidth: true,
+			        autoHeight: true,
+			        contentEl: 'marketInfo-globalMarkets'
+			    }]
+	        }]
+	    },{
+	        title: 'Listings & Disclosures',
+	        titleCollapse: true,
+	        collapsed:true,
+	        //
+	        contentEl: 'listNDisc',
+	        autoHeight:true,
+			cls:'accordion-link'
+	    }
+		,{
+	        title: 'Products & Services',
+	        titleCollapse: true,
+	        collapsed:true,
+			//
+	        contentEl: 'prodNServices',
+	        autoHeight:true,
+			cls:'accordion-link',
+	        items: [{
+	        	xtype: 'panel',
+	        	layout:'accordion',
+	        	border: false,
+//	   			cls:'no-background-image',
+			    defaults: {
+			        // applied to each contained panel
+			        bodyStyle: 'padding:5px; background-color: #FFFEFF; border:1px solid #591422;',
+			        cls:'no-background-image'
+			    },
+			    layoutConfig: {
+			        // layout-specific configs go here
+			        hideCollapseTool: false,
+			        titleCollapse: false,
+			        animate: true
+			    },
+			    items: [{
+			        title: '<a href="exchangeTradedFund.html?tab=0" style= "color: #444444">Exchange Traded Fund</a>',
+			        titleCollapse: true,
+					collapsed:true,
+			        //
+			        autoWidth: true,
+			        autoHeight: true,
+			        contentEl: 'prodNServices-ETF'
+			    },{
+			        title: '<a href="shariah.html?tab=0" style= "color: #444444">Shariah</a>',
+			        titleCollapse: true,
+					collapsed:true,
+			        //collapsed:false,
+			        autoWidth: true,
+			        autoHeight: true,
+			        contentEl: 'prodNServices-Shariah'
+			    }]
+	        }]
+	    }
+//		,{
+//	        title: 'PSE Academy',
+//	        titleCollapse: true,
+//	        collapsed:true,
+//	        //
+//	        contentEl: 'marketEduc',
+//			cls:'accordion-link',
+//	        autoHeight:true
+//	    }
+		,{
+	        title: 'PSE Academy',
+	        hideCollapseTool: true,
+	        titleCollapse: true,
+	        collapsed:true,
+	        height: 0,
+	        listeners: {
+	        	'beforeexpand' : {
+	        		fn: function() {
+	        			window.open('http://www.pseacademy.com.ph');
+	        			return false;
+	        		}
+	        	}
+	    	}
+		}
+		,{
+	        title: 'Trading Participants',
+	        titleCollapse: true,
+	        collapsed:true,
+	        //
+			contentEl: 'brokers',
+			cls:'accordion-link',
+			autoHeight:true
+	    },{
+	        title: 'Online Systems',
+	        titleCollapse: true,
+	        collapsed:true,
+	        contentEl: 'onlineSys',
+			cls:'accordion-link',
+	        autoHeight:true
+	    },{
+	        title: 'Rules & Regulations',
+	        titleCollapse: true,
+	        collapsed:true,
+	        //
+	        contentEl: 'pseRulesNReg',
+			cls:'accordion-link',
+	        autoHeight:true
+	    }]
+	});
+
+	var sideMenu = new Ext.Panel({
+		border: false,
+		items: [
+		        internalSideMenu,
+		        {
+		        	xtype: 'panel',
+					border: false,
+					align:'right',
+					items: [
+		    	        {	xtype:'label', 
+							 html:'<br/>'
+						 }]
+		        },{
+			        autoLoad: {
+		        		url: 'login.html',
+		        		params: 'ajax=true',
+		        		//
+						method: 'GET', 
+		        		scripts: true
+		        	}
+		        },
+		        {
+		        	xtype: 'panel',
+					border: false,
+					align:'right',
+					items: [
+		    	        {	xtype:'label', 
+							 html:'<br/>'
+						 },
+			    	     {	xtype:'label', 
+							 html:'<small><span style="color:#383838;font-weight:normal;">Records by date</span></small>'
+			    	     },
+		    	        {	xtype:'label', 
+							 html:'<br/>'
+						 },
+						 {	
+							 xtype: 'pseCalendar'
+						 },
+						 //{
+			    	     //	 xtype:'panel',
+						 //	 border: false,
+			    	     //	 id: 'bullrunPoster_logos',
+			             //    name: 'bullrunPoster_logos',
+			             //   html: '<a href="/resource/memos/2015/MEA_2015-0010.pdf" target="_blank"><img src="/resource/staticcontent/images/Bull Run 2015 Official Poster.png" align="top" width="100%"/></a><br>'
+						 //},
+						 {
+			    	    	 xtype:'panel',
+							 border: false,
+			    	    	 id: 'subsidiaryPoster',
+			                 name: 'subsidiaryPoster',
+			                 html: '<img src="/resource/subsidiary-icon.jpg" align="top" width="100%"/>'
+						 },
+						 {	xtype:'label', 
+							 html:'<br/>'
+						 },
+						 {
+			    	    	 xtype:'panel',
+							 border: false,
+			    	    	 id: 'subsidiaryPoster_logos',
+			                 name: 'subsidiaryPoster_logos',
+			                 html: '<a href="http://www.sccp.com.ph" target="_blank"><img src="/resource/sccp-homeicon.jpg" align="top" width="50%"/></a><a href="http://www.cmic.com.ph" target="_blank"><img src="/resource/cmic-homeicon.jpg" align="top" width="50%"/></a>'
+						 }
+
+					 ]
+		        }
+		]
+	});
+	
+	function showProfile(profile, name) {
+		if(profile == ''){
+			profile = '<i>Not available.</i>'
+		}
+		var profileWindow = new Ext.Window({
+			title: name,
+			width: 550,
+			height: 934,
+			scrollable: true,
+			layout: 'fit',
+			items: [{
+					xtype: 'panel',
+					border: false,
+					bodyStyle: 'padding: 10px;text-align:justify',
+					html: '<center><img src="'+profile+'" width="500px"/></center>'
+					}],
+			modal: true
+		});
+		profileWindow.show();
+	}
+</script>
+ 
+<!--<script type="text/javascript" src="/scripts/Dom.js"></script>-->
+<!--<script type="text/javascript" src="/scripts/json.js"></script>-->
+<script type="text/javascript" src="/scripts/jQuery/jquery.js"></script>
+<script type="text/javascript" src="/scripts/jQuery/jquery.easing.js"></script>
+<script type="text/javascript" src="/scripts/jQuery/lofslider_topdown.js"></script>
+<script type="text/javascript" src="/scripts/jQuery/lofslider.js"></script>
+<script type="text/javascript" src="/scripts/renderValues.js"></script>
+<!--<script type="text/javascript" src="/scripts/TickerTape.js?v101"></script>-->
+
+<!--<script type="text/javascript" src="/scripts/swfobject.js"></script>-->
+<link rel="stylesheet" type="text/css" media="all" href="/styles/pse/lofslider-td.css" />
+<style type="text/css">
+	/*
+	 * indices tab style override
+	 */
+	 .x-grid3-header-offset {width:100% !important;}
+	 .x-grid3-header-inner {width:100% !important;}	
+	.x-grid3-row {width:100% !important;}
+	.x-grid3 table {
+    	width: 100% !important;
+	}
+	ul.x-tab-strip-top {
+		background:#ffffff;
+	}
+	.moreButton td{
+		background-image:none;
+	}
+	.moreButton {
+		border:0px dashed pink;
+		padding-left:285px;
+		padding-top:0px;
+		padding-bottom:10px;
+	}
+	.x-btn-text {
+		color:gray;
+	}
+	.asm-info {
+		font-size: 10px;
+		font-weight: bold;
+	}
+	#announcementsListings div {
+		background:transparent;
+	}
+	#announcementsDisclosures div {
+		background:transparent;
+	}
+	#announcementsMarketEducation div {
+		background:transparent;
+	}
+	#announcementsTradingParticipants div {
+		background:transparent;
+	}
+	#announcementsASM div {
+		background:transparent;
+	}
+</style>
+ 		<!-- div id="flashTicker" >
+			<script type="text/javascript">
+				//
+				var so = new SWFObject("/flash/Ticker.swf","ticker0000","950","50","9","#000000");
+				//
+				////
+				so.addParam("wmode","transparent");	
+				so.write("flashTicker");
+	
+			</script>
+		</div-->
+		<div id='border-panel' style="clear: both;padding:0px;margin:2px"></div>
+<!--		<div id="aseanLogo" class="x-hide-display" ><a href="http://www.aseanexchanges.com" target="_blank"><img src="/styles/pse/images/aseanExchangesLogo177.jpg"/></a></div>-->
+			
+		<div id="stock-tabs">
+			<input type="button" class="x-btn" id="pop-btn" value="[pop]" style="visibility:hidden"/>
+			<div id="indices" ></div>
+			<div id="most-active" class="x-hide-display"></div>
+			<div id="advances" class="x-hide-display"></div>
+			<div id="declines" class="x-hide-display"></div>
+		</div>
+		
+		<div id="etf-tabs">
+			<input type="button" class="x-btn" id="pop-btn" value="[pop]" style="visibility:hidden"/>
+			<div id="etf" ></div>
+		</div>
+		
+		<div id="main-content">
+			<div style="position:relative;top:-17px;">
+			<div id="lofslidecontent45" class="lof-slidecontent" style="border:0px;width:440px; height:285px;">
+				<div class="preload"><div></div></div>
+			  	<div class="lof-main-outer" style="width:440px; height:285px;">
+			  		<ul class="lof-main-wapper" id="homeImages">
+			  		</ul>
+				</div>
+				<div class="lof-navigator-wapper">
+        		<div onclick="return false" href="" class="lof-next">Next</div>
+      			<div class="lof-navigator-outer">
+        			<ul class="lof-navigator" id="homeImageThumbs">
+		            </ul>
+      			</div>
+       			<div onclick="return false" href="" class="lof-previous">Previous</div>
+ 			</div> 
+			</div>
+			<div id="lofslidecontent46" class="lof-slidecontent-td" style="background-image: url('/resource/homeimage/images/pse%20edge%20banner%20leather.jpg');background-repeat: no-repeat; background-size:440px 142px;background-position: 0px 1px;border:0px;width:440px; height:144px;">
+				<div class="preload-td"><div></div></div>
+			  	<div class="lof-main-outer-td" style="width:440px; height:144px;">
+			  		<ul class="lof-main-wapper-td" id="homeImages-td" style="background-image: none !important;">
+			  		</ul>
+				</div>
+ 			</div> 
+			<br/>
+			<div class="home-sections">
+			<div>
+<!--				<a target="_blank" href="http://edge.pse.com.ph"><img width="100%" src="/resource/homeEdgeBanner.jpg"></a> -->
+<!--			<br><br> -->
+			<i>To view the latest disclosure reports, please visit the PSE EDGE website at 
+				  <a target="_blank" href="http://edge.pse.com.ph">http://edge.pse.com.ph</a>
+			</i>
+			<br><br>
+<!-- 				<a href="announcements.html" style="text-align:left;"><h2><b>Announcements</b></h2></a> -->
+<!-- 				<div class="home-announcements"><b>Listings</b></div> -->
+<!-- 				<div id="announcementsListings" > -->
+<!-- 				</div> -->
+<!-- 				<div id="moreAnnouncementsListings"> -->
+<!-- 				</div> -->
+<!-- 				<div class="home-announcements"><b>Disclosures</b></div> -->
+<!-- 				<div id="announcementsDisclosures" > -->
+<!-- 				</div> -->
+<!-- 				<div id="moreAnnouncementsDisclosures"> -->
+<!-- 				</div> -->
+				</div>
+				<div class="home-announcements"><b>Annual Stockholders Meeting (ASM)</b></div>
+				<div id="announcementsASM" >
+				</div>
+				<div id="moreAnnouncementsASM"></div>
+				<div class="home-announcements"><b>Market Education</b></div>
+				<div id="announcementsMarketEducation" >
+				</div>
+				<div class="home-announcements"><b>Trading Participants</b></div>
+				<div id="announcementsTradingParticipants" >
+				</div>
+			
+			</div>
+			<div id="pressRoomAndCirculars"></div>
+			
+		</div>
+<!-- 		<div id="corporateDisclosures"> -->
+<!-- 			<a href="disclosures.html" target="_blank"><h2><b>Corporate Disclosures</b></h2></a> -->
+<!-- 			<ul class="home-announcements"> -->
+
+<!-- 				<li> -->
+
+
+<!-- 					</a> -->
+
+<!-- 				</li> -->
+
+<!-- 			</ul> -->
+<!-- 			<br /> -->
+<!-- 			<a href="disclosures.html" target="_blank"><h2><b>ETF Disclosures</b></h2></a> -->
+<!-- 			<ul class="home-announcements"> -->
+
+<!-- 				<li> -->
+
+
+<!-- 					</a> -->
+
+<!-- 				</li> -->
+
+<!-- 			</ul> -->
+<!-- 			<br /> -->
+		</div>
+		<!--pattern="yyyy-MM-dd"-->
+
+<!-- 		<div id="announcementContents" class="home-sections" > -->
+<!-- 			<a href="announcements.html" style="text-align:left;"><h2><b>Announcements</b></h2></a> -->
+
+
+
+<!-- 				<div class="announcementsBox" > -->
+<!-- 					<div class="home-announcements"><b>2012 Annual Stockholders meeting (ASM)</b></div> -->
+<!-- 					<ul class="home-announcements"> -->
+
+<!-- 							<li> -->
+<!-- 								<a href="../resource/asm/2012/NOTICE OF ANNUAL STOCKHOLDERS' MEETING.pdf" target="_blank"> -->
+<!-- 									Notice to Annual Stockholder Meeting  -->
+<!-- 								</a> -->
+<!-- 								<div class="home-date">Apr 23, 2012</div> -->
+<!-- 							</li> -->
+<!-- 							<li> -->
+<!-- 								<a href="../resource/asm/2012/may 14-11 asm-1.pdf" target="_blank"> -->
+<!-- 									ASM MINUTES FOR APPROVAL -->
+<!-- 								</a> -->
+<!-- 								<div class="home-date">Apr 23, 2012</div> -->
+<!-- 							</li> -->
+<!-- 							<li> -->
+<!-- 								<a href="../resource/asm/2012/2012 Voting Guidelines.pdf" target="_blank"> -->
+<!-- 									2012 Voting Guidelines -->
+<!-- 								</a> -->
+<!-- 								<div class="home-date">Apr 19, 2012</div> -->
+<!-- 							</li> -->
+<!-- 							<li> -->
+<!-- 								<a href="../resource/asm/2012/Official List of Candidates.pdf" target="_blank"> -->
+<!-- 									Official List of Candidates -->
+<!-- 								</a> -->
+<!-- 								<div class="home-date">Apr 16, 2012</div> -->
+<!-- 							</li> -->
+
+<!-- 						<li> -->
+<!-- 							<a href="../resource/asm/2012/2012 Nomelec Rules - F - SEC approved.pdf" target="_blank"> -->
+<!-- 								Approved 2012 Nomelec Rules	 -->
+<!-- 							</a> -->
+<!-- 							<div class="home-date">Mar 14, 2012</div> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+<!-- 				<div class="announcementsBox" > -->
+<!-- 					<div class="home-announcements"><b>2012 Annual Stockholders meeting (ASM) Forms</b></div> -->
+<!-- 					<ul class="home-announcements"> -->
+<!-- 						<li> -->
+<!-- 							<a href="../resource/asm/2012/Sample Secretary's Certificate.pdf" target="_blank"> -->
+<!-- 								Sample Secretary's Certificate -->
+<!-- 							</a> -->
+<!-- 							<div class="home-date">Mar 19, 2012</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<a href="../resource/asm/2012/Sample Proxy Form.pdf" target="_blank"> -->
+<!-- 								Sample Proxy Form -->
+<!-- 							</a> -->
+<!-- 							<div class="home-date">Mar 19, 2012</div> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+
+
+<!-- 				<div class="announcementsBox" > -->
+<!-- 					<div class="home-announcements"><b>Corporate Governance</b></div> -->
+<!-- 					<ul class="home-announcements"> -->
+<!-- 						<li> -->
+<!-- 							<a href="../resource/cgo/Proposed SEC Annual Corporate Governance Report (ACGR).pdf" target="_blank"> -->
+<!-- 								Proposed SEC Annual Corporate Governance Report (ACGR) -->
+<!-- 							</a> -->
+<!-- 							<div class="home-date">Apr 20, 2012</div> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+
+<!-- 			<div class="announcementsBox" > -->
+<!-- 				<div class="home-announcements"><b>Listings</b></div> -->
+<!-- 				<ul class="home-announcements"> -->
+
+<!-- 						<li> -->
+
+
+<!-- 							</a> -->
+
+<!-- 						</li> -->
+
+<!-- 				</ul> -->
+<!-- 			</div> -->
+<!-- 			<div style="clear: both"></div> -->
+<!-- 			<div class="announcementsBox"> -->
+<!-- 				<div class="home-announcements"><b>Disclosures</b></div> -->
+<!-- 				<ul class="home-announcements"> -->
+
+<!-- 					<li> -->
+
+
+<!-- 						</a> -->
+
+<!-- 					</li> -->
+
+<!-- 				</ul> -->
+<!-- 			</div> -->
+<!-- 			<div style="clear: both"></div> -->
+<!-- 			<div class="announcementsBox"> -->
+<!-- 				<div class="home-announcements"><b>Market Education</b></div> -->
+<!-- 				<ul class="home-announcements"> -->
+
+<!-- 					<li> -->
+
+
+<!-- 						</a> -->
+
+<!-- 					</li> -->
+
+<!-- 				</ul> -->
+<!-- 			</div> -->
+<!-- 			<div style="clear: both"></div> -->
+<!-- 				<div class="announcementsBox"> -->
+<!-- 				<div class="home-announcements"><b>Trading Participants</b></div> -->
+<!-- 				<ul class="home-announcements"> -->
+
+<!-- 					<li> -->
+
+
+<!-- 						</a> -->
+
+<!-- 					</li> -->
+
+<!-- 				</ul> -->
+<!-- 			</div> -->
+<!-- 			<div style="clear: both"></div> -->
+<!-- 		</div> -->
+	
+		<div id="pressRoom" class="home-sections">
+			<a href="pressRoom.html"><h2><b>Press Room</b></h2></a>
+			<ul class="home-announcements">
+			
+				<li>
+					<a href="pressRoom-pressReleases.html?id=PSE_PRRLS20150000060" target="_blank">
+						PSE all set for automated election during stockholders' meeting
+					</a>
+				</li>
+			
+				<li>
+					<a href="pressRoom-pressReleases.html?id=PSE_PRRLS20150000059" target="_blank">
+						PSE to hold annual stockholders' meeting on May 2
+					</a>
+				</li>
+			
+				<li>
+					<a href="pressRoom-pressReleases.html?id=PSE_PRRLS20150000058" target="_blank">
+						PSE cites President Aquino's leadership for market?s ascent to 8,000
+					</a>
+				</li>
+			 
+			</ul>
+			
+			<ul class="home-announcements">
+			
+			</ul>
+		</div>
+	   	<div id="circulars">
+			<a href="circulars.html"><h2><b>Circulars</b></h2></a>
+			<ul class="home-announcements">
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0078.pdf" target="_blank">
+							Invitation to the  6th PSE Futsal Cup
+					</a>
+					
+					<div class="home-date">Apr 20, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0085.pdf" target="_blank">
+							To All Listed Companies - SEC Corporate Governance Workshop on the ASEAN Corporate Governance Scorecard
+					</a>
+					
+					<div class="home-date">Apr 15, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0084.pdf" target="_blank">
+							Sector Reclassification of PHA
+					</a>
+					
+					<div class="home-date">Apr 13, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0083.pdf" target="_blank">
+							To All Listed Companies - Deadline on the Filing of the Audited Financial Statements by Listed Companies
+					</a>
+					
+					<div class="home-date">Apr 10, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0082.pdf" target="_blank">
+							Updated List of Shariah Compliant Securities
+					</a>
+					
+					<div class="home-date">Apr 8, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0079.pdf" target="_blank">
+							Reminder to All Listed Companies - 2014 ACGR as an attachment to the 2014 Annual Report (SEC Form 17-A)
+					</a>
+					
+					<div class="home-date">Mar 27, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0077.pdf" target="_blank">
+							PSE Cash Dividends
+					</a>
+					
+					<div class="home-date">Mar 26, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0073.pdf" target="_blank">
+							UBS INVESTMENTS PHILIPPINES, INC. - Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Feb 23, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0070.pdf" target="_blank">
+							SEC Approval of PSE ESPP Shares
+					</a>
+					
+					<div class="home-date">Feb 6, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2015/CN_2015-0068.pdf" target="_blank">
+							To ALL Listed Companies and Other Covered Corporations - Reminder on Compliance with SEC CG-related Memorandum Circulars
+					</a>
+					
+					<div class="home-date">Jan 30, 2015</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0061.pdf" target="_blank">
+							ING BANK N.V., MANILA BRANCH - Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Dec 15, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0055.pdf" target="_blank">
+							NAVARRO AMPER & CO. - Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Nov 18, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0054.pdf" target="_blank">
+							ASIAN APPRAISAL COMPANY, INC.: Accredited Property Appraisal Company
+					</a>
+					
+					<div class="home-date">Nov 13, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0048.pdf" target="_blank">
+							R.G. MANABAT & CO. (formerly Manabat Sanagustin & Co., CPAs) - Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Sep 25, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0047.pdf" target="_blank">
+							PUNONGBAYAN & ARAULLO - Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Sep 25, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0042.pdf" target="_blank">
+							MULTINATIONAL INVESTMENT BANCORPORATION - Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Aug 20, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0041.pdf" target="_blank">
+							UNICAPITAL, INC. - Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Jul 28, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0037.pdf" target="_blank">
+							CB RICHARD ELLIS PHILIPPINES, INC.: Accredited Property Appraisal Company
+					</a>
+					
+					<div class="home-date">Jul 3, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0032.pdf" target="_blank">
+							BDO CAPITAL & INVESTMENT CORPORATION: Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Jun 16, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0028.pdf" target="_blank">
+							FIRST METRO INVESTMENT CORPORATION: Accredited Firm for Issuing Fairness Opinions and Valuation Reports
+					</a>
+					
+					<div class="home-date">Jun 6, 2014</div>
+				</li>
+			
+				<li>
+					
+					<a href="/resource/memos/2014/CN_2014-0025.pdf" target="_blank">
+							CLSA EXCHANGE CAPITAL, INC.: Accredited Firm for Issuing Fairness Opinions and Valuation Reports 
+					</a>
+					
+					<div class="home-date">May 29, 2014</div>
+				</li>
+			
+			</ul><br/><br/>
+<!-- 			<div> -->
+
+<!-- 			</div> -->
+		</div>
+		<div id="summary-win" class="x-hidden">
+		    <div class="x-window-header">Market summary</div>
+		</div>
+		<script type="text/javascript">
+			jQuery.noConflict();
+
+Ext.onReady(function(){
+	
+	Ext.QuickTips.init();
+	Ext.apply(Ext.QuickTips.getQuickTip(), {
+   		showDelay: 0,
+		//dismissDelay: 10000,
+		hideDelay: 0
+	});  
+	
+//	var photoThumbs = '';
+//	var photos = '';
+//	var photoReleaseDs = new Ext.data.JsonStore({
+//	url: 'pressRoomItem.html?method=photoRelease_getLatest&ajax=true',
+//		totalProperty: 'count',
+//		root: 'records',
+//		fields: [
+//			{name: 'photoID'},
+//		    {name: 'photoLocation'},
+//		    {name: 'photoCaption'},
+//		    {name: 'dateUploaded', type: 'date', dateFormat: 'Y-m-d H:i:s.u'},
+//		    {name: 'startDate', type: 'date', dateFormat: 'Y-m-d H:i:s.u'},
+//		    {name: 'endDate', type: 'date', dateFormat: 'Y-m-d H:i:s.u'},
+//		    {name: 'articleLink'}
+//		],
+//	   sortInfo: {field: 'dateUploaded', direction: 'DESC'},
+//	   listeners: {
+//	        load: function(t, records, options) {
+//	            for (var i=0; i<records.length; i++) {
+//	            	photoThumbs += String.format('<li><img width="65" height="35" alt="{0}" src="{1}" /></li>',records[i].data.photoCaption,records[i].data.photoLocation);
+//	            	
+//	                var item = '<li>';
+//		               var imageTag = '';
+//		               
+//		               var description = '<div class="lof-main-item-desc"><p>';
+//		               if(records[i].data.articleLink){
+//		            	  imageTag=String.format('<a href="{0}" target="_blank"><img id="homeImage'+i+'" width="440" height="264" src="{1}" alt="{2}"/></a>',records[i].data.articleLink,records[i].data.photoLocation,records[i].data.photoCaption);
+//		               }else{
+//		              	  imageTag= String.format('<img id="homeImage'+i+'" width="440" height="264" src="{0}" alt="{1}"/>',records[i].data.photoLocation,records[i].data.photoCaption);
+//		               }
+//		               description+= records[i].data.photoCaption;
+//		               description+='</p></div>';
+//		               item+=imageTag;
+//		               item+=description;
+//		               item+='</li>';
+//		               //imageResult += String.format('<li><a href="{3}"><img width="394" height="230" src="{1}" alt="{0}"/></a><div class="lof-main-item-desc"><p>{2}</p></div></li>',records[i].data.photoCaption,records[i].data.photoLocation,description);
+//		               photos += item;
+//	            }
+//	            console.log(photoThumbs);
+//	            console.log(photos);
+//	            
+//	            jQuery('#homeImages').html(photos);
+//		        jQuery('#homeImageThumbs').html(photoThumbs);
+//		        
+//		       jQueryobj = jQuery('#lofslidecontent45').lofJSidernews({
+//					interval : 10000,
+//		    	    easing : 'easeInOutExpo',
+//					//direction		: 'opacity',	
+//		    	    direction		: 'right',
+//				 	//easing			: 'easeOutBounce',
+//					duration: 1200,
+//					auto : true,
+//					maxItemDisplay : 3,
+//					navPosition : 'horizontal', // horizontal
+//					navigatorHeight : 40,
+//					navigatorWidth : 80,
+//					mainWidth : 440,
+//					buttons : buttons
+//				});	
+//	   
+//	 		}
+//	 	}
+//	});
+//	photoReleaseDs.load({params:{limit:10}});
+	
+	HomeImage =  Ext.data.Record.create([
+ 	    {name: 'photoID'},
+ 		{name: 'photoLocation'},
+ 		{name: 'photoCaption'},
+ 		{name: 'pressRelease_pressID'},
+ 		{name: 'event_eventId'},
+ 		{name: 'speech_speechID'},
+ 		{name: 'startDate', type: 'date', dateFormat: 'Y-m-d H:i:s.u'}                              
+ 	]);	        
+		
+
+	var imageResult = '';
+	var thumbResult = '';
+	var imageStore = new Ext.data.JsonStore({
+	    url:  'home.html?method=getApprovedHomeImages&ajax=true',
+	    root: 'records',
+	    autoLoad: false,
+	    sortInfo: {field: 'startDate', direction: 'ASC'},
+	    fields: [
+	     		{name: 'photoID'},
+				{name: 'photoLocation'},
+				{name: 'photoCaption'},
+				{name: 'pressRelease_pressID'},
+				{name: 'event_eventId'},
+				{name: 'speech_speechID'},
+				{name: 'startDate', type: 'date', dateFormat: 'Y-m-d H:i:s.u'}
+	    ],
+	    listeners: {
+	        load: function(t, records, options) {
+	            var count = 0;	
+	            for (var i=0; i<records.length; i++) {
+	               thumbResult += String.format('<li><img width="65" height="35" alt="{0}" src="{1}" /></li>',records[i].data.photoCaption,records[i].data.photoLocation);
+	               
+	               
+	               var item = '<li>';
+	               var imageTag = '';
+	               
+	               var description = '<div class="lof-main-item-desc"><p>';
+	               if(records[i].data.pressRelease_pressID){
+	            	  imageTag=String.format('<a href="pressRoom-pressReleases.html?id={0}" target="_blank"><img id="homeImage'+i+'" width="440" height="264" src="{1}" alt="{2}"/></a>',records[i].data.pressRelease_pressID,records[i].data.photoLocation,records[i].data.photoCaption);
+	               	 // description+=String.format('<a href="pressRoom-pressReleases.html?id={0}" target="_blank">{1}</a>',records[i].data.pressRelease.pressID,records[i].data.photoCaption);
+	               }else if(records[i].data.event_eventId){
+		            	  imageTag=String.format('<a href="pressRoom-events.html?id={0}" target="_blank"><img id="homeImage'+i+'" width="440" height="264" src="{1}" alt="{2}"/></a>',records[i].data.event_eventId,records[i].data.photoLocation,records[i].data.photoCaption);
+	               }else if(records[i].data.speech_speechID){
+		              imageTag=String.format('<a href="pressRoom-speeches.html?id={0}" target="_blank"><img id="homeImage'+i+'" width="440" height="264" src="{1}" alt="{2}"/></a>',records[i].data.speech_speechID,records[i].data.photoLocation,records[i].data.photoCaption);
+	               }else{
+	              	  imageTag= String.format('<img id="homeImage'+i+'" width="440" height="264" src="{0}" alt="{1}"/>',records[i].data.photoLocation,records[i].data.photoCaption);
+	               }
+	               description+= records[i].data.photoCaption;
+	               description+='</p></div>';
+	               item+=imageTag;
+	               item+=description;
+	               item+='</li>';
+	               //imageResult += String.format('<li><a href="{3}"><img width="394" height="230" src="{1}" alt="{0}"/></a><div class="lof-main-item-desc"><p>{2}</p></div></li>',records[i].data.photoCaption,records[i].data.photoLocation,description);
+	               imageResult += item;
+	  
+	               count = i;
+	            }
+	            thumbResult += String.format('<li><img width="65" height="35" alt="{0}" src="{1}" /></li>','','/resource/homeimage/images/PSEAcademy.jpg');
+	            imageResult +='<li>'+String.format('<a href="http://www.pseacademy.com.ph/" target="_blank"><img id="homeImage'+count+'" width="440" height="264" src="{0}" alt=""/></a>','/resource/homeimage/images/PSEAcademy.jpg')+'<div class="lof-main-item-desc"><p>&nbsp;</p></div></li>';
+	            
+//	            thumbResult += String.format('<li><img width="65" height="35" alt="{0}" src="{1}" /></li>','','/resource/bullrun/images/BULL_RUN2014.jpg');
+//	            imageResult +='<li>'+String.format('<a href="http://www.pseacademy.com.ph/LS/staticpages/id-1354185046920.html " target="_blank"><img id="homeImage'+count+'" width="440" height="264" src="{0}" alt=""/></a>','/resource/bullrun/images/BULL_RUN2014.jpg')+'<div class="lof-main-item-desc"><p>&nbsp;</p></div></li>';
+	           
+	           jQuery('#homeImages').html(imageResult);
+	           jQuery('#homeImageThumbs').html(thumbResult);
+	           
+	           var _complete = function(slider, index){ 
+//					$('#jslidernews3 .slider-description').animate({height:0});
+//					slider.find(".slider-description").animate({height:100}) 
+		       };
+	           
+		       jQueryobj = jQuery('#lofslidecontent45').lofJSidernews({
+					interval : 10000,
+		    	    easing : 'easeInOutExpo',
+					//direction		: 'opacity',	
+		    	    direction		: 'right',
+				 	//easing			: 'easeOutBounce',
+					duration: 1200,
+					auto : true,
+					maxItemDisplay : 3,
+					navPosition : 'horizontal', // horizontal
+					navigatorHeight : 40,
+					navigatorWidth : 80,
+					mainWidth : 440,
+					buttons : buttons
+//					,onComplete:_complete;
+				});	
+		     
+	         }
+	   }
+	        	
+	});
+	imageStore.load();
+	
+	var buttons = { previous:jQuery('#lofslidecontent45 .lof-previous') ,
+			next:jQuery('#lofslidecontent45 .lof-next') };
+	
+	var homeAds ='<li id="homeImage-td0">'+String.format('<img width="440" height="142" src="{0}" alt=""/>','/resource/homeimage/images/pse edge banner test 1.jpg')+'</li>';
+	homeAds +='<li id="homeImage-td1">'+String.format('<img width="440" height="84" src="{0}" alt="" style="{1}"/>','/resource/homeimage/images/pse edge banner test 2.jpg','border-bottom: 0px;border-top: 1px solid silver;');
+	homeAds +=String.format('<img width="85" height="38" src="{0}" alt="" style="{1}"/>','/resource/homeimage/images/pse edge banner test 2 googleplay left.jpg','border-bottom: 0px;border-top: 0px;');
+	homeAds +=String.format('<a href="{0}" target="_blank" style="color: transparent !important;"><img width="127" height="38" src="{1}" alt="" style="{2}"/></a>','https://play.google.com/store/apps/details?id=com.pse.edge&hl=en','/resource/homeimage/images/pse edge banner test 2 googleplay.jpg','border-bottom: 0px;border-top: 0px;');
+	homeAds +=String.format('<img width="17" height="38" src="{0}" alt="" style="{1}"/>','/resource/homeimage/images/pse edge banner test 2 googleplay right.jpg','border-bottom: 0px;border-top: 0px;');
+	homeAds +=String.format('<a href="{0}" target="_blank" style="color: transparent !important;"><img width="141" height="38" src="{1}" alt="" style="{2}"/></a>','https://itunes.apple.com/ph/app/pse-edge/id813302884?mt=8','/resource/homeimage/images/pse edge banner test 2 ios.jpg','border-bottom: 0px;border-top: 0px;');
+	homeAds +=String.format('<img width="70" height="38" src="{0}" alt="" style="{1}"/>','/resource/homeimage/images/pse edge banner test 2 ios right.jpg','border-bottom: 0px;border-top: 0px;');
+	homeAds +=String.format('<img width="440" height="20" src="{0}" alt="" style="{1}"/>','/resource/homeimage/images/pse edge banner test 2(1).jpg','border-bottom: 1px solid silver;border-top: 0px;')+'</li>';
+//	homeAds +=String.format('<img id="homeImage-td2" width="84" height="58" style="position:absolute;left:0px;top:84px;" src="{0}" alt=""/>','/resource/homeimage/images/pse edge banner test 2 googleplay left.jpg');
+//	homeAds +=String.format('<a href="{0}" target="_blank"><img id="homeImage-td3" width="127" height="58" style="position:absolute;left:84px;top:84px;" src="{1}" alt=""/></a>','https://play.google.com/store/apps/details?id=com.pse.edge&hl=en','/resource/homeimage/images/pse edge banner test 2 googleplay.jpg');
+//	homeAds +=String.format('<img id="homeImage-td4" width="17" height="58" style="position:absolute;left:211px;top:84px;" src="{0}" alt=""/>','/resource/homeimage/images/pse edge banner test 2 googleplay right.jpg');
+//	homeAds +=String.format('<a href="{0}" target="_blank"><img id="homeImage-td5" width="141" height="58" style="position:absolute;left:228px;top:84px;" src="{1}" alt=""/></a>','https://itunes.apple.com/ph/app/pse-edge/id813302884?mt=8','/resource/homeimage/images/pse edge banner test 2 ios.jpg');
+//	homeAds +=String.format('<img id="homeImage-td6" width="71" height="58" style="position:absolute;left:369px;top:84px;" src="{0}" alt=""/></li>','/resource/homeimage/images/pse edge banner test 2 ios right.jpg');
+	homeAds +='<li id="homeImage-td2">'+String.format('<img width="440" height="142" src="{0}" alt=""/>','/resource/homeimage/images/pse edge banner test 3.jpg')+'</li>';
+	
+    jQuery('#homeImages-td').html(homeAds);
+   
+	jQuery('#lofslidecontent46').lofJSidernews_1({
+		interval : 8000,
+	    easing : 'easeInOutExpo',
+		//direction		: 'opacity',	
+	    direction		: 'opacity',
+	 	//easing			: 'easeOutBounce',
+		duration: 1500,
+		auto : true,
+		maxItemDisplay : 3,
+		navPosition : 'vertical', // horizontal
+		navigatorHeight : 147,
+		navigatorWidth : 310,
+		mainWidth : 440
+//		buttons : buttons
+//		,onComplete:_complete;
+	});	
+  
+	var tabs = new Ext.TabPanel({
+		renderTo: 'stock-tabs',
+	    activeTab: 0,
+		bodyStyle: 'padding:0px;',
+		border:false,
+		autoHeight:true,
+		x:0,
+		y:0,
+		anchor: "100% 100%", 
+		autoScroll: true,
+		items:[
+			{id:'tab1',autoHeight:true, contentEl:'indices', title:'Indices'},
+	        {id:'tab2',height:300,contentEl:'most-active', title:'Most Active'},
+	        {id:'tab3',height:300,contentEl:'advances', title:'Advances'},
+	        {id:'tab4',height:300,contentEl:'declines', title:'Declines'}
+	    ]
+	});
+	
+	tabs.getItem('tab2').on('activate', function(){
+		mostActiveDs.load();
+	});
+	tabs.getItem('tab3').on('activate', function(){
+		advancesDs.load();
+	});
+	tabs.getItem('tab4').on('activate', function(){
+		declinesDs.load();
+	});
+	
+	var etftabs = new Ext.TabPanel({
+		renderTo: 'etf-tabs',
+	    activeTab: 0,
+		bodyStyle: 'padding:0px;',
+		border:false,
+		autoHeight:true,
+		x:0,
+		y:0,
+		anchor: "100% 100%", 
+		autoScroll: true,
+		items:[
+			{id:'etftab1',autoHeight:true, contentEl:'etf', title:'Exchange Traded Fund'}
+	    ]
+	});
+	
+	
+	var mainPanel = new Ext.Panel({
+	    layout:'column',
+	    border: false,
+	    bodyBorder: false,
+	    width:765,
+	    items: [{
+	    	border: false, 
+	        columnWidth: 0.6,
+	        items: [{xtype: 'panel', border: false, bodyStyle: 'padding:0px', contentEl: 'main-content'}]
+	    },{
+	    	border: false, 
+	    	columnWidth: 0.4,
+	   		items: [
+	   		        tabs, 
+	   		        {
+	   					xtype: 'panel',
+	   					border: false,
+	   					bodyStyle: 'padding-top: 10px;',
+	   					html: '<!--<center><div style="background-color: #0f0; text-align: center; width: 115px; height: 115px;">&nbsp;</div></center>-->'
+	   				},etftabs,
+					{
+	   					xtype: 'panel',
+	   					border: false,
+	   					bodyStyle: 'padding-top: 10px;',
+	   					html: '<span style="color:black; font-size:10.5px; line-height:100%"><i>Price quotes in the website may be delayed. Please check with your broker or online systems to verify real-time prices.</i></span>'
+	   				},
+	   				//
+	   		        {
+	   		        	xtype: 'panel', 
+	   		        	border: false, 
+	   		        	bodyStyle: 'padding:0px', 
+	   		        	html: '<br/><marquee behavior="scroll" direction="left"><b><span style="font-family: Arial,Helvetica,sans-serif;font-size:14px;">PSE EDGE mobile application available on iOS and Android.  Download now! </font></b></marquee>'
+	   		        },
+	   		        //
+	   		        {
+	   					xtype: 'panel',
+	   					border: false,
+	   					bodyStyle: 'padding-top: 10px;',
+	   					html: '<!--<center><div style="background-color: #0f0; text-align: center; width: 115px; height: 115px;">&nbsp;</div></center>-->'
+	   				},
+			        {xtype: 'panel', border: false,style:'top: auto; bottom: 0', bodyStyle: 'margin-top:12px;padding:0px;', contentEl: 'circulars'}
+//			        {xtype: 'panel', border: false, bodyStyle: 'margin-top:0px;padding:0px;', contentEl: 'corporateDisclosures'}
+			 ]
+	    }]
+	});
+
+    var panel = new Ext.Panel({
+	    layout:'column',
+	    border: false,
+	    bodyBorder: false,
+	    width: 950,
+	    bodyStyle:'padding:2px',
+	    defaults: {
+			collapsible: false,
+	        split: false,
+			animFloat: false,
+			autoHide: false
+		},
+	    items: [{
+	        columnWidth: 0.19,
+	 	    border: false,
+		    bodyBorder: false,
+		    items: [{
+		    	xtype: 'panel',
+			    border: false,
+			    width:177,
+		    	items: [{
+			    	height: 'auto',
+				    border: false,
+		    		items: [sideMenu]
+		    	}]
+		    }]
+	    },{
+	        columnWidth: 0.81,
+		    border: false,
+		    bodyBorder: false,
+	        items: [mainPanel]
+	    }],
+		renderTo: 'border-panel'
+	});
+    
+    var announcementASMDs = new Ext.data.JsonStore({
+		url: 'home.html?method=loadAnnouncements&ajax=true',
+		totalProperty: 'count',
+	    root: 'records',
+	    fields: [
+			{name: 'announcementID'},
+            {name: 'announcementTitle'},
+            {name: 'announcementLocation'},
+            {name: 'startDate' , type: 'date', dateFormat: 'Y-m-d H:i:s.u'}
+        ],
+		sortInfo: {field: 'startDate', direction: 'DESC'}
+	});
+	announcementASMDs.load({params:{announcementType:'ASM'}});
+		
+//	var announcementListingsDs = new Ext.data.JsonStore({
+//		url: 'home.html?method=loadAnnouncements&ajax=true',
+//		totalProperty: 'count',
+//	    root: 'records',
+//	    fields: [
+//			{name: 'announcementID'},
+//            {name: 'announcementTitle'},
+//            {name: 'announcementLocation'},
+//            {name: 'startDate' , type: 'date', dateFormat: 'Y-m-d H:i:s.u'}
+//        ],
+//		sortInfo: {field: 'startDate', direction: 'DESC'}
+//	});
+//	announcementListingsDs.load({params:{announcementType:'LISTINGS'}});
+	
+	var announcementsReleaseTemplate = new Ext.XTemplate(
+	    '<div class="announcementsBox"><ul class="home-announcements" ><tpl for=".">','<li><a href="{announcementLocation}" target="_blank">{announcementTitle}</a><br/><div class="home-date">{articleDate}</div></li>','</tpl></ul></div><div style="clear: both"></div>');
+	
+	var announcementReleaseViewASM = new Ext.DataView({
+        store: announcementASMDs,
+        tpl: announcementsReleaseTemplate,
+        itemSelector:'li',
+         prepareData: function(data){
+            data.articleDate = Ext.util.Format.date(data.startDate, 'F d, Y');
+            return data;
+        },
+        emptyText: 'No new announcements to display'
+    });
+
+//	var announcementReleaseViewListings = new Ext.DataView({
+//        store: announcementListingsDs,
+//        tpl: announcementsReleaseTemplate,
+//        itemSelector:'li',
+//         prepareData: function(data){
+//            data.articleDate = Ext.util.Format.date(data.startDate, 'F d, Y');
+//            return data;
+//        },
+//        emptyText: 'No new announcements to display'
+//    });
+	
+	//announcements
+	var panelAnnounceASM = new Ext.Panel({
+		//layout: 'column',
+		border: false,
+		items: [announcementReleaseViewASM],
+		renderTo:'announcementsASM'
+		//	,
+		//contentEl: 'announcementContents' 
+	});
+	
+	new Ext.Button({
+		text: '+ More Announcements',
+		handler: function() {
+			announcementASMDs.load({params:{announcementType:'ASM', more:true}});
+			Ext.getCmp('moreAnnouncementsASM').setText('* Refresh announcements');
+		},
+		cls: 'moreButton',
+		id: 'moreAnnouncementsASM',
+		renderTo: 'moreAnnouncementsASM'
+	});
+
+//	var panelAnnounceListings = new Ext.Panel({
+//		//layout: 'column',
+//		border: false,
+//		items: [announcementReleaseViewListings],
+//		renderTo:'announcementsListings'
+//		//	,
+//		//contentEl: 'announcementContents' 
+//	});
+	
+//	var announcementDisclosuresDs = new Ext.data.JsonStore({
+//		url: 'home.html?method=loadAnnouncements&ajax=true',
+//		totalProperty: 'count',
+//	    root: 'records',
+//	    fields: [
+//			{name: 'announcementID'},
+//            {name: 'announcementTitle'},
+//            {name: 'announcementLocation'},
+//            {name: 'startDate' , type: 'date', dateFormat: 'Y-m-d H:i:s.u'}
+//        ],
+//		sortInfo: {field: 'startDate', direction: 'DESC'}
+//	});
+//	announcementDisclosuresDs.load({params:{announcementType:'DISCLOSURES'}});
+
+//	var announcementReleaseViewDisclosures = new Ext.DataView({
+//        store: announcementDisclosuresDs,
+//        tpl: announcementsReleaseTemplate,
+//        itemSelector:'li',
+//         prepareData: function(data){
+//            data.articleDate = Ext.util.Format.date(data.startDate, 'F d, Y');
+//            return data;
+//        },
+//        emptyText: 'No new announcements to display'
+//    });
+	
+	//announcements
+//	var panelAnnounceDisclosures = new Ext.Panel({
+//		//layout: 'column',
+//		border: false,
+//		items: [announcementReleaseViewDisclosures],
+//		renderTo:'announcementsDisclosures'
+//	});
+	
+	var announcementMarketEducationDs = new Ext.data.JsonStore({
+		url: 'home.html?method=loadAnnouncements&ajax=true',
+		totalProperty: 'count',
+	    root: 'records',
+	    fields: [
+			{name: 'announcementID'},
+            {name: 'announcementTitle'},
+            {name: 'announcementLocation'},
+            {name: 'startDate' , type: 'date', dateFormat: 'Y-m-d H:i:s.u'}
+        ],
+		sortInfo: {field: 'startDate', direction: 'DESC'}
+	});
+	announcementMarketEducationDs.load({params:{announcementType:'MARKET EDUCATION'}});
+
+	var announcementReleaseViewMarketEducation = new Ext.DataView({
+        store: announcementMarketEducationDs,
+        tpl: announcementsReleaseTemplate,
+        itemSelector:'li',
+         prepareData: function(data){
+            data.articleDate = Ext.util.Format.date(data.startDate, 'F d, Y');
+            return data;
+        },
+        emptyText: 'No new announcements to display'
+    });
+	
+	//announcements
+	var panelAnnounceMarketEducation = new Ext.Panel({
+		//layout: 'column',
+		border: false,
+		items: [announcementReleaseViewMarketEducation],
+		renderTo:'announcementsMarketEducation'
+	});
+	
+	var announcementTradingParticipantsDs = new Ext.data.JsonStore({
+		url: 'home.html?method=loadAnnouncements&ajax=true',
+		totalProperty: 'count',
+	    root: 'records',
+	    fields: [
+			{name: 'announcementID'},
+            {name: 'announcementTitle'},
+            {name: 'announcementLocation'},
+            {name: 'startDate' , type: 'date', dateFormat: 'Y-m-d H:i:s.u'}
+        ],
+		sortInfo: {field: 'startDate', direction: 'DESC'}
+	});
+	announcementTradingParticipantsDs.load({params:{announcementType:'TRADING PARTICIPANTS'}});
+
+	var announcementReleaseViewTradingParticipants = new Ext.DataView({
+        store: announcementTradingParticipantsDs,
+        tpl: announcementsReleaseTemplate,
+        itemSelector:'li',
+         prepareData: function(data){
+            data.articleDate = Ext.util.Format.date(data.startDate, 'F d, Y');
+            return data;
+        },
+        emptyText: 'No new announcements to display'
+    });
+	
+	//announcements
+	var panelAnnounceTradingParticipants = new Ext.Panel({
+		//layout: 'column',
+		border: false,
+		items: [announcementReleaseViewTradingParticipants],
+		renderTo:'announcementsTradingParticipants'
+	});
+	
+
+//	new Ext.Button({
+//		text: '+ More Announcements',
+//		handler: function() {
+//			announcementListingsDs.load({params:{announcementType:'LISTINGS', more:true}});
+//			Ext.getCmp('moreAnnouncementsListings').setText('* Refresh announcements');
+//		},
+//		cls: 'moreButton',
+//		id: 'moreAnnouncementsListings',
+//		renderTo: 'moreAnnouncementsListings'
+//	});
+	
+//	new Ext.Button({
+//		text: '+ More Announcements',
+//		handler: function() {
+//			announcementDisclosuresDs.load({params:{announcementType:'DISCLOSURES', more:true}});
+//			Ext.getCmp('moreAnnouncementsDisclosures').setText('* Refresh announcements');
+//		},
+//		cls: 'moreButton',
+//		id: 'moreAnnouncementsDisclosures',
+//		renderTo: 'moreAnnouncementsDisclosures'
+//	});
+		
+	var panelPress = new Ext.Panel({
+		layout: 'column',
+		border: false,
+		contentEl: 'pressRoom',
+    	renderTo: 'pressRoomAndCirculars'
+	});
+	
+	var periodDs = new Ext.data.SimpleStore({
+		fields: [
+ 			{name: 'period'}
+	    ],
+		data: [
+			['1 Day'],
+			['1 Week'],
+			['1 Month'],
+			['1 Year']
+		]
+	});
+	
+	var indicesDs = new Ext.data.JsonStore({
+		url: 'dailySummary.html?method=getMarketIndices&ajax=true',
+	    root: 'records',
+		autoLoad: true,
+	    fields: [
+	        {name: 'indexId'}, 
+  			{name: 'indexName'}, 
+  			{name: 'indexPoints'},
+ 			{name: 'changeValue'},
+ 			{name: 'percentageChange'},
+ 			{name: 'changeIndicator'},
+			{name: 'sortOrder'}
+	 	],
+		sortInfo: {field: "sortOrder", direction: "ASC"}
+	});
+	
+	var etfDs = new Ext.data.JsonStore({
+		url: 'exchangeTradedFund.html?method=listETF&ajax=true',
+	    root: 'records',
+	    fields: [	        
+	     	{name: 'companyId'},
+	        {name: 'securityID'},
+			{name: 'stock'},
+			{name: 'change'},
+			{name: 'price'},
+			/**Add Prior Close to ETF -- Display Previous Close instead of LTP if 0*/
+			{name: 'priorClose'},
+			{name: 'percentageChange'},
+			{name: 'iNav'},
+			{name: 'PDiNav'},
+			{name: 'asOf', type: 'date', dateFormat: 'Y-m-d H:i:s.u'},
+			{name: 'nav'},
+			{name: 'navPS'},
+			{name: 'trackingError'}
+	 	]
+	});
+	etfDs.on('load', function(store, options){
+		if(store.getCount() == 0) {
+			Ext.get('etfNoResult').dom.innerHTML = '' + Ext.get('etfNoResult').dom.innerHTML;
+		}
+	});
+	etfDs.load({params: {limit: 4}});
+
+	function renderLTP(value, p, r) {
+		if(value == 0) {
+			return renderValuePrice(r.get('priorClose'));
+		}
+		return renderValuePrice(value);
+	}
+		
+    function renderDate(value, p, r){
+        return String.format('{0}', value.dateFormat('m/d/Y G:i:s'));
+    }
+    
+    function renderETFAmounts(value, p, r){
+//		if(value != '') {
+//			p.attr = 'ext:qtip="' +Ext.util.Format.formatNumber(value, {groupingSize: 3,decimalPrecision: 2, currencySymbol: ''}) + '"';
+//    	alert(value);
+//    	alert(value);
+    	value = Ext.util.Format.formatNumber(value, {groupingSize: 3, decimalPrecision: 4, currencySymbol: ''});
+		return String.format('{0}', removeTrailingZeroes(value));
+//		} else return '0';
+    }
+    
+	function renderLink(value, p, r){
+		return String.format('<a href="/stockMarket/marketInfo-marketActivity.html?tab=1&indexName={0}">{1}</a>', r.get('indexName'), value);
+    }
+    
+	function renderCompanyInfoLink(value, p, r){
+		return String.format('<a href="/stockMarket/companyInfo.html?id={0}&security={1}&tab=0">{2}</a>', r.get('companyId'), r.get('securityID'),value);
+    }
+	
+//	function renderETFAmounts(value, p, r){
+//	 	p.attr = 'ext:qtip="' +Ext.util.Format.formatNumber(value, {groupingSize: 3,decimalPrecision: 3, currencySymbol: ''}) + '"';
+//		return String.format('{0}', Ext.util.Format.formatNumber(value, {groupingSize: 3, decimalPrecision: 2, currencySymbol: ''}));
+//    }
+	
+	function renderCharge(value, p, r){
+		if(r.get('changeIndicator') === 'D') {
+			return '<div class="downChangeImage">&nbsp;</div>';
+		}
+		if(r.get('changeIndicator') === 'N') {
+			return '<div class="noChangeImage">&nbsp;</div>';
+		}
+		return '<div class="upChangeImage">&nbsp;</div>';
+    }
+	
+	function renderChangeIndicator(value, p, r){
+		if(r.get('changeIndicator') === 'D') {
+			return '<div style="color:#EE0000">&nbsp;&#x25bc;</div>';
+		}
+		
+		if(r.get('changeIndicator') === 'N') {
+			return '<div class="noChangeImage">&nbsp;</div>';
+			
+		}
+		return '<div style="color:#00CD00">&nbsp;&#x25b2;</div>';
+	}
+	
+	function renderPercentChangeWithIndicator(value, p, r){
+		value = renderPercChangeClose_ind(value);
+		if(r.get('changeIndicator') === 'D') {
+			p.attr = 'ext:qtip="-' + value + '"';
+			return String.format('<div class="downChange">{0}&#x25bc;</div>', value);	
+		}
+		if(r.get('changeIndicator') === 'N') {
+			p.attr = 'ext:qtip="' + value + '"';
+			return String.format('<div class="noChange">{0}&nbsp;</div>', value);	
+		}
+		p.attr = 'ext:qtip="' + value + '"';
+		return String.format('<div class="upChange">{0}&#x25b2;</div>', value);
+	}
+	
+	function renderPercent(value, p, r){
+		if(r.get('changeIndicator') === 'D') {
+			p.attr = 'ext:qtip="' + Ext.util.Format.formatNumber(-value, {decimalPrecision: 2, currencySymbol: ''}) + '"';
+			return String.format('<div class="downChange">{0}</div>', Ext.util.Format.formatNumber(-value, {decimalPrecision: 2, currencySymbol: ''}));	
+		}
+		if(r.get('changeIndicator') === 'N') {
+			p.attr = 'ext:qtip="' + Ext.util.Format.formatNumber(value, {decimalPrecision: 2, currencySymbol: ''}) + '"';
+			return String.format('<div class="noChange">{0}</div>', Ext.util.Format.formatNumber(value, {decimalPrecision: 2, currencySymbol: ''}));	
+		}
+		p.attr = 'ext:qtip="' + Ext.util.Format.formatNumber(value, {decimalPrecision: 2, currencySymbol: ''}) + '"';
+		return String.format('<div class="upChange">{0}</div>', Ext.util.Format.formatNumber(value, {decimalPrecision: 2, currencySymbol: ''}));
+    }
+	
+	function renderValue(value, p, r){
+	 	p.attr = 'ext:qtip="' +Ext.util.Format.formatNumber(value, {groupingSize: 3,decimalPrecision: 0, currencySymbol: ''}) + '"';
+		return String.format('{0}', Ext.util.Format.formatNumber(value, {groupingSize: 3,decimalPrecision: 0, currencySymbol: ''}));
+		
+    }
+	
+	function renderThousands(value, p, r){
+	 	p.attr = 'ext:qtip="' +Ext.util.Format.formatNumber(value, {groupingSize: 3,decimalPrecision: 3, currencySymbol: ''}) + '"';
+		return String.format('{0}', Ext.util.Format.formatNumber(value, {groupingSize: 3, decimalPrecision: 3, currencySymbol: ''}));
+		
+    }
+	
+	function renderPercentMostActiveWithIndicator(value, p, r){
+//		value = renderValueHomePercent(value);
+		value = renderPercChangeClose_ind(value);
+		if(r.get('percChangeClose') < 0) {
+			p.attr = 'ext:qtip="-' + value + '"';
+			return String.format('<div class="downChange">{0}&#x25bc;</div>', value);	
+		}
+		if(r.get('percChangeClose') === 0) {
+			p.attr = 'ext:qtip="' + value + '"';
+			return String.format('<div class="noChange">{0}&nbsp;</div>', value);	
+		}
+		p.attr = 'ext:qtip="' + value + '"';
+		return String.format('<div class="upChange">{0}&#x25b2;</div>', value);
+    }
+	
+	function renderCompanyLink(value, p, r) {
+		p.attr = 'ext:qtip="' + r.get('securityName') + '"';
+		return String.format('<a href="{0}">{1}</a>', r.get('companyLink'), value);
+	}
+	
+	function renderValueMostActiveChg(value, p, r) {
+		value = renderChangeClose_ind(value, r.get('lastTradePrice'));
+		if(value < 0) {
+			//value = renderValueHomeChg(value);
+			p.attr = 'ext:qtip="-' + value + '"';
+			return String.format('<div class="downChange">{0}</div>', value);
+		}
+		if(value == 0) {
+//			value = renderValueHomeChg(value);
+			p.attr = 'ext:qtip="' + value + '"';
+			return String.format('<div class="noChange">{0}</div>', value);
+		}
+//		value = renderValueHomeChg(value);
+		p.attr = 'ext:qtip="' + value + '"';
+		return String.format('<div class="upChange">{0}</div>', value);
+	}
+	
+	function renderValueBasedOnCharge(value, p, r) {
+		value = renderChangeClose_ind(value, r.get('indexPoints'));
+		if(r.get('changeIndicator') === 'D') {
+			p.attr = 'ext:qtip="-' + value + '"';
+			return String.format('<div class="downChange">{0}</div>', value);
+		}
+		if(r.get('changeIndicator') === 'N') {
+			p.attr = 'ext:qtip="' + value + '"';
+			return String.format('<div class="noChange">{0}</div>', value);
+		}
+		p.attr = 'ext:qtip="' + value + '"';
+		return String.format('<div class="upChange">{0}</div>', value);
+	}
+	
+	// row expander
+    var expander = new Ext.grid.RowExpander({
+        tpl : new Ext.Template(
+        		'<!--<img style="text-align: center;" src="../../../images/placeholders/homepage_1.jpg" width="280"/>-->',
+        		'<div id="flashcontent-{indexId}"><strong>You need to upgrade your Flash Player</strong></div>'	)});
+
+	var indicesPanel = new Ext.Panel({
+		id: 'indicesPanel',
+		title: ' ',
+		autoWidth: true,
+		border: true,
+		autoScroll: false,
+		layout: 'fit',
+		items: [{
+			xtype: 'grid',
+			id: 'indicesGrid',
+			stripeRows:true,
+			store: indicesDs,
+	        trackMouseOver:false,
+	        disableSelection:true,
+			sm: new Ext.grid.RowSelectionModel({
+				singleSelect: true
+			}),
+			cm: new Ext.grid.ColumnModel([
+			    //expander,
+			    {
+					header: "<b>Index</b>",
+		            dataIndex: 'indexName',
+					width: 130,
+					renderer: renderLink,
+		            sortable: true
+		        },{
+					header: "<b>Value</b>",
+		            dataIndex: 'indexPoints',
+					align: 'right',
+					renderer: renderValuePeso,
+					width: 100,
+		            sortable: true
+		        },{
+					header: "<b>Chg</b>",
+		            dataIndex: 'changeValue',
+					renderer: renderValueBasedOnCharge,
+					align: 'right',
+					width: 90,
+		            sortable: true
+		        },{
+					header: "<b>%Chg</b>",
+		            dataIndex: 'percentageChange',
+					align: 'right',
+					width: 100,
+					renderer: renderPercentChangeWithIndicator,
+		            sortable: true
+		        }
+//		        ,{
+//					header: "",
+//		            dataIndex: 'changeIndicator',
+//					renderer: renderChangeIndicator,
+//					width: 65
+//			     }
+		        ]),
+			autoExpandColumn: 'indexName',
+			// grid columns
+        	columns:[],
+			// customize view config
+	        viewConfig: {
+	            forceFit:true
+	        },
+			plugins: expander,
+			collapsible: true,
+			autoHeight: true,
+	        autoScroll: true,
+			border: false
+		},{
+			xtype: 'panel',
+			border: false,
+			html: '<div class="right"><a href="marketInfo-marketActivity.html?tab=0">More Info&nbsp;</a></div>'
+		},{
+			xtype: 'panel',
+			border: false,
+			bodyStyle: 'padding-top: 10px;',
+			html: '<!--<center><div style="background-color: #0f0; text-align: center; width: 115px; height: 115px;">&nbsp;</div></center>-->'
+		}
+		],
+		renderTo: 'indices'
+	});
+	
+	var indicesDetailsDs = new Ext.data.JsonStore({
+		url: 'home.html?method=fetchIndicesDetails&ajax=true',
+	    root: 'records',
+	    autoLoad:true,
+	    fields: [
+  			{name: 'tradingTime', type: 'date', dateFormat: 'Y-m-d H:i:s.u'}, 
+  			{name: 'marketStatus'}
+	 	]
+	});
+	indicesDetailsDs.on('load', function(store, records, options){
+		if(store.getCount() > 0) {
+			var asOfTime = store.getAt(0).get('tradingTime');
+			var tabTitle;
+			if(store.getAt(0).get('marketStatus')!='PREOPEN'){
+				tabTitle = '<div class="left">As of ' + Ext.util.Format.date(asOfTime, 'F d, Y') + '<br/>' + Ext.util.Format.date(store.getAt(0).get('tradingTime'), 'g:i:s A') + '</div><div class="right">MARKET '+store.getAt(0).get('marketStatus')+'</div>';
+			}else{
+				tabTitle = '<div class="left">As of ' + Ext.util.Format.date(new Date(), 'F d, Y') + '<br/>' + Ext.util.Format.date(new Date(), 'g:i:s A') + '</div><div class="right">MARKET '+store.getAt(0).get('marketStatus')+'</div>';
+			}
+			indicesPanel.setTitle(tabTitle);
+			if(mostActivePanel){
+					mostActivePanel.setTitle(tabTitle);
+			}
+			if(advancesPanel){
+				advancesPanel.setTitle(tabTitle);
+			}
+			if(declinesPanel){
+				declinesPanel.setTitle(tabTitle);
+			}
+		}
+	    //expander.expandRow(0); //expand PSEi row by default
+	});
+	//indicesDetailsDs.load();
+	
+	var etfPanel = new Ext.Panel({
+		id: 'etfPanel',
+		title: ' ',
+		autoWidth: true,
+		border: true,
+		autoScroll: false,
+		layout: 'fit',
+		items: [{
+			xtype: 'grid',
+			id: 'etfGrid',
+			stripeRows:true,
+			store: etfDs,
+	        trackMouseOver:false,
+	        disableSelection:true,
+			sm: new Ext.grid.RowSelectionModel({
+				singleSelect: true
+			}),
+			cm: new Ext.grid.ColumnModel([
+			    //expander,
+			    {
+					header: "<b>Stock</b>",
+		            dataIndex: 'stock',
+					width: 15,
+					renderer: renderCompanyInfoLink,
+		            sortable: true
+		        },{
+					header: "<b>Last Price</b>",
+		            dataIndex: 'price',
+					renderer: renderLTP,//renderValuePrice,
+					align: 'right',
+					width: 25,
+		            sortable: true
+//		        },{
+//					header: "<b>Chg</b>",
+//		            dataIndex: 'change',
+//					renderer: renderValueBasedOnCharge,
+//					align: 'right',
+//					width: 90,
+//		            sortable: true
+//		        },{
+//					header: "<b>%Chg</b>",
+//		            dataIndex: 'percentageChange',
+//					align: 'right',
+//					width: 100,
+//					renderer: renderPercentChangeWithIndicator,
+//		            sortable: true
+		        },{
+					header: "<b>iNAV</b>",
+		            dataIndex: 'iNav',
+					align: 'right',
+					width: 20,
+					renderer: renderETFAmounts,
+//					renderer: renderValueTwoDecOrFirstNonZero,
+		            sortable: true
+		        },{
+					header: "<b>As Of</b>",
+		            dataIndex: 'asOf',
+					align: 'right',
+					width: 35,
+					renderer: renderDate,
+		            sortable: true
+		        }
+//		        },{
+//					header: "<b>End of Day NAVps</b>",
+//		            dataIndex: 'PDiNav',
+//					align: 'right',
+//					width: 20,
+//					renderer: renderThousands,
+//		            sortable: true
+//		        }
+		        ]),
+			autoExpandColumn: 'id',
+			// grid columns
+        	columns:[],
+			// customize view config
+	        viewConfig: {
+	            forceFit:true
+	        },
+			plugins: expander,
+			collapsible: true,
+			autoHeight: true,
+	        autoScroll: true,
+			border: false
+		},{
+			xtype: 'panel',
+			border: false,
+			html: '<div class="right" id="etfNoResult"><a href="exchangeTradedFund.html?tab=2">More Info&nbsp;</a></div>'
+		},{
+			xtype: 'panel',
+			border: false,
+			bodyStyle: 'padding-top: 10px;',
+			html: '<!--<center><div style="background-color: #0f0; text-align: center; width: 115px; height: 115px;">&nbsp;</div></center>-->'
+		}
+		],
+		renderTo: 'etf'
+	});
+	
+	var mostActiveDs = new Ext.data.JsonStore({
+		url: 'dailySummary.html?method=getTopSecurity&limit=10&ajax=true',
+	    root: 'records',
+	    fields: [
+	  			{name: 'securitySymbol'},
+				{name: 'securityName'},
+	 			{name: 'companyLink'},
+	  			{name: 'totalValue'},
+	 			{name: 'lastTradePrice'},
+	 			{name: 'changeClose'},
+	 			{name: 'percChangeClose'}
+	 	    ],
+	 	idProperty: 'securitySymbol'
+	});
+	//mostActiveDs.load();
+	
+	var mostActivePanel = new Ext.Panel({
+		title: '</div><div class="right">MARKET CLOSED</div>',
+		autoWidth: true,
+		border: true,
+		bodyBorder:false,
+		autoScroll: false,
+		items: [{
+			xtype: 'panel',
+			style: 'margin: 0px;right-margin: 4px',
+			items: [{
+				xtype: 'grid',
+				stripeRows:true,
+				id: 'mostActiveGrid',
+				store: mostActiveDs,
+		        trackMouseOver:false,
+		        disableSelection:true,
+				sm: new Ext.grid.RowSelectionModel({
+					singleSelect: true
+				}),
+				cm: new Ext.grid.ColumnModel([{
+						header: '<b>Stock</b>',
+			            dataIndex: 'securitySymbol',
+						renderer: renderCompanyLink,
+						width: 35,
+			            sortable: true
+			        },{
+						header: '<b>Value</b>',
+			            dataIndex: 'totalValue',
+						align: 'right',
+						renderer: renderValuePeso,
+						width: 60,
+			            sortable: true
+			        },{
+						header: '<b>Price</b>',
+			            dataIndex: 'lastTradePrice',
+						renderer: renderValuePrice,
+						align: 'right',
+						width: 40,
+			            sortable: true
+			        },{
+						header: '<b>Chg</b>',
+			            dataIndex: 'changeClose',
+						renderer: renderValueMostActiveChg,
+						align: 'right',
+						width: 35,
+			            sortable: true
+			        },{
+						header: '<b>%Chg</b>',
+			            dataIndex: 'percChangeClose',
+						renderer: renderPercentMostActiveWithIndicator,
+						width: 45,
+						align: 'right',
+			            sortable: true
+			        }
+//			        ,{
+//						header: '&nbsp',
+//			            dataIndex: 'percChangeClose',
+//						renderer: renderChangeMostActive,
+//						width: 45,
+//			            sortable: true
+//		       		 }
+				]),
+				// customize view config
+		        viewConfig: {
+		            forceFit:true
+		        },
+				autoWidth: true,
+				autoHeight: true,
+		        autoScroll: true,
+				border: false
+			},{
+				xtype: 'panel',
+				border: false,
+				html: '<div class="right"><a href="marketInfo-marketActivity.html?tab=2">More Info&nbsp;</a></div>'
+			}
+			,{
+				xtype: 'panel',
+				border: false,
+				bodyStyle: 'padding-top: 10px;',
+				html: '<!--<center><div style="background-color: #0f0; text-align: center; width: 115px; height: 115px;">&nbsp;</div></center>-->'
+			}
+			]
+		}],
+		renderTo: 'most-active'
+	});
+	
+	
+	var advancesDs = new Ext.data.JsonStore({
+		url: 'dailySummary.html?method=getAdvancedSecurity&limit=10&ajax=true',
+	    root: 'records',
+	    fields: [
+	  			{name: 'securitySymbol'},
+				{name: 'securityName'},
+	 			{name: 'companyLink'},
+	  			{name: 'sqPrevious'},
+	 			{name: 'lastTradePrice'},
+	 			{name: 'percChangeClose'},
+	 			{name: 'changeClose'}
+	 	    ],
+	 	idProperty: 'securitySymbol'
+	});
+	//advancesDs.load();
+	
+	var advancesPanel = new Ext.Panel({
+		title: '</div><div class="right">MARKET CLOSED</div>',
+		autoWidth: true,
+		border: true,
+		bodyBorder:false,
+		autoScroll: false,
+		items: [{
+			xtype: 'panel',
+			style: 'margin: 0px;right-margin: 4px',
+			items: [{
+				xtype: 'grid',
+				stripeRows:true,
+				id: 'advancesGrid',
+				store: advancesDs,
+		        trackMouseOver:false,
+		        disableSelection:true,
+				sm: new Ext.grid.RowSelectionModel({
+					singleSelect: true
+				}),
+				cm: new Ext.grid.ColumnModel([{
+						header: '<b>Stock</b>',
+			            dataIndex: 'securitySymbol',
+						renderer: renderCompanyLink,
+						width: 60,
+			            sortable: true
+			        },{
+						header: '<b>Previous</b>',
+			            dataIndex: 'sqPrevious',
+						align: 'right',
+						width: 70,
+						renderer: renderValuePrice,
+			            sortable: true
+			        },{
+						header: '<b>Price</b>',
+			            dataIndex: 'lastTradePrice',
+						align: 'right',
+						width: 70,
+						renderer: renderValuePrice,
+			            sortable: true
+			        },{
+						header: '<b>%Chg</b>',
+			            dataIndex: 'percChangeClose',
+						renderer: renderPercentMostActiveWithIndicator,
+						align: 'right',
+						width: 60,
+			            sortable: true
+			        }
+//			        ,{
+//						header: '&nbsp;',
+//			            dataIndex: 'changeClose',
+//						renderer: renderChangeMostActive,
+//						width: 45,
+//			            sortable: true
+//		        }
+			        ]),
+				// grid columns
+	        	columns:[],
+				// customize view config
+		        viewConfig: {
+		            forceFit:true
+		        },
+				autoWidth: true,
+				autoHeight: true,
+		        autoScroll: true,
+				border: false
+			},{
+				xtype: 'panel',
+				border: false,
+				html: '<div class="right"><a href="marketInfo-marketActivity.html?tab=3">More Info&nbsp;</a></div>'
+			},{
+				xtype: 'panel',
+				border: false,
+				bodyStyle: 'padding-top: 10px;',
+				html: '<!--<center><div style="background-color: #0f0; text-align: center; width: 115px; height: 115px;">&nbsp;</div></center>-->'
+			}
+			]
+		}],
+		renderTo: 'advances'
+	});
+	
+	var declinesDs = new Ext.data.JsonStore({
+		url: 'dailySummary.html?method=getDeclinesSecurity&limit=10&ajax=true',
+	    root: 'records',
+	    fields: [
+	  			{name: 'securitySymbol'},
+				{name: 'securityName'},
+	 			{name: 'companyLink'},
+	  			{name: 'sqPrevious'},
+	 			{name: 'lastTradePrice'},
+	 			{name: 'percChangeClose'},
+	 			{name: 'changeClose'}
+	 	    ],
+	 	idProperty: 'securitySymbol'
+	});
+	//declinesDs.load();
+
+	var declinesPanel = new Ext.Panel({    	
+		title: '</div><div class="right">MARKET CLOSED</div>',
+		autoWidth: true,
+		border: true,
+		bodyBorder:false,
+		autoScroll: false,
+		items: [{
+			xtype: 'panel',
+			style: 'margin: 0px;right-margin: 4px',
+			items: [{
+				xtype: 'grid',
+				stripeRows:true,
+				id: 'declinesGrid',
+				store: declinesDs,
+		        trackMouseOver:false,
+		        disableSelection:true,
+				sm: new Ext.grid.RowSelectionModel({
+					singleSelect: true
+				}),
+				cm: new Ext.grid.ColumnModel([{
+						header: '<b>Stock</b>',
+			            dataIndex: 'securitySymbol',
+						renderer: renderCompanyLink,
+						width: 60,
+			            sortable: true
+			        },{
+						header: '<b>Previous</b>',
+						align: 'right',
+			            dataIndex: 'sqPrevious',
+						width: 70,
+						renderer: renderValuePrice,
+			            sortable: true
+			        },{
+						header: '<b>Price</b>',
+						align: 'right',
+			            dataIndex: 'lastTradePrice',
+						width: 70,
+						renderer: renderValuePrice,
+			            sortable: true
+			        },{
+						header: '<b>%Chg</b>',
+			            dataIndex: 'percChangeClose',
+						width: 60,
+						renderer: renderPercentMostActiveWithIndicator,
+						align: 'right',
+			            sortable: true
+			        }
+//			        ,{
+//						header: '&nbsp',
+//			            dataIndex: 'changeClose',
+//						renderer: renderChangeMostActive,
+//						width: 45,
+//			            sortable: true
+//		        }
+			        ]),
+				// grid columns
+	        	columns:[],
+				// customize view config
+		        viewConfig: {
+		            forceFit:true
+		        },
+				autoWidth: true,
+				autoHeight: true,
+		        autoScroll: true,
+				border: false
+			},{
+				xtype: 'panel',
+				border: false,
+				html: '<div class="right"><a href="marketInfo-marketActivity.html?tab=3">More Info&nbsp;</a></div>'
+			},{
+				xtype: 'panel',
+				border: false,
+				bodyStyle: 'padding-top: 10px;',
+				html: '<!--<center><div style="background-color: #0f0; text-align: center; width: 115px; height: 115px;">&nbsp;</div></center>-->'
+			}
+			]
+		}],
+		renderTo: 'declines'
+	});
+
+	// Start a simple clock task that updates a div once per second
+	var task = {
+	    run: function(){
+	        indicesDs.reload();
+			indicesDetailsDs.reload();
+			etfDs.reload({params: {limit: 4}});
+//			mostActiveDs.reload();
+//			advancesDs.reload();
+//			declinesDs.reload();
+		},
+	    interval: 60000 //1 minute
+	};
+	var reloader = new Ext.util.DelayedTask(function(){
+		Ext.TaskMgr.start(task);
+	});	
+	reloader.delay(60000);
+
+	expander.on("expand",
+			function(source, rec, body, i) {
+				var so = new SWFObject("../flash/amline/amline.swf", "amline", "275", "150", "7", "#FFFFFF");
+				so.addVariable("path", "../flash/amline/");
+				so.addVariable("settings_file", encodeURIComponent("../flash/amline/amline_settings.xml"));
+				so.addVariable("data_file", encodeURIComponent("/stockMarket/charts.html?method=indexData&market="+rec.get('indexId')));
+				so.write("flashcontent-"+rec.get('indexId'));
+			});
+	
+});
+
+		</script>
+		</div> <!-- end of main div -->
+</div> <!-- end of contentStockMarket -->
+<div style="clear:both"></div>
+<div id="footer" class="clearfix">
+		<div id="disclaimer">
+		<p style="margin: 0; padding: 0">
+		All materials on this website are protected by copyright and intellectual property laws and are the property of The Philippine Stock Exchange, Inc. Unless stated otherwise, you may access and download the materials located on the website only for personal, non-commercial use.
+© 2012 The Philippine Stock Exchange, Inc.  All Rights Reserved.
+		</p>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="footermain">
+    <div id="divider"></div>
+    <span class="left">Version 1.0 |
+        <span id="validators">
+        	<a href="/stockMarket/content.html?sec=DISCLAIMER">Disclaimer</a> |
+			<a href="/stockMarket/content.html?sec=LINK_POLICY">Link Policy</a> |
+			<a href="/stockMarket/content.html?sec=SITEMAP_CONTENTS">Site Map</a> |
+			<a href="/stockMarket/content.html?sec=CONTACT_US">Contact Us</a> |
+        </span>
+        
+    </span>
+    <span class="right">
+        &copy; 2012 <a href="/">THE PHILIPPINE STOCK EXCHANGE, INC., All Rights Reserved.</a>
+    </span>
+    </div>
+    <br/>
+    <p style="text-align:right"><small>BEST VIEWED ON MOZILLA FIREFOX 4 OR HIGHER, MICROSOFT INTERNET EXPLORER 9 OR GOOGLE CHROME</small></p>
+    
+    
+<!--[if lte IE 6]>
+<script type="text/javascript" src="/scripts/supersleight-min.js"></script>
+<![endif]-->  
+</div>
+
+</div> <!-- end of page -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+

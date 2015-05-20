@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Goibibo</title>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<meta name="apple-itunes-app" content="app-id=631927169, affiliate-data=myAffiliateData, app-argument=myURL">
+<meta name="alexaVerifyID" content="l3rQIge7B2N_G1cQl0VZP0y7-nE"/>
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+<link rel="canonical" href="http://www.goibibo.com/">
+<link rel="alternate" href="android-app://com.goibibo/goibibo/www.goibibo.com/app/"/>
+<link rel="stylesheet" href="//goibibo.ibcdn.com/css/mobile/ibigo-min.1430037101.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="//goibibo.ibcdn.com/css/v2/base-min.1424086720.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="//goibibo.ibcdn.com/css/mobile/icon.1424086720.css" type="text/css" media="screen"/>
+<script src="//goibibo.ibcdn.com/js/mobile/ibigo_main-min.1430037094.js" defer type="text/javascript"></script>
+<script src="//goibibo.ibcdn.com/js/mobile/ibigo_home_search-min.1430037095.js" defer type="text/javascript"></script>
+<script src="//goibibo.ibcdn.com/js/v2/base-min.1430037116.js" defer type="text/javascript"></script>
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KT7GT2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KT7GT2');</script>
+<div id="navWrap" class="dn1">
+<div class="headerBorder">
+<div class="fl"><a href="/"><img src="//goibibo.ibcdn.com/images/mobile/navList_logo.jpg" alt="" border="0"></a></div>
+<div id="hd_user">
+<a href="/accounts/login/" class="fr whiteFont">Sign In</a>
+</div>
+<div style="clear:both"></div>
+</div>
+<ul class="nav-list">
+<li><a href="/#search" onclick="getSetting()"><i class="icon-flight icon-white"></i> Flight Booking</a></li>
+<li><a href="/hotels/" onclick="resetNavSlide(settId)"><i class="icon-Hotel"></i> Hotel Booking</a></li>
+<li><a href="/bus/#search" onclick="resetNavSlide(settId)"><i class="icon-Bus "></i> Bus Booking</a></li>
+<li><a href="/travel-guide/" onclick="resetNavSlide(settId)"><i class="icon-book "></i> City Travel Guides</a></li>
+<li><a href="/offers/" onclick="resetNavSlide(settId)"><i class="icon-New "></i> Offers &amp; Promotions</a></li>
+<li><a href="/flight-travelhistory/" onclick="resetNavSlide(settId)"><i class="icon-book"></i>My Bookings</a></li>
+<li><a href="/support/" onclick="resetNavSlide(settId)"><i class="icon-cancel"></i>Cancel/Reschedule</a></li>
+<li><a href="/mfaqs/" onclick="resetNavSlide(settId)"><i class="icon-faq"></i>FAQ </a></li>
+<li><a href="/support/" onclick="resetNavSlide(settId)"><i class="icon-cSupport"></i>Express Care</a></li>
+</ul>
+</div>
+<input type="hidden" id="bcurl" value="cyclone.goibibo.com">
+<section id="appAds" class="dn">
+<div class="mobileApp" style="margin-left:10px">
+<div class="fl crossTop" style="margin-right:18px;"> <a href="javascript:void(0);" onclick="document.getElementById('appAds').className = 'dn';">
+<img src="//goibibo.ibcdn.com/images/mobile/apparrow.png"></a> </div>
+<div class="fl"> <a href="http://app.appsflyer.com/com.goibibo?pid=mobile_site&c=m_header">
+<div class="fl" style="margin-right:12px;"><img src="//goibibo.ibcdn.com/images/mobile/go_icon.png"/></div>
+<div class="fl" style="margin-right:12px; color:#737373;">
+<p style="font-size:22px; color:#000;">Goibibo <img src="//goibibo.ibcdn.com/images/mobile/android_stars.png"/></p>
+<p style="word-break: break-word">Better experience and gocash</p>
+<p style="word-break: break-word">on your phone, only through </p>
+<p style="word-break: break-word">app.GO TO APP.</p>
+</div>
+<div class="fl instaLL">Install</div>
+<div class="clearAll"></div>
+</a>
+</div>
+<div class="clearAll"></div>
+</div>
+</div>
+</section>
+<section class=" dn" id="appWind">
+<div class="mobileApp">
+<div class="fl crossTop" style="margin-right:8px;"> <a href="javascript:void(0);" onclick="document.getElementById('appWind').className = 'dn';">
+<img src="//goibibo.ibcdn.com/images/mobile/windowcross.png"> </a> </div>
+<div class="fl"> <a href="http://www.windowsphone.com/en-in/store/app/goibibo/6f16a6ec-3b7e-4782-9f74-57f75a4cc1a3">
+<div class="fl" style="margin-right:10px; margin-top: 10px;"><img src="//goibibo.ibcdn.com/images/mobile/go_icon_w.png"/></div>
+<div class="fl" style="margin-right:10px; color:#737373;">
+<p style="font-size:22px; color:#000;">Goibibo <img src="//goibibo.ibcdn.com/images/mobile/android_stars.png"/></p>
+<p> Hotel, Flight and Bus Booking</p>
+<p> Ibibo Group Pvt Ltd</p>
+</div>
+<div class="fl instaLL">Install</div>
+<div class="clearAll"></div>
+</a>
+</div>
+<div class="clearAll"></div>
+</div>
+</div>
+</section>
+<section id="homain">
+<section id="hoindex" class="db">
+<header id="hinh">
+<hgroup>
+<h3></h3>
+<h1><a href="/"><img src="//goibibo.ibcdn.com/images/mobile/go_logo.png"/></a></h1>
+<h5>
+<button id="gi_setting" onclick="getSetting()">
+<img src="//goibibo.ibcdn.com/images/mobile/go_settings_icon1.png"/>
+</button>
+</h5>
+</hgroup>
+</header>
+<section id="hmid">
+<div id="herr"></div>
+<section id="gomain">
+<section id="goindex" class="dn">
+<section id="gmid">
+<div class="ghom">
+<article>
+<a href="#search" id="fltSearch">
+<figure class="go_flight"></figure>
+<figcaption>Flight</figcaption>
+</a>
+<a href="/bus/">
+<figure class="go_hotel"></figure>
+<figcaption>Bus</figcaption>
+</a>
+<a href="/hotels/">
+<figure class="go_bus"></figure>
+<figcaption>Hotel</figcaption>
+</a>
+</article>
+<nav>
+<a href="#search">Flight Booking</a>
+<a href="/bus/">Bus Booking</a>
+<a href="/hotels/">Hotels Booking</a>
+<a href="/flight-travelhistory/">My Bookings</a>
+<a href="/support/">Express Care</a>
+<a href="/contactus/">Help us to improve</a>
+</nav>
+<style type="text/css">
+.shoppingOffer{border:1px solid #2585bb;padding:1%;background-color:#eee;overflow:hidden;margin-top:10px;text-align:left;width:90%;margin-right:5%;margin-left:5%;}
+.shop_offer_msg{font-weight:normal;overflow:hidden;font-size:1.0em;line-height:140%;text-align:center}
+.shop_offer_msg b{color: #2762b0;}
+</style>
+<div class="shoppingOffer">
+<div class="shop_offer_msg">
+Get 50%* + Extra 30%* off on Hotel Bookings. Use promo Code: SUMMER30. *T&C apply.
+</div>
+</div>
+</div>
+</section>
+<footer id="gftr">
+</footer>
+</section>
+<section id="gosearch" class="dn">
+<header id="ghdr">
+<hgroup>
+<h3><a class="hsrslt_sprite" href="javascript:void(0)" onclick="history.back()"></a></h3>
+</hgroup>
+</header>
+<section id="gmid">
+<div id="gsch">
+<form method="post" id="gi_search" name="gi_search" autocomplete="off">
+<div id="gscs">
+<span>
+<label><br/>Search Domestic and International Flights</label>
+<label>
+<strong>
+<a href="javascript:void(0)" id="gi_oneway_label" class="gort">One Way</a>
+<a href="javascript:void(0)" id="gi_roundtrip_label">Round Trip</a>
+</strong>
+</label>
+</span>
+<div class="dgftb">
+<select id="gi_source" name="gi_source" size="1" class="gflb" required="required">
+<option value="DEL" alias="delhi">New Delhi</option>
+<option value="BOM">Mumbai</option>
+<option value="BLR">Bangalore</option>
+<option value="GOI">Goa</option>
+<option value="MAA">Chennai</option>
+<option value="HYD">Hyderabad</option>
+<option value="CCU">Kolkata</option>
+<option value="PNQ">Pune</option>
+<option value="IXA">Agartala</option>
+<option value="AGX">Agatti Island</option>
+<option value="AGR">Agra</option>
+<option value="AMD">Ahmedabad</option>
+<option value="AJL">Aizawl</option>
+<option value="IXD">Allahabad</option>
+<option value="IXV">Along</option>
+<option value="ATQ">Amritsar</option>
+<option value="IXU">Aurangabad</option>
+<option value="IXB">Bagdogra</option>
+<option value="BBI">Bhubaneswar</option>
+<option value="BEK">Bareli</option>
+<option value="IXG">Belgaum</option>
+<option value="BHJ">Bhuj</option>
+<option value="BHO">Bhopal</option>
+<option value="BHU">Bhavnagar</option>
+<option value="CCJ">Calicut</option>
+<option value="COK">Cochin</option>
+<option value="CJB">Coimbatore</option>
+<option value="IXC">Chandigarh</option>
+<option value="DHM">Dharamshala</option>
+<option value="DED">Dehra Dun</option>
+<option value="DIB">Dibrugarh</option>
+<option value="DMU">Dimapur</option>
+<option value="DIU">Diu</option>
+<option value="GAU">Guwahati</option>
+<option value="GAY">Gaya</option>
+<option value="GOP">Gorakhpur</option>
+<option value="GWL">Gwalior</option>
+<option value="HBX">Hubli</option>
+<option value="IDR">Indore</option>
+<option value="IMF">Imphal</option>
+<option value="IXJ">Jammu</option>
+<option value="IXW">Jamshedpur</option>
+<option value="JAI">Jaipur</option>
+<option value="JDH">Jodhpur</option>
+<option value="JGA">Jamnagar</option>
+<option value="JLR">Jabalpur</option>
+<option value="JRH">Jorhat</option>
+<option value="JSA">Jaisalmer</option>
+<option value="IXH">Kailashahar</option>
+<option value="IXQ">Kamalpur</option>
+<option value="IXY">Kandla</option>
+<option value="KNU">Kanpur</option>
+<option value="IXK">Keshod</option>
+<option value="HJR">Khajuraho</option>
+<option value="IXN">Khowai</option>
+<option value="COK">Kochi</option>
+<option value="KLH">Kolhapur</option>
+<option value="KUU">Kulu</option>
+<option value="LTU">Latur</option>
+<option value="IXL">Leh</option>
+<option value="IXI">Lilabari</option>
+<option value="LKO">Lucknow</option>
+<option value="IXM">Madurai</option>
+<option value="IXE">Mangalore</option>
+<option value="MZA">Muzaffarnagar</option>
+<option value="MYQ">Mysore</option>
+<option value="ISK">Nasik</option>
+<option value="NAG">Nagpur</option>
+<option value="NDC">Nanded</option>
+<option value="PGH">Pantnagar</option>
+<option value="IXT">Pasighat</option>
+<option value="IXP">Pathankot</option>
+<option value="PAT">Patna</option>
+<option value="PBD">Porbandar</option>
+<option value="PNY">Pondicherry</option>
+<option value="IXZ">Port Blair</option>
+<option value="BEK">Puttaparthi</option>
+<option value="IXR">Ranchi</option>
+<option value="RAJ">Rajkot</option>
+<option value="RJA">Rajahmundry</option>
+<option value="RPR">Raipur</option>
+<option value="RUP">Rupsi</option>
+<option value="SXV">Salem</option>
+<option value="IXS">Silchar</option>
+<option value="IXB">Siliguri(Bagdogra)</option>
+<option value="SHL">Shillong</option>
+<option value="SLV">Simla</option>
+<option value="SSE">Sholapur</option>
+<option value="STV">Surat</option>
+<option value="SXR">Srinagar</option>
+<option value="TCR">Tuticorin</option>
+<option value="TEZ">Tezpur</option>
+<option value="TIR">Tirupati</option>
+<option value="TRV">Thiruvananthapuram</option>
+<option value="TRZ">Trichy</option>
+<option value="UDR">Udaipur</option>
+<option value="BDQ">Vadodara</option>
+<option value="VNS">Varanasi</option>
+<option value="VGA">Vijayawada</option>
+<option value="VTZ">Visakhapatnam</option>
+<option value="VTZ">Vizag</option>
+</select>
+</div>
+<div class="dgftb">
+<select id="gi_destination" name="gi_destination" size="1" class="gflb" required="required">
+<option value="DEL" alias="delhi">New Delhi</option>
+<option value="BOM" selected="selected">Mumbai</option>
+<option value="BLR">Bangalore</option>
+<option value="GOI">Goa</option>
+<option value="MAA">Chennai</option>
+<option value="HYD">Hyderabad</option>
+<option value="CCU">Kolkata</option>
+<option value="PNQ">Pune</option>
+<option value="IXA">Agartala</option>
+<option value="AGX">Agatti Island</option>
+<option value="AGR">Agra</option>
+<option value="AMD">Ahmedabad</option>
+<option value="AJL">Aizawl</option>
+<option value="IXD">Allahabad</option>
+<option value="IXV">Along</option>
+<option value="ATQ">Amritsar</option>
+<option value="IXU">Aurangabad</option>
+<option value="IXB">Bagdogra</option>
+<option value="BBI">Bhubaneswar</option>
+<option value="BEK">Bareli</option>
+<option value="IXG">Belgaum</option>
+<option value="BHJ">Bhuj</option>
+<option value="BHO">Bhopal</option>
+<option value="BHU">Bhavnagar</option>
+<option value="CCJ">Calicut</option>
+<option value="COK">Cochin</option>
+<option value="CJB">Coimbatore</option>
+<option value="IXC">Chandigarh</option>
+<option value="DHM">Dharamshala</option>
+<option value="DED">Dehra Dun</option>
+<option value="DIB">Dibrugarh</option>
+<option value="DMU">Dimapur</option>
+<option value="DIU">Diu</option>
+<option value="GAU">Guwahati</option>
+<option value="GAY">Gaya</option>
+<option value="GOP">Gorakhpur</option>
+<option value="GWL">Gwalior</option>
+<option value="HBX">Hubli</option>
+<option value="IDR">Indore</option>
+<option value="IMF">Imphal</option>
+<option value="IXJ">Jammu</option>
+<option value="IXW">Jamshedpur</option>
+<option value="JAI">Jaipur</option>
+<option value="JDH">Jodhpur</option>
+<option value="JGA">Jamnagar</option>
+<option value="JLR">Jabalpur</option>
+<option value="JRH">Jorhat</option>
+<option value="JSA">Jaisalmer</option>
+<option value="IXH">Kailashahar</option>
+<option value="IXQ">Kamalpur</option>
+<option value="IXY">Kandla</option>
+<option value="KNU">Kanpur</option>
+<option value="IXK">Keshod</option>
+<option value="HJR">Khajuraho</option>
+<option value="IXN">Khowai</option>
+<option value="COK">Kochi</option>
+<option value="KLH">Kolhapur</option>
+<option value="KUU">Kulu</option>
+<option value="LTU">Latur</option>
+<option value="IXL">Leh</option>
+<option value="IXI">Lilabari</option>
+<option value="LKO">Lucknow</option>
+<option value="IXM">Madurai</option>
+<option value="IXE">Mangalore</option>
+<option value="MZA">Muzaffarnagar</option>
+<option value="MYQ">Mysore</option>
+<option value="ISK">Nasik</option>
+<option value="NAG">Nagpur</option>
+<option value="NDC">Nanded</option>
+<option value="PGH">Pantnagar</option>
+<option value="IXT">Pasighat</option>
+<option value="IXP">Pathankot</option>
+<option value="PAT">Patna</option>
+<option value="PBD">Porbandar</option>
+<option value="PNY">Pondicherry</option>
+<option value="IXZ">Port Blair</option>
+<option value="BEK">Puttaparthi</option>
+<option value="IXR">Ranchi</option>
+<option value="RAJ">Rajkot</option>
+<option value="RJA">Rajahmundry</option>
+<option value="RPR">Raipur</option>
+<option value="RUP">Rupsi</option>
+<option value="SXV">Salem</option>
+<option value="IXS">Silchar</option>
+<option value="IXB">Siliguri(Bagdogra)</option>
+<option value="SHL">Shillong</option>
+<option value="SLV">Simla</option>
+<option value="SSE">Sholapur</option>
+<option value="STV">Surat</option>
+<option value="SXR">Srinagar</option>
+<option value="TCR">Tuticorin</option>
+<option value="TEZ">Tezpur</option>
+<option value="TIR">Tirupati</option>
+<option value="TRV">Thiruvananthapuram</option>
+<option value="TRZ">Trichy</option>
+<option value="UDR">Udaipur</option>
+<option value="BDQ">Vadodara</option>
+<option value="VNS">Varanasi</option>
+<option value="VGA">Vijayawada</option>
+<option value="VTZ">Visakhapatnam</option>
+<option value="VTZ">Vizag</option>
+</select>
+</div>
+</div>
+<div id="gaci">
+<span>
+<time>
+<label>Depart</label>
+<a href="javascript:void(0)" id="gi_onward_text">
+<hgroup>
+<h2>Apr<br/>Tue</h2><h1>28</h1><h3 class="gcdf"></h3>
+</hgroup>
+<div id="cal_onward"></div>
+</a>
+<input type="hidden" id="gi_onward_date" name="gi_onward_date" value="20150428"/>
+<input type="hidden" id="gi_today" name="gi_today" value="2015-04-28"/>
+</time>
+<time>
+<label>Return</label>
+<a href="javascript:void(0)" id="gi_return_text">
+<hgroup>
+<h4>Tap to select</h4><h3 class="gchv"></h3>
+</hgroup>
+<div id="cal_return"></div>
+</a>
+<input type="hidden" id="gi_return_date" name="gi_return_date" value=""/>
+</time>
+</span>
+<span>
+<strong class="gcls">
+<label>Adults</label>
+<em>12+ years</em>
+<section>
+<button id="gi_adult_prev" type="button">&nbsp;</button>
+<output id="gi_adult_text" type="button">1</output>
+<button id="gi_adult_next" type="button">&nbsp;</button>
+</section>
+<input type="hidden" id="gi_adult" name="gi_adult" value="1"/>
+</strong>
+<strong class="gcls">
+<label>Children</label>
+<em>2-12 years</em>
+<section>
+<button id="gi_child_prev" type="button">&nbsp;</button>
+<output id="gi_child_text" type="button">0</output>
+<button id="gi_child_next" type="button">&nbsp;</button>
+</section>
+<input type="hidden" id="gi_child" name="gi_child" value="0"/>
+</strong>
+<strong class="gcls">
+<label>Infants</label>
+<em>below 2 years</em>
+<section>
+<button id="gi_infant_prev" type="button">&nbsp;</button>
+<output id="gi_infant_text" type="button">0</output>
+<button id="gi_infant_next" type="button">&nbsp;</button>
+</section>
+<input type="hidden" id="gi_infant" name="gi_infant" value="0"/>
+</strong>
+</span>
+<span>
+<div class="hm_adltcnt"><b>Class</b></div>
+<select id="gi_class" name="gi_class" class="hm_htagchd hmAgc" size="1" tabindex="11">
+<option value="E" selected="selected">Economy</option>
+<option value="B">Business</option>
+<option value="F">First Class</option>
+</select>
+</span>
+<div id="gerr"></div>
+<span class="gsef">
+<input type="submit" id="gi_search_btn" class="gfsh" value="Search Flights"/>
+</span>
+</div>
+</form>
+</div>
+</section>
+<section id="gcal" class="dn">
+<div class="gcct">
+<header>
+<a href="javascript:void(0)" onclick="gihome.cal.navCal('prev');">&lt;</a>
+<span>
+<select id="gi_calmonth" name="gi_calmonth" onChange="gihome.cal.getCalMonth(this.value);" size="1" required="required">
+<option value="01">January</option>
+<option value="02">February</option>
+<option value="03">&nbsp;&nbsp;March</option>
+<option value="04">&nbsp;&nbsp;&nbsp;April</option>
+<option value="05">&nbsp;&nbsp;&nbsp;&nbsp;May</option>
+<option value="06">&nbsp;&nbsp;&nbsp;June</option>
+<option value="07">&nbsp;&nbsp;&nbsp;July</option>
+<option value="08">&nbsp;&nbsp;August</option>
+<option value="09">September</option>
+<option value="10">&nbsp;October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<select id="gi_calyear" name="gi_calyear" onChange="gihome.cal.getCalYear(this.value);" size="1" required="required">
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+</select>
+</span>
+<a href="javascript:void(0)" onclick="gihome.cal.navCal('next');">&gt;</a>
+</header>
+<section>
+<label id="gi_trtype">Onward</label>
+<input type="text" id="gi_timetext" disabled="disabled" name="gi_timetext" value="28 Tue, Apr 2015" jj="18 Wed, Mar 2012" class="gclb"/>
+</section>
+<div>
+<label>
+<em id="gid1" class="Mon">m</em><em id="gid2" class="Tue">t</em><em id="gid3" class="Wed">w</em>
+<em id="gid4" class="Thu">t</em><em id="gid5" class="Fri">f</em><em id="gid6" class="Sat">s</em>
+<em id="gid0" class="Sun">s</em>
+</label>
+<aside id="gmnt"></aside>
+</div>
+<p>
+<a id="cal_cancel" href="javascript:void(0)">Close</a>
+</p>
+</div>
+</section>
+<footer id="gftr">
+</footer>
+</section>
+<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-9782412-10']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+<section id="grri" class="dn">
+<header id="ghdr">
+<hgroup>
+<h3><a class="hsrslt_sprite" href="javascript:void(0)" onclick="history.back()"></a></h3>
+</hgroup>
+</header>
+<div id="gres">
+<header id="gshd">
+<h1 id="gsdh">&nbsp;</h1>
+<article>
+<a href="javascript:void(0)" id="gi_onward_tab" class="gont"></a>
+<a href="javascript:void(0)" id="gi_return_tab"></a>
+</article>
+<div><span id="gldr">&nbsp;</span></div>
+<time>
+<strong>Onward flights:</strong>
+<label id="gscf">Searching for all available flights</label>
+<mark id="gflt"></mark>
+</time>
+</header>
+<section id="onwardResult">
+<div id="gsldr"></div>
+</section>
+<section id="returnResult" class="dn"></section><br/><br/>
+<footer id="gi_filter" class="dn">
+<input type="button" class="gfil gsrt" id="filt_button" value="Filter" onClick="gi.ui.showFilter()">
+<input type="button" class="gfil" value="Depart" onClick="gi.ui.getSorted(1); EventTracker.throwEvent('event','Sort by Depart clicked');">
+<input type="button" class="gfil" value="Price" onClick="gi.ui.getSorted(0); EventTracker.throwEvent('event','Sort by Price clicked');">
+<input type="button" class="gfil" value="Arrive" onClick="gi.ui.getSorted(2); EventTracker.throwEvent('event','Sort by Arrive clicked');">
+</footer>
+<footer id="gi_filter_done" class="dn">
+<input type="button" style="width: 98%;" onclick="gi.ui.showFilter()" value="Done" id="filt_button" class="gfil gsrt">
+</footer>
+</div>
+<div id="grev" class="dn">
+<header>
+<h1>Review Your Itinerary <span id="gi_item_count"></span></h1>
+</header>
+<section>
+<section id="onwardReview"></section>
+<section id="returnReview" class="dn"></section>
+</section>
+<div class="popOverlay popShow dn" id="farePopOverlay"></div>
+<div class="popContent popCenter dn" id="fRulePopup">
+<a href="javascript:void(0)" class="fr popClose" onclick="gi.ui.closeFareRules();"><img src="/images/mobile/windowcross.png"/></a>
+<div class="popHdr">
+<h2 class="fareRuleHead">Fare Rules</h2>
+</div>
+<div class="popBodyWrap" id="fareBody">
+</div>
+</div>
+<style type="text/css">
+.bk_popup {
+position: fixed;
+top: 50%;
+left: 50%;
+width: 95%;
+height: auto;
+z-index: 2000;
+background-color:#ffffff;
+padding: 20px;
+-webkit-transform: translateX(-50%) translateY(-50%);
+-moz-transform: translateX(-50%) translateY(-50%);
+-ms-transform: translateX(-50%) translateY(-50%);
+-o-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+}
+
+
+.bk_popup.large {
+max-width: 660px;
+min-width:300px;
+margin-left:0px;
+width:auto;
+}
+
+.bk_popup_cls {
+   color: #999;
+   font-size: 16px;
+   position: absolute;
+   right: 10px;
+   top: 5px;
+}
+
+ .bk_popup_overlay {
+   background: none repeat scroll 0 0 #999;
+   display: none;
+   height: 100%;
+   left: 0;
+   opacity: 0.6;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 1;
+}
+
+@media (max-width: 767px){
+
+.ico20 {
+   font-size: 15px;
+   font-weight:bold;
+}
+
+}
+.pad10 {
+   padding: 10px;
+}
+.bk_popup ul {
+   padding: 5px 0 20px 15px;
+}
+
+.bk_popup li {
+list-style-type: disc;
+padding-bottom: 2px;
+}
+.lh1-5 {
+line-height: 1.5!important;
+}
+</style>
+<p>
+<span class="alert_msg imp_msg fl" id="multiRefundPolicy" style="width:100%">
+<b class="status_info fl">Important: </b>
+<span class="status_cont"> You are trying to book multi itinerary created by goibibo please read the <a href="javascript:void(0);" onclick="document.getElementById('bajaj_ins_pop').style.display = 'block'; document.getElementById('bajaj_ins_popOverlay').style.display = 'block';">terms and condition</a> carefully.</span>
+</span>
+</p>
+<div class="bk_popup_overlay" style="display: none;" id="bajaj_ins_popOverlay"></div>
+<div class="bk_popup large" id="bajaj_ins_pop" style="display: none;">
+<div class="insWrap">
+<a href="javascript:void(0);" onclick="document.getElementById('bajaj_ins_pop').style.display = 'none';document.getElementById('bajaj_ins_popOverlay').style.display = 'none';" class="bk_popup_cls"><b>X</b></a>
+<div class="ico20">CANCELLATION AND REFUND POLICY</div>
+<div class="pad10">
+<ul class="lh1-5" style="list-style: decimal; margin: 0 auto;">
+<li class="padT5">Please be advised, this is an itinerary created for best pricing and if a flight of any route is cancelled or delayed, Goibibo is not responsible for the same.</li>
+<li class="padT5">In case of any cancellation or refund, airlines' terms and conditions are applicable. No partial cancellation allowed.</li>
+<li class="padT5">Please ensure you check the terminals and airport distance in case of transfers.</li>
+<li class="padT5">Please read the terms and conditions carefully before booking a Multi-Carrier option.</li>
+<li class="padT5">In case of any cancellation or refund, airlines' terms and conditions are applicable.</li>
+<li class="padT5">In case of one way booking, the entire journey cancellation is permitted however one leg of the journey cannot be cancelled.</li>
+<li class="padT5">In case of round trip one way journey cancellation is permitted however if any discounted round trip in the booking, the partial cancellation is not permitted.</li>
+</div>
+</div>
+</div>
+<section class="gpro">
+<summary>
+<strong>Rs. <output id="gi_fare"></output><span>Total Flight Fare</span></strong>
+</summary>
+</section>
+<footer>
+<form method="post" id="gi_goguest" action="https://m.goibibo.com/flight-booking/" autocomplete="off">
+<input type="hidden" id="bookingdata" name="bookingdata" value=''/>
+<input type="hidden" id="querydata" name="querydata" value=""/>
+<input type="hidden" id="multi_minified" name="multi_minified" value=""/>
+<input type="submit" class="gbkn" value="CONFIRM"/>
+</form>
+</footer>
+</div>
+<iframe name="gi_search_res" id="gi_search_res" class="dn"></iframe>
+</section>
+</section>
+<div class="mobileContainer" id="filters" style="display:none">
+<div class="navMobile">
+<header class="headerBorder">
+<a class="reset" id="reset" href="javascript:void(0);">Reset</a>
+Fliter Flight Result
+</header>
+<ul class="nav nav-list">
+<li class=""><a href="javascript:void(0);"> Refundable only <input class="chckairlines" id="no-rf" type="checkbox" autocomplete="off"/></a></li>
+<li><a href="javascript:void(0);"> Non-stop only <input class="chckairlines" id="no-stop" type="checkbox" autocomplete="off"/></a></li>
+</ul>
+<nav class="bstm">
+<input id="411am" type="checkbox" name="check" value="1" autocomplete="off">
+<label for="411am" class="time1">
+<i class="eam">Morning</i>
+<i>4AM-11AM</i>
+</label>
+<input id="114pm" type="checkbox" name="check" value="2" autocomplete="off">
+<label for="114pm" class="time2">
+<i class=" mor">Noon</i>
+<i>11AM-4PM</i>
+</label>
+<input id="49pm" type="checkbox" name="check" value="3" autocomplete="off">
+<label for="49pm" class="time3">
+<i class="eve">Evening</i>
+<i>4PM-9PM</i>
+</label>
+<input id="94pa" type="checkbox" name="check" value="4" autocomplete="off">
+<label for="94pa" class="time4">
+<i class="nig">Night</i>
+<i>9PM-4AM</i>
+</label>
+</nav>
+<ul id="al_filters" class="mrinf">
+<li class="fltHead">Airlines </li>
+</ul>
+<ul id="al_filters_multi" class="mrinf" style="margin-top: -18px;">
+<li class="fltHead"></li>
+</ul>
+</div>
+</div>
+<script type="snippet" id="combo_cal">
+    <select class="hmAgc" style="width:30%;float:left;">
+        <=dates=>
+    </select>
+    <select class="hmAgc" style="width:60%;float:right;">
+        <=month-year=>
+    </select>
+</script>
+<script type="snippet" id="combo_cal_opt">
+    <option><=entry=></option>
+</script>
+<script type="application/ld+json">
+{
+   "@context": "http://schema.org",
+   "@type": "WebSite",
+   "url": "http://m.goibibo.com/",
+   "potentialAction": {
+     "@type": "SearchAction",
+     "target": "http://m.goibibo.com/common/searchbox/?q={search_term_string}",
+     "query-input": "required name=search_term_string"
+   }
+}
+</script>
+</section>
+<footer>
+<section id="gcal" class="dn">
+<div class="gcct">
+<header>
+<a href="javascript:void(0)" onclick="gi.cal.navCal('prev');">&lt;</a>
+<span>
+<select id="hi_calmonth" name="hi_calmonth" onChange="gi.cal.getCalMonth(this.value);" size="1" required="required">
+<option value="01">January</option>
+<option value="02">February</option>
+<option value="03">&nbsp;&nbsp;March</option>
+<option value="04">&nbsp;&nbsp;&nbsp;April</option>
+<option value="05">&nbsp;&nbsp;&nbsp;&nbsp;May</option>
+<option value="06">&nbsp;&nbsp;&nbsp;June</option>
+<option value="07">&nbsp;&nbsp;&nbsp;July</option>
+<option value="08">&nbsp;&nbsp;August</option>
+<option value="09">September</option>
+<option value="10">&nbsp;October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<select id="hi_calyear" name="hi_calyear" onChange="gi.cal.getCalYear(this.value);" size="1" required="required">
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+</select>
+</span>
+<a href="javascript:void(0)" onclick="gi.cal.navCal('next');">&gt;</a>
+</header>
+<div>
+<label>
+<strong>&nbsp;</strong>
+<em id="gid1" class="Mon">m</em><em id="gid2" class="Tue">t</em><em id="gid3" class="Wed">w</em>
+<em id="gid4" class="Thu">t</em><em id="gid5" class="Fri">f</em><em id="gid6" class="Sat">s</em>
+<em id="gid0" class="Sun">s</em>
+</label>
+<aside id="gmnt"></aside>
+</div>
+<p>
+<a id="cal_update" href="javascript:void(0)">&nbsp;</a>
+<a id="cal_cancel" href="javascript:void(0)">close</a>
+</p>
+</div>
+</section>
+</footer>
+</section>
+</section>
+<script type="text/javascript">
+	function getSetting(){
+		var body = document.body;
+		var html = document.documentElement;
+		var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+		var elwidth = document.getElementById('navWrap').offsetWidth;
+		var pDiv = document.getElementById('homain');
+		var navDiv = document.getElementById('navWrap');
+		if(navDiv.className == 'dn1')
+		{
+			navDiv.className = 'db1';
+			navDiv.style.visibility = 'visible';
+			navDiv.style.height = height+'px';
+			pDiv.style.position = 'relative';
+			pDiv.style.left = '-'+elwidth+'px';
+		} else {
+			navDiv.className = 'dn1';
+			navDiv.style.visibility = 'hidden';
+			pDiv.style.position = 'relative';
+			pDiv.style.left = 0+'px';
+		}
+	}
+	function resetNavSlide(settId){
+		var navDiv = document.getElementById(settId);
+		navDiv.className = 'db1';
+	}
+
+</script>
+<script type="text/javascript">
+	prd = { "flight":1, "international-flights":1, "flight-searchresult":1, "flight-booking":1,"paymentcallback":1, "hotels":2, "holidays":3, "bus":4,"bus-booking":4,"buspaymentcallback":4, "car-rental":5, "company":6, "offers":7, "cities":8, 'travel-guide':9, "accounts":10}
+	giloc = window.location;
+	ghost = giloc.host;
+	giHost = location.host;
+	trimmed_giHost = giHost.replace('www.','');
+	refDomain = (trimmed_giHost !== 'goibibo.com' )? '^('+giHost+')' : '';
+	gpge = giloc.pathname.split('/');
+	gpage = gpge.join('::').replace(/^::/, '').replace(/::$/, '')
+	glevel = (prd.hasOwnProperty(gpge[1]))?prd[gpge[1]]:"";
+	if(gpge[1] == ""){glevel = prd['flight']} 
+		custom = (giloc.hash)?giloc.hash.replace(/#/, ''):""; 
+	xtnv = document;
+	xtsite = "541907";
+	xtn2 = glevel;
+	xtpage = gpage;
+	xtdi = "";
+	xt_multc = custom;
+	xt_an = "";
+	xt_ac = "";
+	xt_xtcpath = ghost+"/js/v2/xtcore.js";
+
+	xt_func = function(){
+	    if (window.xtparam!=null){
+       		 window.xtparam+="&ac="+xt_ac+"&an="+xt_an+xt_multc;
+	    }else{
+       		 window.xtparam="&ac="+xt_ac+"&an="+xt_an+xt_multc;
+	    }
+	    (function(){
+       		 var at=document.createElement('script'); 
+       		 at.type='text/javascript';   
+       		 at.async=true;
+       		 at.src=(('https:' == document.location.protocol) ? 'https://' : 'http://')+xt_xtcpath;
+       		 (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]||document.getElementsByTagName('script')[0].parentNode).insertBefore(at,null);  
+	    })();
+	};
+	setTimeout(function(){
+        try {
+            xt_func();
+        } catch (e) { }
+    }, 100);
+</script>
+<script type="text/javascript">
+	function EventTracker(){
+	}
+	EventTracker.throwEvent = function(type,label,val){
+		var level2 = glevel; //Hotel level 2 ID, refer to interface to get vertical specific IDs
+		if(typeof xt_med =='function'){
+            if(type === 'page'){
+                for(key in val){
+                    if (typeof(val[key]) == "function") {
+                        continue;
+                    }
+                    label += '&'+key+'='+val[key];
+                }
+                setTimeout(function(){xt_med('F',level2,label);},100);
+            }else if(type === 'event'){
+                // label +=val.join('::');
+                setTimeout(function(){xt_med('C',level2,label,'A');},100);
+            }
+        }
+	}
+</script>
+</body>
+</html>
